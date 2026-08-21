@@ -10,3 +10,6 @@ Thumbs.db
 # Claude Code local state (the create-pr skill in .claude/skills is tracked)
 .claude/worktrees/
 .claude/settings.local.json
+
+# Vendored third-party skill (installed by git clone, not part of the site)
+.claude/skills/book-to-skill/
