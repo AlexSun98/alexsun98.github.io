@@ -13,3 +13,6 @@ Thumbs.db
 
 # Vendored third-party skill (installed by git clone, not part of the site)
 .claude/skills/book-to-skill/
+
+# Generated study skill (derived from a third-party paper, stays local)
+.claude/skills/self-evolving-coding-agents/
