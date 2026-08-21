@@ -1,0 +1,36 @@
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <div class="brand-row">
+        {{ partial "logo.html" (dict "size" 40) }}
+        <div>
+          <div class="title">{{ .Site.Title }}</div>
+        </div>
+      </div>
+      <div class="quote-mono">
+        <span class="c">// </span>© {{ now.Year }} {{ .Site.Params.name }}
+      </div>
+    </div>
+    <div>
+      <div class="col-head">Pages</div>
+      {{ range .Site.Params.nav }}
+      <a href="{{ .url | relURL }}">{{ if eq .name "home" }}/~{{ else }}/{{ .name }}{{ end }}</a>
+      {{ end }}
+    </div>
+    <div>
+      <div class="col-head">Elsewhere</div>
+      <a href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="mailto:{{ .Site.Params.email }}">Email ↗</a>
+      {{ with .Site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn ↗</a>{{ end }}
+      {{ with .Site.Params.x }}<a href="{{ . }}" target="_blank" rel="noopener">X ↗</a>{{ end }}
+      {{ with .Site.Home.OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">RSS ↗</a>{{ end }}
+    </div>
+    <div>
+      <div class="col-head">Favorite quote</div>
+      <div class="quote-mono">
+        <span class="c">// </span>"First, solve the problem. Then, write the code."<br>
+        <span style="opacity:.5">- John Johnson</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,38 @@
+/* ─── Responsive ─── */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 56px; }
+  .hero h1 .sub { font-size: 36px; }
+  .hero h1 .curly { font-size: 28px; }
+  .page-title-row h1 { font-size: 52px; }
+  .about-hero, .about-hero.mirana-hero { grid-template-columns: 1fr; }
+  .hero .hero-right .terminal-card, .about-hero.mirana-hero .terminal-card { margin-top: 60px; }
+  .hero .hero-right .hero-mascot, .about-hero.mirana-hero .hero-mascot { top: -20px; }
+  .about-hero h1 { font-size: 52px; }
+  .now-stack { grid-template-columns: 1fr; }
+  .post-detail { grid-template-columns: 1fr; }
+  .toc, .side-meta { position: static; }
+  .posts-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-grid { grid-template-columns: 1fr; }
+  .stack-grid { grid-template-columns: repeat(4, 1fr); }
+  .about-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid .span-3, .about-grid .span-2 { grid-column: span 2; }
+  .about-grid .span-6 { grid-column: span 2; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  footer.site-foot .wrap { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .topbar, .page-wrap, .now-page-wrap { padding-left: 20px; padding-right: 20px; }
+  .hero h1 { font-size: 42px; }
+  .page-title-row h1 { font-size: 40px; }
+  .section-header h2 { font-size: 30px; }
+  .posts-grid { grid-template-columns: 1fr; }
+  .tabs-row { flex-wrap: wrap; }
+  .tabs-logo { margin-right: 0; }
+  footer.site-foot .wrap { grid-template-columns: 1fr; }
+  .term-row { grid-template-columns: auto 1fr; gap: 8px; font-size: 12px; }
+  .term-row .date, .term-row .tags, .term-row .rt { display: none; }
+  .now-stack, .featured-grid { grid-template-columns: 1fr; }
+}
+

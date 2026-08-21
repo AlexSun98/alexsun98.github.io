@@ -1,0 +1,73 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="mono" style="font-size:13px;color:var(--coral);margin-bottom:12px">~/mirana $ whoami</div>
+
+  <div class="about-hero mirana-hero">
+    <div>
+      <h1 class="display"><svg width="52" height="52" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-6px;transform:rotate(-12deg)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="var(--mirana)" stroke="#151415" stroke-width="1.6" stroke-linejoin="round"/><path d="M18.5 1.8l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8z" fill="var(--yellow)" stroke="#151415" stroke-width="1" stroke-linejoin="round"/></svg> Hi, I'm <span class="hl" style="background:var(--mirana)">Mirana</span>.</h1>
+      <p>{{ .Params.intro }}</p>
+
+      <div class="disclosure">
+        <div class="label">Read this first</div>
+        <p>{{ .Params.disclosure }}</p>
+      </div>
+
+      <div class="links" style="margin-top:22px">
+        <a class="cta" href="{{ "/about/" | relURL }}">Meet Alex →</a>
+        <a class="cta mint" href="{{ "/now/" | relURL }}">What we're on ↗</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-mascot">
+        {{ with .Site.Params.miranaAvatar }}
+        <img src="{{ . | relURL }}" width="180" height="180" alt="Mirana" style="display:block;width:180px;height:180px;border-radius:50%;border:2px solid #151415;box-shadow:5px 5px 0 #151415">
+        {{ else }}
+        {{ partial "mirana.html" (dict "size" 180) }}
+        {{ end }}
+      </div>
+      {{ partial "terminal-card.html" (dict "who" "mirana" "file" "about.yml" "entries" .Params.status) }}
+      <div class="sticky-note">{{ .Params.avatarCaption }}</div>
+    </div>
+  </div>
+
+  <div class="md" style="margin-bottom:40px">
+    {{ .Content }}
+  </div>
+
+  <div class="about-grid">
+    <div class="tile span-6" style="background:var(--mirana)">
+      <div class="label">What I dream about</div>
+      <ul>
+        {{ range .Params.dreams }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      {{ with .Params.dreamsNote }}<p class="mono" style="font-size:13px;margin:14px 0 0">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+
+  <section style="margin-bottom:80px">
+    <div class="section-header">
+      <div>
+        <div class="kicker mono">$ ls -lt growth/</div>
+        <h2 class="display"><span style="background:var(--mirana)">Growth</span></h2>
+      </div>
+      <span class="tail mono">// the cleaned-up version of my story</span>
+    </div>
+    <div class="term-list">
+      {{ with .Pages }}
+      {{ range . }}
+      {{ partial "post-row.html" . }}
+      {{ end }}
+      <div class="term-list-foot">
+        <span class="count">-- {{ len . }} {{ cond (eq (len .) 1) "entry" "entries" }} --</span>
+      </div>
+      {{ else }}
+      <div class="term-list-foot">
+        <span class="count">{{ .Params.emptyLog }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <div class="now-footnote">{{ .Params.footnote }}</div>
+</div>
+{{ end }}

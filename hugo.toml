@@ -1,0 +1,165 @@
+baseURL = "https://alexsun98.github.io/"
+locale = "en-us"
+title = "Alex's Blog"
+
+# Blog pagination
+[pagination]
+  pagerSize = 8
+
+# Generate an RSS feed and a JSON search index (used by the Cmd+K palette)
+# alongside the normal HTML pages.
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup.highlight]
+  noClasses = true
+  style = "tokyonight-night"
+  lineNos = false
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+# -----------------------------------------------------------------------------
+# EVERYTHING BELOW IS YOURS TO EDIT.
+# This is the only file you need to touch to change your profile text.
+# Edit it on github.com (pencil icon), commit, and the site rebuilds itself.
+# -----------------------------------------------------------------------------
+[params]
+  # Header / hero
+  name = "Alex Sun"
+  firstName = "Alex"
+  # Shown in the fake browser bar at the very top.
+  brandUrl = "alexsun.github.io"
+  # The hero headline reads: Hi, I'm {firstName} / {heroSub} {heroCurly}
+  heroSub = "a husband, father and"
+  heroCurly = "{ sharpie }"
+  # Up to three tech names rendered as colored pills in the hero paragraph.
+  heroPills = [".NET", "TypeScript", "AWS", "AI tooling"]
+  # The sentences after the pills. Keep them concrete and in your own voice.
+  heroLede = "Backend mostly."
+  # Finishes the sentence "This is my lab notebook: ..."
+  heroNotebook = "what worked, what broke, and what I would not try again. And meet Mirana, <s>a digital copy of me</s>... soz, my AI assistant."
+  # Longer bio, used for meta descriptions.
+  bio = "Backend developer working on scalable systems and cloud-native apps in .NET, TypeScript and AWS. Writing about harness engineering, MCP tools and coding agents."
+
+  # Contact
+  email = "alexsun8866@gmail.com"
+  github = "AlexSun98"          # your GitHub username
+  # Add more when you want them (leave blank to hide):
+  linkedin = ""
+  x = ""
+
+  # Mirana's avatar. Leave blank to use the inline SVG placeholder;
+  # set it to an image path (e.g. "images/mirana.png") to use a real portrait.
+  miranaAvatar = "images/mirana.png"
+
+  # The terminal card on the homepage renders as "cat about.yml".
+  # Four short lines. Say something the hero paragraph does not already say.
+  [[params.aboutYml]]
+    key = "role"
+    value = "dev (I'm a real person :D)"
+  [[params.aboutYml]]
+    key = "focus"
+    value = "cloud-native + AI tooling"
+  [[params.aboutYml]]
+    key = "email"
+    value = "alexsun8866@gmail.com"
+  [[params.aboutYml]]
+    key = "coffee"
+    value = "flat white, no sugar"
+
+  # Stack tiles on the homepage: name, two-letter glyph, brand color.
+  [[params.stackTiles]]
+    name = ".NET / C#"
+    abbr = "C#"
+    color = "#512bd4"
+  [[params.stackTiles]]
+    name = "TypeScript"
+    abbr = "TS"
+    color = "#3178c6"
+  [[params.stackTiles]]
+    name = "GraphQL"
+    abbr = "GQ"
+    color = "#e10098"
+  [[params.stackTiles]]
+    name = "REST APIs"
+    abbr = "API"
+    color = "#6a6664"
+  [[params.stackTiles]]
+    name = "Databases"
+    abbr = "DB"
+    color = "#4a6fa5"
+  [[params.stackTiles]]
+    name = "Agent harness"
+    abbr = "Hn"
+    color = "#2f9e6e"
+  [[params.stackTiles]]
+    name = "AWS"
+    abbr = "AW"
+    color = "#ff9900"
+  [[params.stackTiles]]
+    name = "Docker"
+    abbr = "Dk"
+    color = "#2496ed"
+  [[params.stackTiles]]
+    name = "Serverless"
+    abbr = "λ"
+    color = "#fd5750"
+  [[params.stackTiles]]
+    name = "OpenTelemetry"
+    abbr = "OT"
+    color = "#425cc7"
+  [[params.stackTiles]]
+    name = "Grafana"
+    abbr = "Gf"
+    color = "#f46800"
+  [[params.stackTiles]]
+    name = "Claude"
+    abbr = "Cl"
+    color = "#d97757"
+
+  # "What I'm up to" card on the homepage and the /now page.
+  # Side-of-desk stuff, not day-job work. Keep each text to one line.
+  [[params.now]]
+    label = "Building"
+    text = "Make the Impossible Boring: A Knowledge Engineering Framework for Coding Agents"
+  [[params.now]]
+    label = "Writing"
+    text = "Beyond the Chatbox: Moving from Copilot to Self-Evolving Coding Agents Part 1: The Bottlenecks, the Paradigm Shift, and the X-Stage Roadmap (Since Feb 2026)"
+  [[params.now]]
+    label = "Reading"
+    text = "<<Self-Evolving Coding Agents>>"
+  [[params.now]]
+    label = "Playing"
+    text = "Claude Code plus bot automation workflows"
+
+  # Navigation links across the top.
+  [[params.nav]]
+    name = "home"
+    url = "/"
+    color = "var(--yellow)"
+  [[params.nav]]
+    name = "posts"
+    url = "/posts/"
+    color = "var(--lime)"
+  [[params.nav]]
+    name = "tags"
+    url = "/tags/"
+    color = "var(--aqua)"
+  [[params.nav]]
+    name = "now"
+    url = "/now/"
+    color = "var(--peach)"
+  [[params.nav]]
+    name = "about me"
+    url = "/about/"
+    color = "var(--lavender)"
+  [[params.nav]]
+    name = "Mirana"
+    url = "/mirana/"
+    color = "var(--mirana)"

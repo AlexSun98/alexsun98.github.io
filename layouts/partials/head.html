@@ -1,0 +1,29 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ $title := .Site.Title }}
+  {{ if not .IsHome }}{{ $title = printf "%s · %s" .Title .Site.Title }}{{ end }}
+  {{ $desc := .Description | default .Site.Params.bio }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,800&display=swap" rel="stylesheet">
+  {{- /* The stylesheet lives in assets/css/ as one file per page or concern.
+       Concatenated in this order into the single css/main.css the site
+       always shipped. Order matters: later rules win the cascade. */ -}}
+  {{- $sheets := slice "base" "header" "home" "list" "post" "about" "taxonomy" "now" "components" "footer" "responsive" "palette" "notfound" -}}
+  {{- $parts := slice -}}
+  {{- range $sheets }}{{ $parts = $parts | append (resources.Get (printf "css/%s.css" .)) }}{{ end -}}
+  {{- $css := $parts | resources.Concat "css/main.css" }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+  {{ with .OutputFormats.Get "rss" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+  {{ end }}
+  <link rel="icon" type="image/png" href="{{ "images/logo.png" | relURL }}">
+</head>

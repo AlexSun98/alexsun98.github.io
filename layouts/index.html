@@ -1,0 +1,132 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+<div class="page-wrap">
+
+  <section class="hero">
+    <div>
+      <div class="hero-kicker"><span class="dot"></span>~/blog $ whoami<span class="cursor-blink"></span></div>
+      <h1 class="display">Hi, I'm <span class="highlight">{{ .Site.Params.firstName }}</span><br>
+        <span class="sub">{{ .Site.Params.heroSub }} </span><span class="curly">{{ .Site.Params.heroCurly }}</span>
+      </h1>
+      <p class="hero-lede">
+        {{ $pillClasses := slice "pill-go" "pill-claude" "pill-mcp" }}
+        I build with
+        {{- range $i, $p := .Site.Params.heroPills }}
+        {{- if $i }}{{ if eq (add $i 1) (len $.Site.Params.heroPills) }} and{{ else }},{{ end }}{{ end }}
+        <span class="pill {{ index $pillClasses (mod $i (len $pillClasses)) }}">{{ $p }}</span>
+        {{- end }}.
+        {{ .Site.Params.heroLede }}
+        This is my <u class="wavy">lab notebook</u>: {{ .Site.Params.heroNotebook | safeHTML }}
+      </p>
+      <div class="hero-ctas">
+        <a class="cta lg" href="{{ "/posts/" | relURL }}">Read the latest posts →</a>
+        <a class="cta lg paper" href="{{ "/about/" | relURL }}">About me</a>
+        <a class="cta lg mirana" href="{{ "/mirana/" | relURL }}">Meet Mirana →</a>
+        <svg width="60" height="10" viewBox="0 0 120 10" class="squiggle">
+          <path d="M2 6q8-5 18 0T40 6 60 6 80 6t20 0 18 0" fill="none" stroke="#ef7065" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hero-stats">
+        <span><strong>{{ len $posts }}</strong> posts</span>
+        <span class="sep">·</span>
+        <span><strong>{{ len .Site.Taxonomies.tags }}</strong> tags</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-mascot">
+        {{ partial "mascot.html" (dict "size" 180) }}
+      </div>
+      {{ partial "terminal-card.html" (dict "who" (.Site.Params.firstName | lower) "file" "about.yml" "entries" .Site.Params.aboutYml) }}
+      <div class="sticky-note">✦ press <u>Ctrl</u>+<u>K</u> (or <u>⌘K</u>) to search</div>
+    </div>
+  </section>
+
+  {{ $pinned := where $posts "Params.pinned" true }}
+  {{ with $pinned }}
+  <section>
+    <div class="section-header">
+      <div>
+        <div class="kicker mono">// featured</div>
+        <h2 class="display"><span style="background:var(--coral)">Pinned</span></h2>
+      </div>
+      <span class="tail mono">// pinned for a reason</span>
+    </div>
+    <div class="featured-grid">
+      {{ range first 2 . }}
+      <a class="featured-card" href="{{ .RelPermalink }}">
+        {{ partial "cover.html" (dict "page" . "height" 180) }}
+        <div class="body">
+          <div class="meta">
+            <span class="chip sm pinned">★ PINNED</span>
+            {{ with .Params.categories }}<span class="chip sm" style="background:var(--yellow)">{{ index . 0 }}</span>{{ end }}
+          </div>
+          <h3 class="display">{{ .Title }}</h3>
+          <p class="desc">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+          <div class="foot">
+            <span>{{ .Date.Format "2006-01-02" }}</span>
+            <span>·</span>
+            <span>{{ .ReadingTime }} min read</span>
+            <span class="read">Read ↗</span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with $posts }}
+  <section>
+    <div class="section-header">
+      <div>
+        <div class="kicker mono">$ ls -lt posts/</div>
+        <h2 class="display"><span style="background:var(--lime)">Latest posts</span></h2>
+      </div>
+      <span class="tail mono">// recent</span>
+    </div>
+    <div class="term-list">
+      {{ range first 5 . }}
+      {{ partial "post-row.html" . }}
+      {{ end }}
+      <div class="term-list-foot">
+        <span class="count">-- showing {{ math.Min 5 (len .) | int }} of {{ len . }} --</span>
+        <a href="{{ "/posts/" | relURL }}">view all ↗</a>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="now-stack" style="margin-bottom:80px">
+    <div class="now-card">
+      <a class="ribbon mono" href="{{ "/now/" | relURL }}">/now · what I'm up to</a>
+      <div class="title-row">
+        <h3 class="display">What I'm up to</h3>
+        <span class="zh">// outside work hours</span>
+      </div>
+      <div class="now-list">
+        {{ range .Site.Params.now }}
+        <div class="now-item">
+          <div class="label">{{ .label }}</div>
+          <div class="text">{{ .text }}</div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    <div class="stack-card">
+      <div class="title-row">
+        <h3 class="display">Stack</h3>
+        <span class="zh">// tools I reach for</span>
+      </div>
+      <div class="stack-grid">
+        {{ range .Site.Params.stackTiles }}
+        <div class="stack-tile" title="{{ .name }}">
+          <div class="glyph" style="background:{{ .color }}">{{ .abbr }}</div>
+          <div class="name">{{ .name }}</div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+</div>
+{{ end }}

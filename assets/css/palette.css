@@ -1,0 +1,96 @@
+/* ─── Command palette (Cmd/Ctrl+K) ─── */
+.palette[hidden] { display: none; }
+.palette {
+  position: fixed; inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 20px 0;
+}
+.palette-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(21, 20, 21, 0.35);
+}
+.palette-box {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.palette-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+}
+.palette-prompt { color: var(--coral); font-weight: 700; }
+.palette-input-row input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+}
+.palette-results {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.palette-results li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.palette-results li.active {
+  background: var(--yellow);
+  border-color: var(--line);
+}
+.palette-results li .kind {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--mute);
+}
+.palette-foot {
+  display: flex;
+  gap: 16px;
+  padding: 10px 16px;
+  border-top: 2px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--mute);
+}
+.palette-foot kbd {
+  font-family: inherit;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-right: 2px;
+  background: var(--cream);
+}
+
+/* cmdk badge doubles as the palette trigger */
+button.cmdk {
+  border: 1px solid var(--mute);
+  border-radius: 3px;
+  background: transparent;
+  padding: 1px 5px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+}
+

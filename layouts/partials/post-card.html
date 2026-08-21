@@ -1,0 +1,12 @@
+{{- /* Card for one post in a .posts-grid. Context: the post page. */ -}}
+<a class="post-card" href="{{ .RelPermalink }}">
+  {{ partial "cover.html" (dict "page" . "height" 140) }}
+  <div class="body">
+    <div class="date mono">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }}m</div>
+    <h3 class="display">{{ .Title }}</h3>
+    <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+    <div class="tags">
+      {{ range first 3 .Params.tags }}<span class="chip sm" style="background:var(--cream-warm)">#{{ . }}</span>{{ end }}
+    </div>
+  </div>
+</a>

@@ -1,0 +1,9 @@
+{{- /* One row in a .term-list. Context: the post page.
+     Used by the homepage post list and the Mirana growth log. */ -}}
+<a class="term-row" href="{{ .RelPermalink }}">
+  <span class="dollar">$</span>
+  <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+  <span class="title">{{ .Title }}</span>
+  <span class="tags">{{ range first 2 .Params.tags }}<span>#{{ . }}</span>{{ end }}</span>
+  <span class="rt">{{ .ReadingTime }}m →</span>
+</a>

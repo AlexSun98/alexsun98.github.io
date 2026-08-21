@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="mono" style="font-size:13px;color:var(--coral);margin-bottom:12px">~/about $ cat README.md</div>
+
+  <div class="about-hero">
+    <div>
+      <h1 class="display"><svg width="52" height="52" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-6px;transform:rotate(-10deg)"><g stroke="#151415" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.6" fill="var(--yellow)"/><line x1="12" y1="1.6" x2="12" y2="4.2"/><line x1="12" y1="19.8" x2="12" y2="22.4"/><line x1="1.6" y1="12" x2="4.2" y2="12"/><line x1="19.8" y1="12" x2="22.4" y2="12"/><line x1="4.7" y1="4.7" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.3" y2="19.3"/><line x1="4.7" y1="19.3" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.3" y2="4.7"/></g></svg> Hello, I'm <span class="hl" style="background:var(--lavender)">{{ .Site.Params.firstName }}</span>.</h1>
+      <p>{{ .Params.intro }}</p>
+      <div class="links">
+        <a class="cta" href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="cta mint" href="mailto:{{ .Site.Params.email }}">Email ✉</a>
+        <svg width="60" height="10" viewBox="0 0 120 10" class="squiggle">
+          <path d="M2 6q8-5 18 0T40 6 60 6 80 6t20 0 18 0" fill="none" stroke="#ef7065" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span class="mono" style="font-size:13px;color:var(--mute)">@{{ .Site.Params.github }}</span>
+      </div>
+    </div>
+    <div>
+      <div class="avatar-box">
+        {{ partial "mascot.html" (dict "size" 170) }}
+      </div>
+    </div>
+  </div>
+
+  <div class="md" style="margin-bottom:40px">
+    {{ .Content }}
+  </div>
+
+  <div class="about-grid">
+    <div class="tile span-3" style="background:var(--lavender)">
+      <div class="label">◊ Outside the terminal</div>
+      <div class="stats-grid">
+        {{ range .Params.outside }}
+        <div>
+          <strong>{{ .icon }} {{ .name }}</strong><br>
+          <span style="color:var(--ink-soft)">{{ .note }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    <div class="tile span-3" style="background:var(--mint)">
+      <div class="label">☕ Interests</div>
+      <ul>
+        {{ range .Params.interests }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      <div style="font-size:13px;color:var(--ink-soft);margin-top:12px;font-style:italic">{{ .Params.interestsNote }}</div>
+    </div>
+    <div class="tile span-6 about-fun">
+      <span class="icon">💡</span>
+      <div style="flex:1">
+        <div class="t display">Fun fact</div>
+        <div class="s">{{ .Params.funfact }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <div class="q">"{{ .Params.quote }}"</div>
+    <div class="a mono">- {{ .Params.quoteBy }}</div>
+  </div>
+</div>
+{{ end }}

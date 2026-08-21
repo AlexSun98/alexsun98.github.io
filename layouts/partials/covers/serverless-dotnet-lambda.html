@@ -1,0 +1,18 @@
+{{- $h := int (default 180 .height) -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--mint)">
+  <!-- cloud -->
+  <path d="M70 84q-22 0-22-17 0-14 14-15 3-18 23-18 17 0 21 14 18-2 18 15 0 21-24 21z" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <text x="86" y="70" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="26" font-weight="700">λ</text>
+  <!-- lightning -->
+  <path d="M128 44l-10 20h8l-6 18 16-24h-9l7-14z" fill="#f5dc5a" stroke="#151415" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- cold / warm gauge -->
+  <rect x="152" y="52" width="66" height="40" rx="5" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <text x="185" y="66" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">❄ → 🔥</text>
+  <rect x="160" y="74" width="50" height="8" rx="4" fill="none" stroke="#151415" stroke-width="1.6"/>
+  <rect x="160" y="74" width="30" height="8" rx="4" fill="#ef7065"/>
+  <!-- csharp chip -->
+  <rect x="30" y="98" width="44" height="20" rx="4" fill="#151415"/>
+  <text x="52" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#cfc2f1">C#</text>
+  <text x="110" y="112" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">cold start ~ ms, not myths</text>
+  <path d="M204 24l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
+</svg>

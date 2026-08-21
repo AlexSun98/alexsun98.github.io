@@ -1,0 +1,25 @@
+<header class="topbar">
+  <div class="topbar-url">
+    <div class="topbar-dots"><span></span><span></span><span></span></div>
+    <div class="topbar-addr">
+      <span class="mute">{{ .Site.Params.firstName | lower }}@dev:</span><span class="brand">~/blog</span>
+      <span class="mute"></span>
+      <span class="shell mute">zsh</span>
+      <button id="palette-open" class="cmdk" aria-label="Search (Ctrl or Cmd + K)" title="Search (Ctrl/Cmd + K)">⌘K</button>
+    </div>
+  </div>
+  <nav class="tabs-row" aria-label="Main">
+    <a class="tabs-logo" href="{{ "/" | relURL }}">
+      {{ partial "logo.html" (dict "size" 44 "radius" "10px 10px 0 0") }}
+    </a>
+    {{ $current := . }}
+    {{ range $item := .Site.Params.nav }}
+    {{ $active := false }}
+    {{ if eq $item.url "/" }}{{ $active = $current.IsHome }}{{ else }}{{ $active = hasPrefix $current.RelPermalink $item.url }}{{ end }}
+    <a class="tab{{ if $active }} active{{ end }}" href="{{ $item.url | relURL }}" style="--tab-color:{{ $item.color | default "var(--yellow)" | safeCSS }}">
+      <span class="slash">/</span>{{ if eq $item.name "home" }}~{{ else }}{{ $item.name }}{{ end }}</a>
+    {{ end }}
+    <div class="tabs-fill"></div>
+    {{ with .Site.Home.OutputFormats.Get "rss" }}<a class="tab-rss" href="{{ .Permalink }}">RSS ↗</a>{{ end }}
+  </nav>
+</header>

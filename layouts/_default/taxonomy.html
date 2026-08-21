@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ $pages := .Pages }}
+{{ $plural := .Data.Plural }}
+{{ $isTag := eq $plural "tags" }}
+<div class="page-wrap">
+  <div class="page-title-row">
+    <div class="kicker mono">~/{{ $plural }} $ grep -r "{{ .Title }}" ./posts → <strong>{{ len $pages }}</strong></div>
+    <h1 class="display">{{ if $isTag }}Tagged <span class="hl" style="background:var(--aqua)">#{{ .Title | lower }}</span>{{ else }}Category <span class="hl" style="background:var(--lime)">{{ .Title }}</span>{{ end }}</h1>
+  </div>
+  <div class="filter-bar">
+    <span class="label">filter:</span>
+    <a class="filter-chip" href="{{ "/posts/" | relURL }}">all</a>
+    {{ $current := .Title }}
+    {{ range $name, $taxonomy := index .Site.Taxonomies $plural }}
+    <a class="filter-chip{{ if eq $name ($current | urlize) }} active{{ end }}" href="{{ printf "/%s/" $plural | relURL }}{{ $name | urlize }}/">{{ if $isTag }}#{{ end }}{{ $name }} · {{ $taxonomy.Count }}</a>
+    {{ end }}
+  </div>
+  <div class="posts-grid">
+    {{ range $pages }}
+    {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

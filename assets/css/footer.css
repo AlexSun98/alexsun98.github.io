@@ -1,0 +1,50 @@
+/* ─── Footer ─── */
+footer.site-foot {
+  margin-top: 80px;
+  border-top: 2px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+footer.site-foot .wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 40px 32px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+footer.site-foot .brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+footer.site-foot .brand-row .title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 24px;
+}
+footer.site-foot .quote-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+footer.site-foot .quote-mono .c { color: var(--coral); }
+footer.site-foot .col-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  opacity: 0.5;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+footer.site-foot a {
+  font-size: 14px;
+  padding: 3px 0;
+  display: block;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+

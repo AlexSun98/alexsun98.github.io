@@ -1,0 +1,12 @@
+# Hugo build output (GitHub builds this for us; no need to commit it)
+/public/
+/resources/
+.hugo_build.lock
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Claude Code local state (the create-pr skill in .claude/skills is tracked)
+.claude/worktrees/
+.claude/settings.local.json

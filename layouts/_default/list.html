@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ $pages := .Pages }}
+<div class="page-wrap">
+  <div class="page-title-row">
+    <div class="kicker mono">~/{{ .Title | lower }} $ ls -la | wc -l → <strong>{{ len $pages }}</strong></div>
+    <h1 class="display">All <span class="hl" style="background:var(--lime)">{{ .Title | lower }}</span></h1>
+    {{ with .Content }}{{ . }}{{ end }}
+  </div>
+
+  {{ if $pages }}
+  <div class="filter-bar">
+    <span class="label">filter:</span>
+    <a class="filter-chip active" href="{{ .RelPermalink }}">all · {{ len $pages }}</a>
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+    <a class="filter-chip" href="{{ "/categories/" | relURL }}{{ $name | urlize }}/">{{ $name }} · {{ $taxonomy.Count }}</a>
+    {{ end }}
+  </div>
+  <div class="posts-grid">
+    {{ range $pages }}
+    {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="mono" style="color:var(--mute)">Nothing here yet.</p>
+  {{ end }}
+</div>
+{{ end }}

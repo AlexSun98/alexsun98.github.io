@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="now-page-wrap">
+  <div class="mono" style="font-size:13px;color:var(--coral);margin-bottom:12px">~/now $ date && cat status.yml</div>
+  <h1 class="display">/<span class="hl">now</span></h1>
+  <p style="font-size:18px;color:var(--ink-soft);margin-top:18px;max-width:640px">This page answers one question: <em>what is {{ .Site.Params.firstName }} actually up to right now</em>.</p>
+  <div class="mono" style="font-size:12px;color:var(--mute);margin-top:4px">Last updated: {{ .Lastmod.Format "2006-01-02" }}</div>
+  <div class="now-entries">
+    {{ range .Site.Params.now }}
+    <div class="now-entry">
+      <div class="label">{{ .label }}</div>
+      <div class="text">{{ .text }}</div>
+    </div>
+    {{ end }}
+  </div>
+  <div class="md" style="margin-top:30px">
+    {{ .Content }}
+  </div>
+  <div class="now-footnote">If you are also building agents, harnesses, or backend tooling, <a href="mailto:{{ .Site.Params.email }}">send me an email</a>. Happy to compare notes.</div>
+</div>
+{{ end }}

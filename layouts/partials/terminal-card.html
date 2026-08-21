@@ -1,0 +1,21 @@
+{{- /* Fake terminal that prints a YAML file.
+     Context: dict with
+       who     - shown in the title bar as "<who>@dev ~ %"
+       file    - the file name after "cat"
+       entries - list of {key, value} pairs
+       style   - optional extra inline style for the card */ -}}
+<div class="terminal-card"{{ with .style }} style="{{ . | safeCSS }}"{{ end }}>
+  <div class="bar">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <span class="who">{{ .who }}@dev ~ %</span>
+  </div>
+  <div class="body">
+    <div><span class="prompt">$</span> cat {{ .file }}</div>
+    <div style="margin-top:8px">
+      {{ range .entries }}
+      <span class="key" style="display:inline-block;min-width:76px">{{ .key }}</span>: <span class="str">{{ .value }}</span><br>
+      {{ end }}
+    </div>
+    <div style="margin-top:12px"><span class="prompt">$</span> <span class="cursor-blink"></span></div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{{- /* Personal logo (static/images/logo.png). */ -}}
+{{- $size := default 40 .size -}}
+{{- /* radius: pass "10px 10px 0 0" to make it tab-shaped in the header. */ -}}
+{{- $radius := default "8px" .radius -}}
+<img src="{{ "images/logo.png" | relURL }}" width="{{ $size }}" height="{{ $size }}" alt="{{ site.Params.name }} logo" style="display:block;border-radius:{{ $radius }};border:2px solid #151415">

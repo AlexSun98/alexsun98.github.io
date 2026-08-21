@@ -1,0 +1,119 @@
+{{ define "main" }}
+{{ if eq .Section "posts" }}
+<div class="page-wrap post-page">
+  <div class="breadcrumb mono">
+    <a href="{{ "/" | relURL }}">~</a> / <a href="{{ "/posts/" | relURL }}">posts</a> / <strong>{{ .File.BaseFileName }}.md</strong>
+  </div>
+  <div class="post-detail">
+    <aside class="toc">
+      <div class="head">◊ table of contents</div>
+      {{ if strings.Contains .TableOfContents "<li>" }}
+      <nav class="toc-list" id="toc">{{ .TableOfContents }}</nav>
+      {{ else }}
+      <div class="toc-list mono" style="color:var(--mute);font-size:12px">// no headings</div>
+      {{ end }}
+      <div class="share-box">
+        <div class="label mono">✦ share</div>
+        <div class="btns">
+          <button type="button" onclick='window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title),"_blank")'>X</button>
+          <button type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href)">🔗</button>
+          <button type="button" onclick="window.print()">✎</button>
+        </div>
+      </div>
+    </aside>
+    <article>
+      <div class="post-tags">
+        {{ range .Params.categories }}<a class="chip" style="background:var(--yellow)" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}
+        {{ range .Params.tags }}<a class="chip" style="background:var(--cream-warm)" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
+      </div>
+      <h1 class="display">{{ .Title }}</h1>
+      <div class="byline">
+        <div class="who">
+          {{ partial "logo.html" (dict "size" 34) }}
+          <div>
+            <strong>{{ .Site.Params.name }}</strong>
+            <span class="handle">@{{ .Site.Params.github }}</span>
+          </div>
+        </div>
+        <span class="mute">·</span>
+        <span>{{ .Date.Format "2006-01-02" }}</span>
+        <span class="mute">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+        <span class="mute">·</span>
+        <span>{{ .WordCount }} words</span>
+      </div>
+      <div class="cover-wrap">
+        {{ partial "cover.html" (dict "page" . "height" 220) }}
+      </div>
+      <div class="md">
+        {{ .Content }}
+      </div>
+      <div class="post-foot">
+        {{ partial "logo.html" (dict "size" 56) }}
+        <div style="flex:1">
+          <div class="t">Found this useful?</div>
+          <div class="s">Subscribe to the RSS feed or say hi on GitHub.</div>
+          <div class="ctas">
+            <a class="cta ink" href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+            {{ with .Site.Home.OutputFormats.Get "rss" }}<a class="cta paper" href="{{ .Permalink }}">RSS ↗</a>{{ end }}
+          </div>
+        </div>
+      </div>
+      {{ if or .PrevInSection .NextInSection }}
+      <div class="prev-next">
+        {{ with .PrevInSection }}
+        <a class="card" href="{{ .RelPermalink }}">
+          <div class="kicker">← prev</div>
+          <div class="title">{{ .Title }}</div>
+        </a>
+        {{ else }}<span></span>{{ end }}
+        {{ with .NextInSection }}
+        <a class="card next" href="{{ .RelPermalink }}">
+          <div class="kicker">next →</div>
+          <div class="title">{{ .Title }}</div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+    <aside class="side-meta">
+      <div class="front-matter">
+        <div class="head">◊ front matter</div>
+        <div class="yaml">
+          <div><span class="k">title:</span> {{ .File.BaseFileName }}</div>
+          <div><span class="k">date:</span> {{ .Date.Format "2006-01-02" }}</div>
+          <div><span class="k">author:</span> {{ .Site.Params.firstName }}</div>
+          <div><span class="k">words:</span> {{ if ge .WordCount 1000 }}~{{ printf "%.1fk" (div (float .WordCount) 1000) }}{{ else }}{{ .WordCount }}{{ end }}</div>
+          {{ with .Params.tags }}
+          <div><span class="k">tags:</span></div>
+          <div style="padding-left:12px">
+            {{ range . }}<div>- {{ . }}</div>{{ end }}
+          </div>
+          {{ end }}
+          {{ with .Params.categories }}
+          <div><span class="k">categories:</span></div>
+          <div style="padding-left:12px">
+            {{ range . }}<div>- {{ . }}</div>{{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="reading-progress">
+        <div class="label">✦ reading</div>
+        <div class="text" data-minutes="{{ .ReadingTime }}">read 0% · ~{{ .ReadingTime }} min left</div>
+        <div class="bar"><div></div></div>
+      </div>
+    </aside>
+  </div>
+</div>
+<script src="{{ "js/progress.js" | relURL }}" defer></script>
+{{ else }}
+<div class="now-page-wrap">
+  <div class="mono" style="font-size:13px;color:var(--coral);margin-bottom:12px">~/{{ .Title | lower }} $ cat {{ .File.BaseFileName }}.md</div>
+  <h1 class="display">/<span class="hl" style="background:var(--lime)">{{ .Title | lower }}</span></h1>
+  <div class="md" style="margin-top:30px">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
+{{ end }}

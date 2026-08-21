@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ if eq .Data.Plural "categories" }}
+<div class="page-wrap">
+  <div class="page-title-row">
+    <div class="kicker mono">~/categories $ grep -r ./posts</div>
+    <h1 class="display">All <span class="hl" style="background:var(--lime)">categories</span></h1>
+    <p>One card per category. Click one to see everything under it.</p>
+  </div>
+  <div class="categories-grid">
+    {{ range .Data.Terms.Alphabetical }}
+    <a class="cat" href="{{ .Page.RelPermalink }}">
+      <div class="icon">📚</div>
+      <div class="name display">{{ .Page.Title }}</div>
+      <div class="count mono">{{ .Count }} post{{ if ne .Count 1 }}s{{ end }}</div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ else }}
+<div class="page-wrap">
+  <div class="page-title-row">
+    <div class="kicker mono">~/tags $ grep -r ./posts</div>
+    <h1 class="display">Tag <span class="hl" style="background:var(--aqua)">cloud</span></h1>
+    <p>Bigger type means more posts. Click a tag to see everything under it.</p>
+  </div>
+  <div class="tag-cloud">
+    {{ $max := 1 }}
+    {{ range .Data.Terms.ByCount }}{{ if gt .Count $max }}{{ $max = .Count }}{{ end }}{{ end }}
+    {{ range .Data.Terms.Alphabetical }}
+    {{ $size := add 1 (int (math.Ceil (mul 4 (div (float .Count) $max)))) }}
+    <a class="s{{ $size }}" href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}<sup>{{ .Count }}</sup></a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+{{ end }}

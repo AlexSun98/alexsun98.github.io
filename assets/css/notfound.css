@@ -1,0 +1,26 @@
+/* ─── 404 ─── */
+.notfound {
+  padding: 100px 40px;
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
+}
+.notfound h1 {
+  font-size: 120px;
+  margin: 0 0 10px;
+}
+.notfound h1 .hl {
+  background: var(--coral);
+  padding: 0 18px;
+  display: inline-block;
+  transform: rotate(-2deg);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.notfound p {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--mute);
+  margin-bottom: 32px;
+}
+
