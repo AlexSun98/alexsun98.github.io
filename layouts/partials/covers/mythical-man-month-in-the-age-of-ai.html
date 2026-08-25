@@ -1,35 +1,48 @@
 {{- $h := int (default 180 .height) -}}
-{{- /* Man-month as moon phases. The last phase is a machine, which is the
-       change. The human underneath is the part that did not change. */ -}}
+{{- /* The book on a shelf by a window, face out among the other classics.
+       Fifty years old and still the one you pull down first. */ -}}
 <svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
-  <!-- phase one, a sliver of a month -->
-  <path d="M40 23a15 15 0 1 0 0 30 11 11 0 1 1 0-30z" fill="#f5dc5a" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
-  <!-- phase two, half lit -->
-  <circle cx="88" cy="38" r="15" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
-  <path d="M88 23a15 15 0 0 1 0 30z" fill="#f5dc5a"/>
-  <path d="M88 23v30" stroke="#151415" stroke-width="1.6" opacity=".35"/>
-  <!-- phase three, the whole month -->
-  <circle cx="136" cy="38" r="15" fill="#f5dc5a" stroke="#151415" stroke-width="2.2"/>
-  <circle cx="131" cy="33" r="3.4" fill="#151415" opacity=".16"/>
-  <circle cx="140" cy="43" r="2.2" fill="#151415" opacity=".16"/>
-  <!-- phase four, the month arrives as a machine -->
-  <circle cx="184" cy="38" r="15" fill="#151415"/>
-  <circle cx="184" cy="38" r="9.5" fill="none" stroke="#fdfcf5" stroke-width="1.4" stroke-dasharray="3 3" opacity=".45"/>
-  <path d="M184 30l2 5.6 5.6 2-5.6 2-2 5.6-2-5.6-5.6-2 5.6-2z" fill="#f5dc5a"/>
-  <!-- the change runs left to right -->
-  <path d="M26 62h172" stroke="#151415" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round" opacity=".55"/>
-  <polygon points="198,57 206,62 198,67" fill="#151415" opacity=".55"/>
-  <!-- the human, holding up the part no phase replaces -->
-  <circle cx="60" cy="84" r="8.5" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
-  <rect x="53" y="94" width="14" height="20" rx="6" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
-  <path d="M56 114l-3 11M64 114l3 11M53 98l-9 8M67 98l14-13" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
-  <!-- the idea -->
-  <circle cx="86" cy="78" r="7" fill="#f5dc5a" stroke="#151415" stroke-width="2"/>
-  <rect x="83" y="84" width="6" height="4" rx="1" fill="#151415"/>
-  <path d="M95 72l4-2M96 80l5 1M92 68l3-4" stroke="#151415" stroke-width="1.8" stroke-linecap="round"/>
-  <!-- ground, stars -->
-  <path d="M10 126c42 5 88 5 128 1 30-3 64-3 92 1" fill="none" stroke="#151415" stroke-width="2" opacity=".35" stroke-linecap="round"/>
-  <circle cx="15" cy="16" r="2" fill="#fdfcf5" stroke="#151415" stroke-width="1"/>
-  <path d="M216 96l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
-  <text x="104" y="136" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">moons change, judgment doesn't</text>
+  <!-- daylight falling across the shelf -->
+  <path d="M50 26l52 24M50 46l52 24M50 66l52 24" stroke="#f5dc5a" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+  <!-- the window -->
+  <rect x="8" y="16" width="40" height="82" rx="2" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <path d="M28 16v82M8 56h40" stroke="#151415" stroke-width="2"/>
+  <rect x="4" y="96" width="48" height="7" rx="2" fill="#fbcfb8" stroke="#151415" stroke-width="2.2"/>
+  <!-- the shelf -->
+  <rect x="46" y="98" width="190" height="10" rx="2" fill="#fbcfb8" stroke="#151415" stroke-width="2.4"/>
+  <path d="M50 103h178" stroke="#151415" stroke-width="1.4" opacity=".3"/>
+  <!-- spines on the left -->
+  <rect x="60" y="44" width="9" height="54" fill="#cfc2f1" stroke="#151415" stroke-width="2"/>
+  <rect x="69" y="38" width="8" height="60" fill="#a9e6c9" stroke="#151415" stroke-width="2"/>
+  <rect x="77" y="48" width="10" height="50" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <path d="M64 82v10M73 78v12M82 84v8" stroke="#151415" stroke-width="1.4" opacity=".45"/>
+  <!-- the book, face out -->
+  <rect x="92" y="28" width="48" height="70" rx="1.5" fill="#151415" stroke="#151415" stroke-width="2.4"/>
+  <text x="116" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.4" font-weight="700" fill="#f5dc5a">THE MYTHICAL</text>
+  <text x="116" y="49" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.4" font-weight="700" fill="#f5dc5a">MAN-MONTH</text>
+  <path d="M99 53h34" stroke="#f5dc5a" stroke-width="1" opacity=".5"/>
+  <!-- the jacket picture: figures caught in the tar pit -->
+  <rect x="98" y="57" width="36" height="28" rx="1" fill="#fdfcf5"/>
+  <path d="M98 75c8-4 14 3 20-1 6-3 10 2 16-1v12H98z" fill="#151415" opacity=".18"/>
+  <circle cx="107" cy="67" r="2.4" fill="#151415"/>
+  <circle cx="116" cy="64" r="2.4" fill="#151415"/>
+  <circle cx="125" cy="69" r="2.4" fill="#151415"/>
+  <path d="M107 70v6M116 67v7M125 72v5" stroke="#151415" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M102 82h28" stroke="#ef7065" stroke-width="1.6" stroke-linecap="round"/>
+  <polygon points="130,79.5 134,82 130,84.5" fill="#ef7065"/>
+  <text x="116" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5" fill="#f5dc5a" opacity=".85">F. P. BROOKS, JR.</text>
+  <!-- spines carrying on to the right -->
+  <rect x="145" y="36" width="8" height="62" fill="#ef7065" stroke="#151415" stroke-width="2"/>
+  <rect x="153" y="42" width="10" height="56" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <rect x="163" y="32" width="8" height="66" fill="#151415" stroke="#151415" stroke-width="2"/>
+  <rect x="171" y="46" width="9" height="52" fill="#f6b6d1" stroke="#151415" stroke-width="2"/>
+  <rect x="180" y="38" width="10" height="60" fill="#b5f26a" stroke="#151415" stroke-width="2"/>
+  <rect x="190" y="44" width="8" height="54" fill="#cfc2f1" stroke="#151415" stroke-width="2"/>
+  <rect x="198" y="34" width="9" height="64" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <rect x="207" y="48" width="10" height="50" fill="#a9e6c9" stroke="#151415" stroke-width="2"/>
+  <rect x="217" y="40" width="8" height="58" fill="#f5dc5a" stroke="#151415" stroke-width="2"/>
+  <path d="M149 80v12M158 76v14M175 82v10M185 78v12M194 84v8M202 76v14M212 86v8M221 80v12" stroke="#151415" stroke-width="1.4" opacity=".45"/>
+  <path d="M167 74v14" stroke="#f5dc5a" stroke-width="1.4" opacity=".8"/>
+  <!-- accent -->
+  <path d="M226 22l1.6 3.2 3.2 1.6-3.2 1.6-1.6 3.2-1.6-3.2-3.2-1.6 3.2-1.6z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
 </svg>
