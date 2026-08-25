@@ -149,9 +149,12 @@ Once the verdict is `CLEAR`:
    ```
 
 2. Run `hugo --quiet`. It must build with no errors.
-3. Offer a custom cover at `layouts/partials/covers/<slug>.html`. A 240x140
-   viewBox SVG in the style of the existing files. Optional, procedural fallback
-   already works.
+3. Draw the cover at `layouts/partials/covers/<slug>.html`. Read `cover.md` and
+   work through it in order: name the idea in one sentence, list the objects the
+   argument actually leans on, pick three to five, decide the relation between
+   them, then draw to the house style and run the checks in that file. The
+   procedural fallback works, so a cover is optional. A cover that illustrates
+   the title instead of the claim is worse than no cover.
 4. Commit on a branch named `post/<slug>`.
 
 **Gate 3.** Ask Alex before opening a pull request. Never open one unprompted.
@@ -164,6 +167,7 @@ format, the body template and the squash merge.
   not get written.
 - Never blend `[research]` into an "I" sentence.
 - Never report a stage complete with a gap still open. Say what is open.
+- The cover argues the post's claim, not its title.
 - No em dash, no section sign, anywhere.
 - Notion is read only.
 - The checker never edits. The drafter never grades its own work.
