@@ -1,29 +1,35 @@
 {{- $h := int (default 180 .height) -}}
-{{- /* Homage to the tar pit on the book's cover, drawn from scratch. Brooks
-       opens with great beasts thrashing in the pit. The tools above are new. */ -}}
-<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--peach)">
-  <!-- the moon, for the month half of man-month -->
-  <path d="M212 15a11 11 0 1 0 0 22 8.5 8.5 0 1 1 0-22z" fill="#f5dc5a" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
-  <!-- the new tool, aimed at the old problem -->
-  <rect x="18" y="14" width="36" height="26" rx="4" fill="#151415"/>
-  <path d="M28 19l1.8 5 5 1.8-5 1.8-1.8 5-1.8-5-5-1.8 5-1.8z" fill="#f5dc5a"/>
-  <text x="43" y="31" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#fdfcf5">AI</text>
-  <path d="M18 21h-5M18 33h-5M54 21h5M54 33h5" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M36 44v12" stroke="#151415" stroke-width="2" stroke-dasharray="4 3" stroke-linecap="round"/>
-  <polygon points="32,55 36,61 40,55" fill="#151415"/>
-  <!-- the beast, drawn before the tar so the tar can swallow it -->
-  <path d="M46 104c-8-12-6-30 10-36 8-4 18-6 24-2 6-12 24-16 38-8 14 8 18 28 16 46z" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
-  <path d="M46 92c-14 4-22-4-18-14 2-4 8-4 9 0-3 6 1 12 11 8z" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
-  <path d="M50 96c-12 6-24 4-32-6 2-4 6-6 9-4 6 8 15 10 24 6z" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
-  <circle cx="58" cy="78" r="2.2" fill="#151415"/>
-  <path d="M84 66v10M96 62v10M108 64v10" stroke="#151415" stroke-width="2" opacity=".22" stroke-linecap="round"/>
-  <!-- the tar pit -->
-  <path d="M20 100c20-12 50-14 84-10 34 4 64-2 78 8 10 8 6 22-10 26-32 8-112 8-142 0-14-4-18-16-10-24z" fill="#151415"/>
-  <ellipse cx="62" cy="114" rx="15" ry="4" fill="#fdfcf5" opacity=".14"/>
-  <ellipse cx="150" cy="110" rx="10" ry="3" fill="#fdfcf5" opacity=".14"/>
-  <!-- the man, on the bank, still doing the judging -->
-  <circle cx="204" cy="70" r="7" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
-  <rect x="198" y="79" width="12" height="18" rx="5" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
-  <path d="M201 97l-3 12M207 97l3 12M198 84l-8 5M210 84l7-3" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
-  <text x="20" y="136" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">new tools, same tar pit</text>
+{{- /* Man-month as moon phases. The last phase is a machine, which is the
+       change. The human underneath is the part that did not change. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
+  <!-- phase one, a sliver of a month -->
+  <path d="M40 23a15 15 0 1 0 0 30 11 11 0 1 1 0-30z" fill="#f5dc5a" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- phase two, half lit -->
+  <circle cx="88" cy="38" r="15" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
+  <path d="M88 23a15 15 0 0 1 0 30z" fill="#f5dc5a"/>
+  <path d="M88 23v30" stroke="#151415" stroke-width="1.6" opacity=".35"/>
+  <!-- phase three, the whole month -->
+  <circle cx="136" cy="38" r="15" fill="#f5dc5a" stroke="#151415" stroke-width="2.2"/>
+  <circle cx="131" cy="33" r="3.4" fill="#151415" opacity=".16"/>
+  <circle cx="140" cy="43" r="2.2" fill="#151415" opacity=".16"/>
+  <!-- phase four, the month arrives as a machine -->
+  <circle cx="184" cy="38" r="15" fill="#151415"/>
+  <circle cx="184" cy="38" r="9.5" fill="none" stroke="#fdfcf5" stroke-width="1.4" stroke-dasharray="3 3" opacity=".45"/>
+  <path d="M184 30l2 5.6 5.6 2-5.6 2-2 5.6-2-5.6-5.6-2 5.6-2z" fill="#f5dc5a"/>
+  <!-- the change runs left to right -->
+  <path d="M26 62h172" stroke="#151415" stroke-width="2" stroke-dasharray="5 4" stroke-linecap="round" opacity=".55"/>
+  <polygon points="198,57 206,62 198,67" fill="#151415" opacity=".55"/>
+  <!-- the human, holding up the part no phase replaces -->
+  <circle cx="60" cy="84" r="8.5" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
+  <rect x="53" y="94" width="14" height="20" rx="6" fill="#fdfcf5" stroke="#151415" stroke-width="2.2"/>
+  <path d="M56 114l-3 11M64 114l3 11M53 98l-9 8M67 98l14-13" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- the idea -->
+  <circle cx="86" cy="78" r="7" fill="#f5dc5a" stroke="#151415" stroke-width="2"/>
+  <rect x="83" y="84" width="6" height="4" rx="1" fill="#151415"/>
+  <path d="M95 72l4-2M96 80l5 1M92 68l3-4" stroke="#151415" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- ground, stars -->
+  <path d="M10 126c42 5 88 5 128 1 30-3 64-3 92 1" fill="none" stroke="#151415" stroke-width="2" opacity=".35" stroke-linecap="round"/>
+  <circle cx="15" cy="16" r="2" fill="#fdfcf5" stroke="#151415" stroke-width="1"/>
+  <path d="M216 96l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
+  <text x="104" y="136" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">moons change, judgment doesn't</text>
 </svg>
