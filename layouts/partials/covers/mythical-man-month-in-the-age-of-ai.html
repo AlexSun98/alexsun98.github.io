@@ -1,0 +1,24 @@
+{{- $h := int (default 180 .height) -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
+  <!-- moon: the "month" half of man-month -->
+  <path d="M58 34a23 23 0 1 0 0 46 18 18 0 1 1 0-46z" fill="#f5dc5a" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="46" cy="48" r="3.5" fill="#151415" opacity=".18"/>
+  <circle cx="43" cy="64" r="2.2" fill="#151415" opacity=".18"/>
+  <!-- man: the other half -->
+  <circle cx="108" cy="44" r="9.5" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <rect x="98.5" y="55" width="19" height="27" rx="7" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <path d="M103 82l-3 19M113 82l3 19M98.5 62L90 70M117.5 62L128 66" stroke="#151415" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- silver bullet, sharp end first -->
+  <path d="M150 52h24l22 15-22 15h-24z" fill="#dcdce6" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M158 52v30" stroke="#151415" stroke-width="2" opacity=".4"/>
+  <!-- there isn't one -->
+  <path d="M144 44l60 46" stroke="#ef7065" stroke-width="5" stroke-linecap="round"/>
+  <!-- stars -->
+  <path d="M178 18l1.8 3.6 3.6 1.8-3.6 1.8-1.8 3.6-1.8-3.6-3.6-1.8 3.6-1.8z" fill="#fdfcf5" stroke="#151415" stroke-width="1.2"/>
+  <path d="M210 24l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
+  <circle cx="228" cy="52" r="2" fill="#fdfcf5" stroke="#151415" stroke-width="1"/>
+  <!-- footer -->
+  <rect x="16" y="102" width="46" height="20" rx="4" fill="#151415"/>
+  <text x="39" y="116" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#cfc2f1">1975</text>
+  <text x="70" y="116" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">man + moon, still no silver bullet</text>
+</svg>
