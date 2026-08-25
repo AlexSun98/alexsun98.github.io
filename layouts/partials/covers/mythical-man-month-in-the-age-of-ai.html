@@ -1,24 +1,31 @@
 {{- $h := int (default 180 .height) -}}
-<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
-  <!-- moon: the "month" half of man-month -->
-  <path d="M58 34a23 23 0 1 0 0 46 18 18 0 1 1 0-46z" fill="#f5dc5a" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
-  <circle cx="46" cy="48" r="3.5" fill="#151415" opacity=".18"/>
-  <circle cx="43" cy="64" r="2.2" fill="#151415" opacity=".18"/>
-  <!-- man: the other half -->
-  <circle cx="108" cy="44" r="9.5" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
-  <rect x="98.5" y="55" width="19" height="27" rx="7" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
-  <path d="M103 82l-3 19M113 82l3 19M98.5 62L90 70M117.5 62L128 66" stroke="#151415" stroke-width="2.4" stroke-linecap="round"/>
-  <!-- silver bullet, sharp end first -->
-  <path d="M150 52h24l22 15-22 15h-24z" fill="#dcdce6" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
-  <path d="M158 52v30" stroke="#151415" stroke-width="2" opacity=".4"/>
-  <!-- there isn't one -->
-  <path d="M144 44l60 46" stroke="#ef7065" stroke-width="5" stroke-linecap="round"/>
-  <!-- stars -->
-  <path d="M178 18l1.8 3.6 3.6 1.8-3.6 1.8-1.8 3.6-1.8-3.6-3.6-1.8 3.6-1.8z" fill="#fdfcf5" stroke="#151415" stroke-width="1.2"/>
-  <path d="M210 24l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
-  <circle cx="228" cy="52" r="2" fill="#fdfcf5" stroke="#151415" stroke-width="1"/>
-  <!-- footer -->
-  <rect x="16" y="102" width="46" height="20" rx="4" fill="#151415"/>
-  <text x="39" y="116" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#cfc2f1">1975</text>
-  <text x="70" y="116" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">man + moon, still no silver bullet</text>
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--peach)">
+  <!-- moon, for the month half of man-month -->
+  <path d="M26 16a11 11 0 1 0 0 22 8.5 8.5 0 1 1 0-22z" fill="#f5dc5a" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <!-- the 1975 book -->
+  <path d="M14 58c14-7 28-7 30 2 2-9 16-9 30-2v34c-14-7-28-7-30 2-2-9-16-9-30-2z" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M22 68h15M22 76h11M52 68h15M52 76h11" stroke="#151415" stroke-width="2" opacity=".25" stroke-linecap="round"/>
+  <text x="29" y="88" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" opacity=".55">1975</text>
+  <!-- the reader, still doing the judging -->
+  <circle cx="120" cy="66" r="15" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <circle cx="115" cy="63" r="1.7" fill="#151415"/>
+  <circle cx="126" cy="63" r="1.7" fill="#151415"/>
+  <path d="M114 73q6 4 12 0" fill="none" stroke="#151415" stroke-width="2" stroke-linecap="round"/>
+  <!-- what the reread turned up -->
+  <circle cx="120" cy="45" r="2" fill="#fdfcf5" stroke="#151415" stroke-width="1.4"/>
+  <circle cx="120" cy="38" r="3" fill="#fdfcf5" stroke="#151415" stroke-width="1.6"/>
+  <ellipse cx="120" cy="25" rx="17" ry="11" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <path d="M120 19l1.9 4.1 4.1 1.9-4.1 1.9-1.9 4.1-1.9-4.1-4.1-1.9 4.1-1.9z" fill="#f5dc5a" stroke="#151415" stroke-width="1.2"/>
+  <!-- the machine that changed the premises -->
+  <rect x="168" y="50" width="52" height="44" rx="5" fill="#151415"/>
+  <path d="M194 56l2.2 6.2 6.2 2.2-6.2 2.2-2.2 6.2-2.2-6.2-6.2-2.2 6.2-2.2z" fill="#f5dc5a"/>
+  <text x="194" y="88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#fdfcf5">AI</text>
+  <path d="M168 60h-6M168 72h-6M168 84h-6M220 60h6M220 72h6M220 84h6M178 50v-6M194 50v-6M210 50v-6" stroke="#151415" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- book reads into the human, human argues with the machine -->
+  <path d="M79 72h15" stroke="#151415" stroke-width="2"/>
+  <polygon points="94,68 100,72 94,76" fill="#151415"/>
+  <path d="M141 72h20" stroke="#151415" stroke-width="2"/>
+  <polygon points="141,68 135,72 141,76" fill="#151415"/>
+  <polygon points="161,68 167,72 161,76" fill="#151415"/>
+  <text x="60" y="116" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">1975 book, 2026 questions</text>
 </svg>
