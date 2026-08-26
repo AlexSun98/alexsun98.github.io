@@ -1,0 +1,28 @@
+#!/bin/sh
+# Refuse a post commit when the write-post workspace has no proof the skill ran.
+#
+# A post reaches content/posts/ only after the claims ledger and the checker
+# findings exist for it. Both live in drafts/<slug>/, which is gitignored, so
+# this check is local by design.
+#
+# Bypass with: git commit --no-verify
+
+repo_root=$(git rev-parse --show-toplevel)
+missing=""
+
+for path in $(git diff --cached --name-only --diff-filter=AM | grep '^content/posts/.*\.md$'); do
+	slug=$(basename "$path" .md)
+	for artefact in 05-claims.md 06-checks.md; do
+		if [ ! -f "$repo_root/drafts/$slug/$artefact" ]; then
+			missing="$missing\n  $path needs drafts/$slug/$artefact"
+		fi
+	done
+done
+
+if [ -n "$missing" ]; then
+	printf 'Blocked: a post is being committed without write-post evidence.\n'
+	printf '%b\n\n' "$missing"
+	printf 'Run the write-post skill for this post, or commit with --no-verify\n'
+	printf 'if you are moving an old post and know the workspace is gone.\n'
+	exit 1
+fi
