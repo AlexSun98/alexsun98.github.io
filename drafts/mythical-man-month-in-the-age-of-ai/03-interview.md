@@ -25,7 +25,7 @@ finished. Alex asked for the post to be honest about that.
 Q: How far into the reread are you right now, and when was the first read? Is
 the reread cover to cover, or the chapters that matter to you?
 A2: "I read it when I were working on pay run optimzation work last year, a
-colleuage mentioned the book in a meeting." First read was 2025, during a
+colleuage mentioned the book in a meeting." First read was 2024, settled at A21, during a
 performance optimisation project. A colleague named the book in a meeting.
 A2b: "reread all of them and rechecked my notion reflection notes on 10 keys
 points." The reread is complete across the ten points, and Alex holds his own
@@ -245,6 +245,10 @@ DRIFTED.
 Q: The reread. A1 says you are re-reading it and asked to be honest about that.
 A2b says you reread all ten points. Which is true right now: finished, or still
 going?
+A12 answer, deferred: still open. Alex has not said how far into the reread he
+is beyond A2b.
+
+### Q21 [r4] [conflict] resolved
 A21: "2024 was the first read." The year is settled. A2's "last year" was loose,
 said in a 2026 session about a 2024 read. The post now carries 2024 and the
 reread is two years later.

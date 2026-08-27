@@ -709,3 +709,352 @@ BLOCKED: 4 unsourced or drifted claims (1 in the draft, 3 in the published file)
 1 broken front matter block, 1 unresolved disclosure hit. Gate 2 is closed and all
 six of its rulings are honoured in the draft. 1 section still GENERIC, down from
 2, which does not block on its own.
+
+## Verification, round 5
+
+Run by a fresh agent on draft revision 5, with no sight of the drafting
+conversation or of rounds 1 to 4 as they happened. Findings only, nothing fixed.
+Line numbers refer to `04-draft.md` as it stands now, 1100 words across six body
+sections plus References.
+
+Round 4's top finding was that the draft and the file that publishes had
+diverged, and that four rounds of checks had audited the wrong file. That is the
+first thing checked here.
+
+### Draft against the published file
+
+Byte-identical. The `sha256` of both files is
+`2f88b4fbe0f9843159ed84aee7b293f6ccfc0d1a723c5d996bac1a1676f382ef`, 6653 bytes
+each, and `diff` returns nothing.
+
+Round 4's F1 to F4 were all artefacts of that divergence. Checked individually
+against the current file:
+
+| Round 4 finding | State now |
+| --- | --- |
+| F1, "about over 6 months" | Gone. Line 15 reads "The project took over six months". No "about", no "eight", no digit form. |
+| F2, "on 2024" unsourced | Sourced. A21 now exists at `03-interview.md` line 248 and the ledger carries a row. Still a live disclosure row. See pass 3. |
+| F3, "I still remember that someone proposed" with no row | Row added, `05-claims.md` line 30, to A3. |
+| F4, destroyed YAML block | Repaired. Opening and closing `---`, straight quotes throughout, unescaped brackets, no trailing whitespace. Hugo will parse it. |
+
+The front matter title and the 2026-08-24 date, which round 4 flagged as
+unrecorded, now carry rows at `05-claims.md` lines 28 and 29.
+
+### The other round 4 items
+
+| Item | State | Evidence |
+| --- | --- | --- |
+| Missing ledger row, "We did the right thing and the schedule went exactly where it was always going" | RESOLVED | `05-claims.md` line 34, to A4, with the gap named honestly as a ledger gap rather than a post gap. |
+| Orphaned METR research row | RESOLVED | The research table at `05-claims.md` lines 95 to 100 has four rows and none is METR. The removal is minuted at line 37. |
+| Stale figure, "the eight-month project" | RESOLVED | `05-claims.md` line 131 now reads "Any planned duration for the project." A grep for "eight" across the draft and the ledger returns nothing. |
+| N10, dangling "it" at "Wes McKinney calls it the agentic tar pit" | RESOLVED | Line 46 restores the antecedent: "There is a good argument going around that agents make Brooks worse." |
+| N11, "I still disagree" with nothing to disagree with | RESOLVED by removal | The sentence is gone. Line 51 is now "He is burning ten billion tokens a month. I have opinions. Weigh accordingly.", and the disagreement is carried by "Yes and no" at line 53, which is A22's own opening. |
+| N9, the welded silent-meetings sentence | RESOLVED | Lines 93 to 94 now read "None of that was in the brief. The meetings where that sort of thing should surface run in silence, requirements reviews and technical kick-offs both." The brief gap stays specific to the story. The silence goes back to general present tense, which is what A6 supports. The weld is broken and the ledger row at line 35 explains why. |
+
+Six of six addressed, none cosmetically.
+
+### The rewritten section, clause by clause against A22
+
+This is the check the round was called for. A22 is recorded verbatim at
+`03-interview.md` lines 255 to 264. Every clause of draft lines 53 to 68 is
+matched against it below. Anything in the draft with no matching clause would be
+smuggled material.
+
+| Draft | A22 | Verdict |
+| --- | --- | --- |
+| 53, "Yes and no." | "Yes and no." | Verbatim. |
+| 53 to 54, "Parallel execution is not the risk. It should be the default now, with sequential demoted to the exception." | "Parallel execution isn't the risk - it should actually be our default mode in the age of AI, with sequential execution demoted to the exception." | Verbatim in substance. "the default now" for "our default mode in the age of AI" is compression, not amplification. |
+| 56 to 57, "What burns people is turning agents loose on dependencies and hidden complexity that nobody resolved first." | "Where people get burned isn't from using too many agents; it's from letting agents hit dependencies and hidden complexity unprepared." | Match. "that nobody resolved first" renders "unprepared", and A22's second condition supplies the resolving. The dropped half, "isn't from using too many agents", is carried by the section heading. |
+| 57 to 58, "That is where rework with an agent costs more than rework by hand." | "where AI rework suddenly costs more than human rework" | Match. See N17 on the dropped hedge. |
+| 60, "Two conditions make it work." | "To make parallel agents work, you need two strict conditions" | The closest thing to drift in the passage. See N16. |
+| 62 to 63, "One, a single source of truth that is genuinely agent-ready. Clean decomposition up front, every dependency resolved before an agent touches a line." | "first, a single source of truth that is truly 'agent-ready' - meaning clean upfront decomposition with every dependency resolved before an agent touches a single line" | Near verbatim. |
+| 65 to 66, "Two, human judgment anchored at both ends. Full control of what goes in, and a firm gate before anything is delivered." | "Second, crisp human judgment anchored at both ends: total control over the initial input, and a firm last gate before delivery." | Near verbatim. "crisp" and "last" dropped, both weakening. |
+| 68, "That is not rocket science. It is just clean architecture." | "That's not rocket science; it's just clean architecture." | Verbatim. |
+
+Nothing was added. Nothing was smuggled in. No fan-out, no repair, no number and
+no anecdote appears that A22 does not contain, which is exactly where the earlier
+rounds found invented material. The compression is honest and it runs in the
+weakening direction on every judgement call except one, N16.
+
+The removal recorded at `05-claims.md` line 15, "Decomposition was always a good
+skill. It matters more than it did.", is confirmed gone from the draft, and the
+reasoning holds: A22 makes the same point with a mechanism behind it.
+
+Lines 46 to 51, the McKinney setup and the token aside, are not from A22. They
+carry their own rows, the research table row for the tar pit and the revision 3
+row at `05-claims.md` line 54 for the token figure, and both check out against
+`01-source.md` lines 79 to 85. "ten billion" understates the source's "over 10
+billion", which is the safe direction.
+
+### Section verdict on "More agents is not the problem"
+
+**No longer GENERIC.** Verdict changed after three consecutive rounds of GENERIC.
+
+The test is whether a competent writer with the same research could have produced
+it. With `01-source.md` open, that writer produces McKinney's tar pit and then
+either agrees with it or hedges. They do not produce "it should be the default
+now, with sequential demoted to the exception", which is the opposite of
+McKinney's conclusion and is stated as an operating position rather than as a
+reaction. They do not produce the two conditions, because the two conditions
+describe how one particular person runs agents: an agent-ready single source of
+truth with every dependency resolved before a line is written, and human
+judgement clamped on the input and on the delivery gate. That is a described
+mechanism, and `01-source.md` line 123 names showing the machinery as one of the
+two ways this post is worth reading.
+
+The ratio moved as well. Six lines of borrowed setup and aside against sixteen
+lines of Alex. In revision 3 it was the other way round.
+
+Not ABSTRACT either, under the written test: the section carries concrete nouns
+and a number.
+
+What has not changed, and should be said plainly rather than graded away: this is
+still a position, not a story. There is no fan-out, no task that came back wrong,
+nothing repaired. Q14 is still unanswered. The difference is that the section no
+longer needs an answer to it, because a mechanism stated by the person who uses
+it is original material in a way that an opinion was not. `03-interview.md` lines
+266 to 271 make that call explicitly, and on the evidence it is the right one.
+
+### The year
+
+A21 settles it. Checked in all three places:
+
+- Draft line 29: "I read the book for the first time because of that meeting, in 2024."
+- Ledger `05-claims.md` line 12: row to A21, with the conflict named and resolved.
+- Interview `03-interview.md` line 248: A21, "2024 was the first read."
+
+No contradictory year survives in published text. A grep for 2025 in the draft
+returns only the two References entries, both from METR's title and publication
+year.
+
+Two contradictions survive in the record, neither of them in published text:
+
+- **N18** `03-interview.md` line 28 still reads "First read was 2025, during a
+  performance optimisation project." That is the interviewer's gloss on A2 and it
+  was never updated after A21. It is the exact line round 4 cited to raise F2. A
+  round 6 reading the interview top to bottom would raise F2 again. The ledger row
+  at line 12 does the reconciling work, so this does not block, but the gloss is
+  now wrong and should say so.
+- **N19** Q21 at `03-interview.md` lines 322 to 328 has an empty answer slot. A21
+  is filed under Q12 at line 248, whose question asks something else entirely,
+  whether the reread is finished or still going. Q12's own question is therefore
+  still unanswered while appearing answered. Record hygiene, the same class as
+  round 4's N15, which is also still open at lines 213 to 214.
+
+### Pass 1: sourcing
+
+Twenty-four lines carry first person, front matter included. All twenty-four have
+a ledger row, and every row points at a line that exists.
+
+Mapped independently against `03-interview.md` rather than against round 4's
+report: lines 6, 9, 15, 26, 29, 33, 35, 37 to 38, 40 to 42, 51, 73, 79, 84, 89 to
+91, 103 to 104, 107, 115, 117, 137 and 139 to 142.
+
+- **0 UNSOURCED.** Round 4's single draft blocker, then line 25, is closed.
+- **0 MISATTRIBUTED.** No first-person sentence points at a `[research]` block.
+  The McKinney material at lines 46 to 51 stays in the third person and names him.
+- **0 UNCITED.** Brooks, the tar pit, the token figure and Brooks on key people
+  are all attributed in the text and all carry References entries.
+- **0 DRIFTED.** The two candidates are N16 and N17 below. Both stay inside what
+  A22 says and neither introduces a fact.
+
+Notes, not blocking:
+
+- **N16  line 60**  "Two conditions make it work." A22 says "you need two strict
+  conditions". A22 states them as necessary. The draft phrasing leans sufficient,
+  and it drops "strict". This is the one place in the rewritten passage where the
+  compression moves the claim in the strengthening direction. It is small, and it
+  is a modality shift rather than a new fact, so it does not meet the DRIFTED bar.
+  "You need two conditions" would match A22 exactly and costs nothing.
+- **N17  lines 57 to 58**  "rework with an agent costs more than rework by hand",
+  flat. A22 supports the flat form: "AI rework suddenly costs more than human
+  rework". A6, the earlier answer, hedged it, "rework with AI might costs more",
+  and the revision 2 ledger row used "can cost more". A22 is the newer and more
+  direct statement, so the flat form is defensible, and the scope is narrowed by
+  "That is where". Recorded because a hedge was dropped, not because it is wrong.
+- **N20  lines 110 to 111**  "A grounding agent helps, used properly. It goes and
+  checks what a brief claims against the code, instead of waiting for someone to
+  volunteer the missing detail." The first sentence is A7 almost word for word.
+  The second is not in A7. Its wording traces to the interviewer's own gloss at
+  `03-interview.md` lines 134 to 135. It is not first person, so it does not block
+  under the procedure, and it reads as a definition of what a grounding agent is
+  rather than a claim about what Alex's one did. It has survived four rounds
+  unchallenged, so it is carried rather than newly raised. Q18 is the answer to it.
+- **N21  line 26**  "the schedule went exactly where it was always going." A4 says
+  the project dragged and finished late. It does not say the outcome was
+  predetermined. The sentence is rhetoric on a sourced fact, in the voice's
+  claim-then-deflate register, and the ledger row at line 34 is honest about what
+  A4 covers. Non-blocking.
+- **N22  ledger precision.**  The revision 5 row at `05-claims.md` line 13 gives
+  its range as "45 to 62". The A22 material actually sits at lines 53 to 68, so
+  the row both misses its own last two clauses and swallows the McKinney
+  sentences, which belong to a different row. The STALE warning at line 40 is
+  scoped to the revision 2 and 3 tables only. Match by sentence, as that warning
+  says, and the row is complete. By number it was wrong on the day it was written.
+- **N23  References.**  METR, Gorman and Demirbas are listed and none of the three
+  is cited in the body. Not a procedure violation. Round 4's N14 raised METR
+  alone; the other two are in the same position and always have been.
+- Carried unchanged and still true: N3, the chief architect and the surgical team
+  compressed into one, line 103; N4, the word "only" at line 90; N5, "an agreement
+  rather than a mechanism", line 105; N7, "has not changed at all", line 72.
+
+### Pass 2: voice
+
+#### Mechanical
+
+All clean. Verified by grep over the whole file including front matter.
+
+- Em dash, en dash, figure dash, section sign: none. A22 uses " - " as a dash
+  twice and the draft converted both to full stops, which is the rule applied
+  correctly to a verbatim source.
+- Curly quotes: none. All apostrophes and quotes are straight.
+- Banned words, the full `voice.md` list: none.
+- Filler openers: none. No "That said," as a paragraph opener.
+- Bold spans: zero in the file.
+- Exclamation marks: zero.
+- Trailing whitespace and tabs: none.
+- Australian spelling: one hit, "judgment" at line 65. It is A22's own spelling,
+  Alex's word, and it is the accepted form in technical and legal use. Reported
+  because the mechanical pass is mechanical. Not a finding.
+
+One cosmetic artefact, new this revision:
+
+- **N24  line 95**  The paragraph at lines 93 to 97 has a three-word line, "is
+  not a", left over from editing "This is not a complaint about one function" in
+  place. Markdown joins soft-wrapped lines, so it renders correctly and it is not
+  a publish problem. It is the visible fingerprint of an in-place edit, which is
+  the same class of slip that produced round 4's whole first section.
+
+#### Section verdicts
+
+Six body sections.
+
+- opening, lines 9 to 16  **SPECIFIC.**  Unchanged. Still the best material in
+  the post.
+- "Being right is not the same as being on time", lines 18 to 29  **SPECIFIC.**
+  Promoted from borderline. The year lands the meeting in time, and "Not adding
+  people is not a plan. It is the absence of one specific mistake." still carries
+  the section.
+- "Why I went back to it", lines 31 to 42  **SPECIFIC, borderline.**  Unchanged.
+  The post still never names which of the ten points moved. Q12 open, and N19
+  explains why it looks closed.
+- "More agents is not the problem", lines 44 to 68  **SPECIFIC.**  Verdict changed
+  from GENERIC. Reasoning above.
+- "Two words for the same thing", lines 70 to 111  **SPECIFIC.**  Unchanged. The
+  merge still does its job, and lines 93 to 94 no longer overclaim.
+- "The part nobody upstream sees", lines 113 to 129  **SPECIFIC, borderline.**
+  Unchanged.
+- "Where this actually sits", lines 131 to 142  **SPECIFIC.**  Unchanged.
+
+Count: six body sections, zero GENERIC, zero ABSTRACT. Round 4 was one GENERIC,
+round 3 was two. The section that resisted two revisions of cutting was fixed by
+one interview answer, which is what the round two loop is for.
+
+#### OVERSOLD
+
+- line 60, "Two conditions make it work." No qualifier and no concession, and
+  A22's "strict" was dropped. New this revision. Also N16.
+- lines 72 to 73, "the part of the process that has not changed at all." Carried.
+- lines 104 to 105, "an agreement rather than a mechanism." Carried.
+- lines 110 to 111, the grounding agent. Keeps A7's "used properly" and still
+  never says where it fails. Carried, Q18 open.
+- Not oversold: lines 53 to 54. The claim that parallel should be the default is
+  strong, but "Yes and no" precedes it and the failure conditions follow it in the
+  next paragraph. Rule 9 is satisfied by structure.
+
+#### Voice rule 6, team plurals
+
+Eight uses of "we", "us" or "our". Five are the team: lines 6, 15, 26, 40 and 91.
+Three are reader-inclusive and allowed: lines 103, 104 and 137. Down from round
+4's count, because the section rewrite removed two. Non-blocking, and unchanged
+in character since round 2.
+
+#### Ending
+
+Not SUMMARY-END. The post lands on the Slack thread, the year we automated the
+typing, and an admission that there are no results yet. Rule 10 satisfied.
+
+### Pass 3: disclosure
+
+The draft carries no ticket key, no employer name, no product name, no internal
+URL or hostname, no code block, no account or connection identifier and no
+colleague name. Every named person is public: Brooks, McKinney, Demirbas, Gorman.
+Grep confirms across the body and the front matter.
+
+Gate 2's six rulings re-verified against the current text, not against round 4's
+report:
+
+| Gate 2 row | Ruling | Draft now | Verdict |
+| --- | --- | --- | --- |
+| Batch job with a fixed window | generalise, by removal | A grep for batch, window, pay run, deadline and negotiate returns nothing. | Honoured. |
+| Combination: batch job plus ledger and bank account plus API contract | resolved by removing the batch job | Batch job gone. Ledger account and bank account at line 81, the API contract at line 86. | Honoured, but see the pending row below. The closing argument was that the surviving details are generic alone and no longer narrow together. A year is a new narrowing detail, added to the same post after that argument was made. |
+| Silent requirements reviews and kick-offs | keep | Lines 93 to 94, back in general present tense, plus "This is not a complaint about one function" at lines 94 to 96. | Honoured, and better than at round 4. The N9 fix moved the passage back to the general form the ruling was actually made against. Round 4's concern that the ruling had been applied to different wording is now moot. |
+| "Slack thread" | keep | Line 133. | Honoured. |
+| "I am building an AI native software development lifecycle" | keep, closed by Alex, A20 | Line 139, unchanged. | Honoured. Round 4's note stands: the round 3 row also matched "A grounding agent", now at line 110, A20's reasoning covers it, and nobody has written that down. |
+| "over six months" | keep | Line 15. Now honoured in the published file too. | Honoured. |
+
+One row is open, and it is the one this round was asked to rule on.
+
+| Line | Matched text | Concern | Decision |
+| --- | --- | --- | --- |
+| 29 | "in 2024" | A year attached to a work anecdote, added to a sentence that previously had a removal ruling applied to it. | **pending** |
+
+**Does the year re-open the row. Yes.**
+
+The reasoning, set out so Alex can overrule it in one word:
+
+1. The procedure lists "dates of unreleased work" as a disclosure hit. A year
+   attached to a work anecdote is the smallest form of that.
+2. Gate 2's ruling on this exact sentence was "generalise, by removal", and the
+   stated reason was that the detail was colour rather than argument. The
+   direction of that ruling was to take narrowing detail out of this sentence.
+   Adding a year puts narrowing detail back into the same sentence. It is a
+   different axis, time rather than subject matter, but it is the same sentence
+   and the same effect.
+3. The combination row closed on the argument that what remained, two accounting
+   nouns and an API contract, "describes a large share of financial software and
+   does not narrow to one project". A year was not part of what that argument
+   weighed. A colleague sorting late projects now has a year, a duration of over
+   six months, ledger and bank account vocabulary, and an API contract decision.
+   That set is narrower than the one Gate 2 signed off.
+4. A21 does not close this row. A21 answers which year is true. The disclosure
+   question is whether a true year may be published. Those are different
+   questions, and the procedure says not to decide the second one on Alex's
+   behalf.
+
+Against that: it is only a year, the meeting is not identified, no employer,
+product or customer is named, and the sentence reads better with it. This is very
+likely a `keep`. It is still not the checker's call, and reporting it as closed
+because it looks low risk is the failure mode the gate exists to prevent.
+
+One word from Alex, `keep`, `redact` or `generalise`, closes it and the post is
+clear.
+
+### Is the post honest
+
+Yes, and this is the first round that can say so about the file that actually
+publishes.
+
+Every claim in the draft traces to something Alex said. The one section that
+three rounds called GENERIC was fixed by getting a real answer rather than by
+writing one, and the answer went in compressed rather than embroidered. Every
+judgement call in that compression except N16 runs toward the weaker claim. The
+duration is Alex's own correction, the year is his own correction, the reread
+motive is his question and not a feeling invented for him, and the ending still
+claims no results. Both places where an earlier round found a general claim welded
+onto a specific story, N9 and the front-matter "year of handing work to agents",
+are gone rather than reworded.
+
+Two things are still worth saying out loud. The interview file contradicts itself
+on the year at line 28 and nobody fixed the gloss, which is a trap for whoever
+reads that file next. And line 111's description of what a grounding agent does is
+the interviewer's sentence, not Alex's, sitting under a paragraph that opens with
+Alex's own words. It has never been challenged. It should be, once, by the person
+who owns the claim.
+
+### Verdict
+
+BLOCKED: 0 unsourced, 0 misattributed, 0 drifted, 0 uncited, 1 unresolved
+disclosure hit. Draft and published file are byte-identical. All six Gate 2
+rulings are honoured. 0 sections GENERIC, down from 1. The single open item is one
+word from Alex on the year at line 29.

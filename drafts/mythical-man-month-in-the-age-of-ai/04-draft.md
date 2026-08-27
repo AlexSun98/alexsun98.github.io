@@ -57,7 +57,7 @@ What burns people is turning agents loose on dependencies and hidden complexity
 that nobody resolved first. That is where rework with an agent costs more than
 rework by hand.
 
-Two conditions make it work.
+You need two conditions.
 
 One, a single source of truth that is genuinely agent-ready. Clean decomposition
 up front, every dependency resolved before an agent touches a line.
@@ -92,9 +92,9 @@ came up because our shared vocabulary has inconsistencies in it.
 
 None of that was in the brief. The meetings where that sort of thing should
 surface run in silence, requirements reviews and technical kick-offs both. This
-is not a
-complaint about one function. A room where nobody argues is not agreement. It is
-a room where the disagreement has been handed to whoever writes the code.
+is not a complaint about one function. A room where nobody argues is not
+agreement. It is a room where the disagreement has been handed to whoever writes
+the code.
 
 That used to be survivable. Now a thin brief costs a fan-out of agents building
 confidently on the guess.
