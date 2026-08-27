@@ -39,7 +39,8 @@ byte-identical, which is the discipline that slipped.
 
 | Line | Sentence | Source | Note |
 | --- | --- | --- | --- |
-| 2 | Title extended with "is this outdated in the age of AI?" | A13 | Alex's own edit, and it matches the question he says he reread with. |
+| 2 | Title, final: "The Mythical Man-Month, is this outdated in the age of AI?" | A13 | Alex's own wording, twice revised. The question half matches what he says he reread with. The earlier half about winning the argument was dropped, which leaves the book named in the title and the argument to the opening. |
+| 4 | "Reflection" added to tags | Alex | His edit. First post on the site to carry it. |
 | 3 | date 2026-08-24 | Alex | His edit, kept. |
 | 9 | "I still remember someone proposing to add people to a project that was already late." | A3 | Alex's edit. A3 is his account of that meeting, so the memory framing is his to make. |
 | 14 | "over six months" | A5b | His correction. He had left "about over 6 months" in the hand edit, which is a slip from applying it in place. Repaired. |

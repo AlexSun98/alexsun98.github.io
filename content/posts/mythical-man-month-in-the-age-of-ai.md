@@ -1,7 +1,7 @@
 ---
-title: "The book won the argument and the project was still late, is this outdated in the age of AI?"
+title: "The Mythical Man-Month, is this outdated in the age of AI?"
 date: 2026-08-24
-tags: ["Software Engineering", "AI", "Books"]
+tags: ["Software Engineering", "AI", "Books", "Reflection"]
 categories: ["Engineering"]
 description: "Someone put The Mythical Man-Month in front of the room to stop more people being added to a late project. It worked. We were late anyway. I went back to the book to see what AI has actually changed."
 ---
