@@ -348,3 +348,27 @@ Q: Custom cover art, or leave the procedural fallback?
 A24: "keep the current cover." No new cover art. The existing partial on this
 branch stays as it is.
 
+### Q25 [r5] [factual error] the law paragraph
+Alex corrected the post, unprompted, from the book itself.
+A25: 'The law is a summary line. Brooks calls it "oversimplifying outrageously."
+His words. The same passage lists four options. Not one. 1. Add people, assuming
+early parts misestimated, still late. 2. Add more people, assuming all
+misestimated, worse, "regenerative disaster". 3. Reschedule. Take no small slips.
+4. Trim the task. Options 3 and 4 are the how-to-finish. They are right there.'
+
+The draft said "It says nothing about how to finish." That was false and it was
+the drafter's line, not Alex's. Verified against the book and against secondary
+sources before rewriting: the "oversimplifying outrageously" lead-in is Brooks's
+own, the four options are as Alex lists them, and Brooks adds that a manager who
+refuses to choose watches the task get trimmed anyway by hasty design and
+incomplete testing.
+
+The correction improves the argument rather than denting it. The point is no
+longer that Brooks gave no answer. It is that the quote everyone remembers is the
+half that stops a decision, and the half that requires one gets left behind. That
+sits directly on top of the opening, where the room refused options 1 and 2 and
+the project still ran over.
+
+Not written, because nothing in the interview supports it: any claim about
+whether that project rescheduled or trimmed scope. Worth asking Alex.
+

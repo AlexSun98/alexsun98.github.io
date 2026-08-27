@@ -5,6 +5,20 @@ the Codemanship Bluffer's Guide shape: short paragraphs, named subheads, dry
 asides. No new factual claims were added in the restructure. The asides are
 commentary on facts already sourced below.
 
+Revision 9 changes, applied 2026-08-27.
+
+| Line | Claim | Source | Note |
+| --- | --- | --- | --- |
+| the law paragraph | '"Oversimplifying outrageously." That is his own verdict on his most famous line.' | Brooks, via A25 | Direct quotation, attributed in text. Alex supplied it from the book and it was verified independently before publishing. |
+| the law paragraph | The four options: add people on the early-estimate assumption, add more on the all-estimates assumption, reschedule taking no small slips, or trim the task | Brooks, via A25 | Verified. Listed as Brooks's, not as Alex's analysis. |
+| the law paragraph | "Brooks is blunt about refusing to choose: the task gets trimmed anyway, by hasty design and skipped testing." | Brooks | Verified. Brooks's own point that the alternatives are to trim formally, reschedule, or watch the task trim itself. |
+| the law paragraph | "The half of the book everyone quotes is the half that stops a decision." | A25 | Alex's point, in his framing: options 3 and 4 are the how-to-finish and they are right there. |
+
+REMOVED in revision 9: "It is also only half a sentence. It tells you what not to
+do. It says nothing about how to finish." False, and the drafter's own line rather
+than anything from the interview. Brooks does say how to finish. Alex caught it
+from the book.
+
 Revision 8 changes, applied 2026-08-27.
 
 | Line | Sentence | Source | Note |
