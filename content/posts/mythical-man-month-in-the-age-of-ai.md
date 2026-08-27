@@ -28,7 +28,7 @@ about how to finish.
 We did the right thing and the schedule went exactly where it was always going.
 Not adding people is not a plan. It is the absence of one specific mistake.
 
-I read the book for the first time because of that meeting, in 2024.
+I read the book for the first time because of that meeting.
 
 ## Why I went back to it
 
@@ -40,15 +40,15 @@ You can get Brooks's big ideas off any summary site in ninety seconds, so I am
 not going to walk you through them. I only care about the parts that changed.
 
 Six months ago I would have told you the constraint was how fast we could write
-the code. I do not believe that any more. Now the constraint is how well the work
-is cut up before an agent ever touches it.
+the code. I do not believe that any more. Now the constraint is how well the
+work is cut up before an agent ever touches it.
 
 ## More agents is not the problem
 
-There is a good argument going around that agents make Brooks worse. Wes McKinney
-calls it the agentic tar pit: parallel sessions produce code faster than humans
-can review it. His conclusion is that the people who do well will not be the ones
-running the most parallel sessions.
+There is a good argument going around that agents make Brooks worse. Wes
+McKinney calls it the agentic tar pit: parallel sessions produce code faster
+than humans can review it. His conclusion is that the people who do well will
+not be the ones running the most parallel sessions.
 
 He is burning ten billion tokens a month. I have opinions. Weigh accordingly.
 
@@ -82,11 +82,11 @@ The clearest case I have hit was cross-domain. Hidden dependencies, validation
 rules, and two parts of the system using different words for things that
 overlapped. Ledger account in one place, bank account in the other.
 
-Treating them as one concept would have made the technical solution simpler. That
-was the tempting path. The information I was given up front was wrong on this
-point, an investigation outcome was missing, and the question came back several
-times. An API contract decision was sitting on top of it, which is a bad place to
-be guessing.
+Treating them as one concept would have made the technical solution simpler.
+That was the tempting path. The information I was given up front was wrong on
+this point, an investigation outcome was missing, and the question came back
+several times. An API contract decision was sitting on top of it, which is a bad
+place to be guessing.
 
 I built a bridge between the two concepts instead. It kept the design and the
 implementation simple, it resolved, and it cost rework getting there. It only
@@ -101,16 +101,17 @@ the code.
 That used to be survivable. Now a thin brief costs a fan-out of agents building
 confidently on the guess.
 
-Brooks called this conceptual integrity and wanted a system designed as if by one
-mind. His mechanism was a small team around a chief architect. Very few of us
-work that way. Fifty years on we call it a ubiquitous language, which in practice
-is an agreement rather than a mechanism.
+Brooks called this conceptual integrity and wanted a system designed as if by
+one mind. His mechanism was a small team around a chief architect. Very few of
+us work that way. Fifty years on we call it a ubiquitous language, which in
+practice is an agreement rather than a mechanism.
 
 An agent will not paper over that gap the way a person does. In my experience it
 gets confused instead.
 
 A grounding agent helps, used properly. It goes and checks what a brief claims
-against the code, instead of waiting for someone to volunteer the missing detail.
+against the code, instead of waiting for someone to volunteer the missing
+detail.
 
 ## The part nobody upstream sees
 
@@ -123,8 +124,8 @@ It does not work like that. A senior engineer absorbs the gap. The investigation
 that should have happened gets done anyway, the call that should have been made
 at kick-off gets made, and the work ships. It looks like it worked.
 
-The cross-domain case above is exactly that. It resolved, so from the outside the
-process looks healthy.
+The cross-domain case above is exactly that. It resolved, so from the outside
+the process looks healthy.
 
 That is Brooks on key people, arriving from a direction he did not predict. The
 scarce person is not the one who writes the most code. It is the one whose quiet
@@ -138,16 +139,18 @@ next agent.
 
 The oldest point in the book, still biting, in the year we automated the typing.
 
-It is also why I am building an AI native software development lifecycle, one that
-puts domain context into a knowledge base instead of a chat history. It is work in
-progress. I have no results to report yet, and I am not going to pretend
+It is also why I am building an AI native software development lifecycle, one
+that puts domain context into a knowledge base instead of a chat history. It is
+work in progress. I have no results to report yet, and I am not going to pretend
 otherwise.
 
 ## References
 
-- Frederick P. Brooks Jr, The Mythical Man-Month, 1975, and No Silver Bullet, 1986.
-- Jason Gorman, The Bluffer's Guide to The Mythical Man-Month, Codemanship, 2023.
+- Frederick P. Brooks Jr, The Mythical Man-Month, 1975, and No Silver Bullet,
+  1986.
+- Jason Gorman, The Bluffer's Guide to The Mythical Man-Month, Codemanship,
+  2023.
 - Wes McKinney, The Mythical Agent-Month, O'Reilly Radar, 2026.
 - Murat Demirbas, Agentic AI and The Mythical Agent-Month, January 2026.
-- METR, Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer
-  Productivity, 2025.
+- METR, Measuring the Impact of Early-2025 AI on Experienced Open-Source
+  Developer Productivity, 2025.

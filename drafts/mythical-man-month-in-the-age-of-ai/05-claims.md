@@ -23,7 +23,7 @@ Revision 5 changes, applied 2026-08-27.
 
 | Line | Sentence | Source | Note |
 | --- | --- | --- | --- |
-| 28 | "I read the book for the first time because of that meeting, in 2024." | A21 | Q21 resolved the conflict. 2024 is the first read. A2's "last year" was loose. |
+| 28 | "I read the book for the first time because of that meeting." | A2, A3 | The year was added in revision 5 and cut in revision 7 on Alex's disclosure ruling. A21 settled 2024 as the truth; it is not published. |
 | 45 to 62 | The whole parallel execution passage: parallel is not the risk, it should be the default with sequential the exception; what burns people is agents hitting unresolved dependencies and hidden complexity; the two conditions, an agent-ready single source of truth and human judgment at both ends; "not rocket science, just clean architecture" | A22 | A22 verbatim in substance, compressed into short paragraphs. Every clause maps to one in the answer. Nothing added. |
 
 Removed in revision 5: "Decomposition was always a good skill. It matters more

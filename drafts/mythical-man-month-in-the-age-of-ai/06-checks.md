@@ -1058,3 +1058,20 @@ BLOCKED: 0 unsourced, 0 misattributed, 0 drifted, 0 uncited, 1 unresolved
 disclosure hit. Draft and published file are byte-identical. All six Gate 2
 rulings are honoured. 0 sections GENERIC, down from 1. The single open item is one
 word from Alex on the year at line 29.
+
+## Gate 2 addendum, 2026-08-27
+
+Round 5's single blocker is closed. Alex ruled `cut` on the year.
+
+| Row | Decision | What was done |
+| --- | --- | --- |
+| "in 2024" on the first-read sentence | cut | The year is gone. This restores the Gate 2 "generalise, by removal" ruling on that sentence, which adding a year had partly reversed, and it takes the year back out of the combination assessed on the row below. A21 stays in the record as the true answer, it is just not published. |
+
+The combination row is back to what it was when it was cleared: over six months,
+the two account nouns and an API contract decision, with no year and no work
+named.
+
+Formatting pass at the same time. Every prose paragraph in the post is reflowed
+to a single consistent width, list continuations are indented under their
+markers, and no ragged or orphan lines survive. This is source formatting only.
+It changes no rendered word.
