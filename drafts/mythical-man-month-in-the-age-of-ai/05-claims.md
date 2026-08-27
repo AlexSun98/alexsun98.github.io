@@ -11,6 +11,7 @@ New in revision 3, and their sources:
 | --- | --- | --- | --- |
 | 6 | Front matter, rewritten | A3, A4, A5, A13 | The previous description carried "after a year of handing work to agents", which no interview line supports. Removed. |
 | 15 | "Which tells you how closely anyone was holding that number." | A5 | Commentary on A5's "I can't remember", not a new fact. |
+| 30 | "a batch job that had to finish inside a fixed window" | REMOVED | Gate 2, delegated ruling. Cut to break the combination risk. |
 | 30 | "the kind of deadline that does not negotiate" | REMOVED | Round 3 flagged it. The aside asserted a hard deadline that A2 does not contain, and it narrowed the disclosure risk on that line. The ledger row previously claimed it carried no new fact, which was wrong. Cut. |
 | 36 | "I went back with one question. Is this outdated in the age of AI?" | A13 | A13 verbatim in substance. |
 | 38 | "You can get Brooks's big ideas off any summary site in ninety seconds" | 01-source, web cross check | Verified against the summary sites listed there. |

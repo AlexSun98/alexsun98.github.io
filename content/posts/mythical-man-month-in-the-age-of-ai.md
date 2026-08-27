@@ -25,8 +25,7 @@ about how to finish.
 We did the right thing and the schedule went exactly where it was always going.
 Not adding people is not a plan. It is the absence of one specific mistake.
 
-I read the book for the first time because of that meeting. It was during work on
-a batch job that had to finish inside a fixed window.
+I read the book for the first time because of that meeting.
 
 ## Why I went back to it
 
@@ -43,10 +42,9 @@ cut up before an agent ever touches it.
 
 ## More agents is not the problem
 
-There is a good argument going around that agents make Brooks worse. Wes McKinney
-calls it the agentic tar pit: parallel sessions produce code faster than humans
-can review it. His conclusion is that the people who do well will not be the ones
-running the most parallel sessions.
+Wes McKinney calls it the agentic tar pit: parallel sessions produce code faster
+than humans can review it. His conclusion is that the people who do well will not
+be the ones running the most parallel sessions.
 
 He is burning ten billion tokens a month. I have opinions. Weigh accordingly.
 
@@ -56,30 +54,14 @@ rework by hand. The fix for that is not fewer agents. It is a cleaner cut.
 
 Decomposition was always a good skill. It matters more now than it did.
 
-Worth adding that nobody has clean numbers here. A 2025 METR trial found
-experienced developers were about nineteen per cent slower with AI assistance,
-while believing they had been faster. That is not a comfortable result for
-either side of this argument.
-
-## The brief is where it goes wrong
+## Two words for the same thing
 
 Which moves the problem upstream, into the part of the process that has not
-changed at all.
+changed at all. The briefs I work from are often too high level. Design
+considerations missing. Architectural decisions clearly made somewhere, written
+down nowhere. Feedback arriving after the decisions it should have shaped.
 
-The briefs I work from are often too high level. Design considerations missing.
-Architectural decisions clearly made somewhere, written down nowhere. Feedback
-arriving after the decisions it should have shaped.
-
-Requirements reviews and technical kick-offs run in silence.
-
-This is not a complaint about one function. A room where nobody argues is not
-agreement. It is a room where the disagreement has been handed to whoever writes
-the code.
-
-That used to be survivable. A thin brief cost one developer some guessing. Now it
-costs a fan-out of agents building confidently on the guess.
-
-## Two words for the same thing
+Here is what that costs.
 
 The clearest case I have hit was cross-domain. Hidden dependencies, validation
 rules, and two parts of the system using different words for things that
@@ -94,6 +76,14 @@ be guessing.
 I built a bridge between the two concepts instead. It kept the design and the
 implementation simple, it resolved, and it cost rework getting there. It only
 came up because our shared vocabulary has inconsistencies in it.
+
+None of that was in the brief, and the meetings where it should have surfaced ran
+in silence. Requirements reviews and technical kick-offs both. This is not a
+complaint about one function. A room where nobody argues is not agreement. It is
+a room where the disagreement has been handed to whoever writes the code.
+
+That used to be survivable. Now a thin brief costs a fan-out of agents building
+confidently on the guess.
 
 Brooks called this conceptual integrity and wanted a system designed as if by one
 mind. His mechanism was a small team around a chief architect. Very few of us

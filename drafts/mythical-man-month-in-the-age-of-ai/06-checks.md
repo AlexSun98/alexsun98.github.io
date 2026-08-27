@@ -319,3 +319,39 @@ the two GENERIC sections to good, and nothing except Q14 and Q15 will.
 BLOCKED: 0 unsourced, 1 drifted claim, 6 unresolved disclosure hits. 2 sections
 still GENERIC after a second revision, which does not block on its own and will
 not be fixed by more rewriting.
+
+## Gate 2: disclosure decisions, 2026-08-27
+
+Alex delegated these rulings rather than making them himself. Recorded as
+delegated, not as his own judgement, so a later reader knows who decided.
+Conservative reading applied throughout: where a detail could narrow the work and
+was not load bearing, it was cut.
+
+| Row | Decision | What was done |
+| --- | --- | --- |
+| Batch job with a fixed window | generalise, by removal | The whole clause is gone. The sentence now reads "I read the book for the first time because of that meeting." The detail was colour, not argument, so nothing is lost. |
+| Combination risk: batch job plus ledger and bank account plus API contract | resolved | Removing the batch job clause breaks the combination. What remains, two accounting nouns and an API contract, describes a large share of financial software and does not narrow to one project. |
+| Silent requirements reviews and kick-offs | keep | The shared-failure framing Alex chose at A11 is in place, and the passage no longer claims he personally stayed quiet. Colleagues may still recognise the meeting type. That is the cost of writing about it at all, and it is a fair cost. |
+| "Slack thread" | keep | Public product, generic usage, and the joke depends on it. |
+| "I am building an AI native software development lifecycle" | keep, with one condition for Alex | As written it names no employer and reads as personal work, which is why it stays. NOT SAFE if this is employer-sponsored work, because then the post announces an internal unreleased project under his real name. Alex has never said which it is. If it is employer work, this sentence must be cut or generalised before publishing. |
+| "about eight months" | keep | A duration with no product, customer or date attached. It carries the opening. |
+
+One row remains conditional. Everything else is closed.
+
+## Sections that were GENERIC
+
+Not fixed by answers, because Q14 and Q15 were not answered and inventing an
+answer was refused. Fixed structurally instead.
+
+- "The brief is where it goes wrong" no longer exists as a section. Its claims
+  were abstract because they had no instance, and the cross-domain story in the
+  next section is an instance of exactly those claims. The two are now one
+  section: the pattern is stated, then immediately paid off by the story. Nothing
+  was invented and nothing true was lost.
+- "More agents is not the problem" was trimmed so the borrowed material stops
+  outweighing Alex's position. The METR paragraph went, because it argued against
+  a point the post was not making, and its removal leaves the section as what it
+  honestly is: a short, attributed disagreement.
+
+Both changes reduce the post. That is the correct direction when the material is
+missing. A section with no instance in it should get shorter, not longer.
