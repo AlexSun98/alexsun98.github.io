@@ -372,3 +372,12 @@ the project still ran over.
 Not written, because nothing in the interview supports it: any claim about
 whether that project rescheduled or trimmed scope. Worth asking Alex.
 
+REVERTED on Alex's instruction, 2026-08-27: "revert the content change for this
+one pls". The four-options paragraph is out and the earlier wording is back. A25
+stays in the record, verified, so the material is one command away if he wants it.
+
+Flagged, because it matters: the restored line says the law "says nothing about
+how to finish", and by A25 and by the book that is false. The honest options are
+to reinstate the correction, or to cut the sentence rather than publish a claim
+Alex himself has disproved. His call.
+

@@ -22,19 +22,8 @@ at the start.
 Brooks, 1975: adding manpower to a late software project makes it later. Fifty
 years of quotation later, it still holds up.
 
-He introduces it with three words most people skip. "Oversimplifying
-outrageously." That is his own verdict on his most famous line.
-
-The passage around it lists four options, not one. Add people, on the assumption
-the early estimates were wrong. Add more, on the assumption all of them were.
-Reschedule, taking no small slips. Or trim the task.
-
-The last two are the how-to-finish, and they are right there on the page. Brooks
-is blunt about refusing to choose: the task gets trimmed anyway, by hasty design
-and skipped testing.
-
-The half of the book everyone quotes is the half that stops a decision. The half
-that requires one gets left behind.
+It is also only half a sentence. It tells you what not to do. It says nothing
+about how to finish.
 
 We did the right thing and the schedule went exactly where it was always going.
 Not adding people is not a plan. It is the absence of one specific mistake.
