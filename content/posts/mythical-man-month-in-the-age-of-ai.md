@@ -109,9 +109,10 @@ practice is an agreement rather than a mechanism.
 An agent will not paper over that gap the way a person does. In my experience it
 gets confused instead.
 
-A grounding agent helps, used properly. It goes and checks what a brief claims
-against the code, instead of waiting for someone to volunteer the missing
-detail.
+I use a grounding agent for this, and it earns its place when I use it properly.
+I have it check what a brief claims against the code, rather than wait for
+someone to volunteer the missing detail. It is not a replacement for the
+meeting. It is what I do when the meeting produces nothing.
 
 ## The part nobody upstream sees
 

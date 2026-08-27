@@ -5,6 +5,14 @@ the Codemanship Bluffer's Guide shape: short paragraphs, named subheads, dry
 asides. No new factual claims were added in the restructure. The asides are
 commentary on facts already sourced below.
 
+Revision 8 changes, applied 2026-08-27.
+
+| Line | Sentence | Source | Note |
+| --- | --- | --- | --- |
+| grounding agent passage | "I use a grounding agent for this ... It is what I do when the meeting produces nothing." | A7, A23, A6 | Rewritten in first person on Alex's instruction at A23. A7 supplies the tool and the "if used properly" hedge. A6 supplies the silent meetings the last sentence points at. Flagged for four rounds as the drafter's synthesis; now it is his claim, made deliberately. |
+| Title | "The Mythical Man-Month, is this outdated in the age of AI?" | A13, Alex | Final wording. |
+| Cover | no new cover art | A24 | Existing cover kept. |
+
 Revision 6 changes, applied 2026-08-27.
 
 Alex asked for a warmer opening. The warmth is carried by two added sentences,

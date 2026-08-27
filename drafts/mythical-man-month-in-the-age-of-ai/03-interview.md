@@ -330,3 +330,21 @@ you read it while working on the optimisation work "last year", which from the
 year, because asserting a year the interview contradicts is worse than omitting
 one.
 A:
+
+### Q23 [r5] [synthesis] grounding agent sentence
+Q: The sentence describing what a grounding agent does was the drafter's wording,
+not yours. A7 only says a grounding agent does a good job if used properly. Keep,
+reword or cut?
+A23: "reword using 1st person." Alex chose first person, which authorises the
+sentence as his own practice rather than a general description of the tool.
+
+Written as: he uses one, it earns its place when used properly, he has it check
+what a brief claims against the code, and it is what he does when the meeting
+produces nothing. The hedge from A7, "if used properly", is kept because it is
+his. The last two sentences tie it to the silent meetings in A6.
+
+### Q24 [gate 3] cover
+Q: Custom cover art, or leave the procedural fallback?
+A24: "keep the current cover." No new cover art. The existing partial on this
+branch stays as it is.
+
