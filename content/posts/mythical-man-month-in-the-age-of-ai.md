@@ -26,7 +26,7 @@ about how to finish.
 We did the right thing and the schedule went exactly where it was always going.
 Not adding people is not a plan. It is the absence of one specific mistake.
 
-I read the book for the first time because of that meeting.
+I read the book for the first time because of that meeting, in 2024.
 
 ## Why I went back to it
 
@@ -50,11 +50,22 @@ running the most parallel sessions.
 
 He is burning ten billion tokens a month. I have opinions. Weigh accordingly.
 
-I disagree. Parallel execution works for me. What makes rework expensive is
-dependencies and hidden complexity, and rework with an agent can cost more than
-rework by hand. The fix for that is not fewer agents. It is a cleaner cut.
+Yes and no. Parallel execution is not the risk. It should be the default now,
+with sequential demoted to the exception.
 
-Decomposition was always a good skill. It matters more now than it did.
+What burns people is turning agents loose on dependencies and hidden complexity
+that nobody resolved first. That is where rework with an agent costs more than
+rework by hand.
+
+Two conditions make it work.
+
+One, a single source of truth that is genuinely agent-ready. Clean decomposition
+up front, every dependency resolved before an agent touches a line.
+
+Two, human judgment anchored at both ends. Full control of what goes in, and a
+firm gate before anything is delivered.
+
+That is not rocket science. It is just clean architecture.
 
 ## Two words for the same thing
 

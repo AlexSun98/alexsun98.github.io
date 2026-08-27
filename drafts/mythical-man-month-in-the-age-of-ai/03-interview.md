@@ -245,7 +245,30 @@ DRIFTED.
 Q: The reread. A1 says you are re-reading it and asked to be honest about that.
 A2b says you reread all ten points. Which is true right now: finished, or still
 going?
-A:
+A21: "2024 was the first read." The year is settled. A2's "last year" was loose,
+said in a 2026 session about a 2024 read. The post now carries 2024 and the
+reread is two years later.
+
+### Q22 [r2] [generic] section "More agents is not the problem"
+Q: Q14 asked for one real fan-out. Instead Alex gave the position in full, which
+is better for this section than an anecdote would have been.
+A22, verbatim: "Yes and no. Parallel execution isn't the risk - it should
+actually be our default mode in the age of AI, with sequential execution demoted
+to the exception. Where people get burned isn't from using too many agents; it's
+from letting agents hit dependencies and hidden complexity unprepared, where AI
+rework suddenly costs more than human rework. To make parallel agents work, you
+need two strict conditions: first, a single source of truth that is truly
+'agent-ready' - meaning clean upfront decomposition with every dependency
+resolved before an agent touches a single line. Second, crisp human judgment
+anchored at both ends: total control over the initial input, and a firm last gate
+before delivery. That's not rocket science; it's just clean architecture."
+
+This closes the GENERIC finding on that section. It is not a story, and it does
+not need to be. It is a mechanism, stated by the person who uses it, and it is a
+sharper disagreement with McKinney than the previous three sentences were. His
+claim was that the winners will not be the ones running the most parallel
+sessions. Alex's claim is that parallel should be the default and the preparation
+is what decides whether it works.
 
 ### Q13 [r2] [drifted] line 40
 Q: The draft says you went back to the book because you had started handing work
