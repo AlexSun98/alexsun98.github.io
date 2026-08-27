@@ -7,13 +7,15 @@ description: "Someone put The Mythical Man-Month in front of the room to stop mo
 ---
 
 I still remember someone proposing to add people to a project that was already
-late. Someone else said no, and told the room to go and read The Mythical
-Man-Month.
+late. It is a reasonable instinct, and a generous one. The work is behind, so
+find more hands.
+
+Someone else said no, and told the room to go and read The Mythical Man-Month.
 
 Nobody was added. The book won the argument.
 
-The project took over six months, and I cannot remember what we said it would
-take at the start.
+The project took over six months. I cannot remember what we said it would take
+at the start.
 
 ## Being right is not the same as being on time
 

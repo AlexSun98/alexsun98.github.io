@@ -5,6 +5,20 @@ the Codemanship Bluffer's Guide shape: short paragraphs, named subheads, dry
 asides. No new factual claims were added in the restructure. The asides are
 commentary on facts already sourced below.
 
+Revision 6 changes, applied 2026-08-27.
+
+Alex asked for a warmer opening. The warmth is carried by two added sentences,
+"It is a reasonable instinct, and a generous one. The work is behind, so find
+more hands." They characterise the instinct, not the person, and add no fact
+about the meeting, the project or anyone in the room.
+
+Nothing about how Alex felt was added. A3 records what happened in that meeting
+and nothing about anyone's state of mind, so any warmth of that kind would have
+to come from him.
+
+The three-paragraph opening is now four, with the colleague's refusal on its own
+line so the good-faith sentence does not crowd it.
+
 Revision 5 changes, applied 2026-08-27.
 
 | Line | Sentence | Source | Note |
