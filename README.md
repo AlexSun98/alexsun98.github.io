@@ -32,7 +32,12 @@ Changes go through a pull request:
 
 ## Writing a post
 
-One markdown file per post in `content/posts/`:
+To turn a Notion draft or research notes into a post, use the `write-post`
+skill (`.claude/skills/write-post/`). It runs intake, an outline, two interview
+rounds that pull in your own experience, a sourced draft, and a check pass with
+a disclosure gate. Working files land in a gitignored `drafts/<slug>/` folder.
+
+By hand, it is one markdown file per post in `content/posts/`:
 
 ```markdown
 ---
