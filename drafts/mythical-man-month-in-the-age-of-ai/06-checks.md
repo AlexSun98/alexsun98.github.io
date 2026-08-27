@@ -333,10 +333,10 @@ was not load bearing, it was cut.
 | Combination risk: batch job plus ledger and bank account plus API contract | resolved | Removing the batch job clause breaks the combination. What remains, two accounting nouns and an API contract, describes a large share of financial software and does not narrow to one project. |
 | Silent requirements reviews and kick-offs | keep | The shared-failure framing Alex chose at A11 is in place, and the passage no longer claims he personally stayed quiet. Colleagues may still recognise the meeting type. That is the cost of writing about it at all, and it is a fair cost. |
 | "Slack thread" | keep | Public product, generic usage, and the joke depends on it. |
-| "I am building an AI native software development lifecycle" | keep, with one condition for Alex | As written it names no employer and reads as personal work, which is why it stays. NOT SAFE if this is employer-sponsored work, because then the post announces an internal unreleased project under his real name. Alex has never said which it is. If it is employer work, this sentence must be cut or generalised before publishing. |
-| "about eight months" | keep | A duration with no product, customer or date attached. It carries the opening. |
+| "I am building an AI native software development lifecycle" | keep, closed by Alex | Raised as conditional and then closed by Alex on 2026-08-27, A20: the term is common in the industry and he is happy to use it. No employer is named and the sentence describes the work, not an internal programme. |
+| "over six months" | keep | A duration with no product, customer or date attached. Alex corrected the figure from nearly eight months to over six on 2026-08-27, recorded as A5b. |
 
-One row remains conditional. Everything else is closed.
+All six rows are closed. Gate 2 is complete.
 
 ## Sections that were GENERIC
 
@@ -355,3 +355,357 @@ answer was refused. Fixed structurally instead.
 
 Both changes reduce the post. That is the correct direction when the material is
 missing. A section with no instance in it should get shorter, not longer.
+
+## Final verification, round 4
+
+Run by a fresh agent with no sight of the drafting conversation or of rounds 1
+to 3 as they happened. Findings only, nothing fixed. Line numbers refer to
+`04-draft.md` as it stands now, 974 words across six body sections.
+
+Two things were checked that the earlier rounds did not check: whether the Gate 2
+rulings match what the draft now says, and whether the file that actually
+publishes, `content/posts/mythical-man-month-in-the-age-of-ai.md`, matches the
+draft. The second check is where this round found its real problems.
+
+### Gate 2 rulings against the current draft
+
+| Gate 2 row | Ruling | Draft now | Verdict |
+| --- | --- | --- | --- |
+| Batch job with a fixed window | generalise, by removal | Line 28 reads "I read the book for the first time because of that meeting." Grep for "batch", "window", "pay run" returns nothing in the draft. | Honoured. |
+| Combination: batch job plus ledger and bank account plus API contract | resolved by removing the batch job | Ledger account, bank account and the API contract survive at lines 68 and 73. The batch job is gone, so the combination is broken as the ruling says. | Honoured. |
+| Silent requirements reviews and kick-offs | keep | Present, but moved. In revision 3 this was a general present-tense pattern in its own section. It now sits at lines 80 to 81 inside the cross-domain story, as "the meetings where it should have surfaced ran in silence". | Honoured in substance, changed in form. See N9. The ruling was made against a general statement. The draft now reads as a statement about one project's meetings, which is the recognition risk the row was about. |
+| "Slack thread" | keep | Line 119. | Honoured. |
+| "I am building an AI native software development lifecycle" | keep, closed by Alex, A20 | Line 125, unchanged. | Honoured. The round 3 row also matched "A grounding agent" at what is now line 96. The Gate 2 row names only the lifecycle sentence. A20's reasoning covers the grounding agent too, but nobody wrote that down. |
+| "over six months" | keep | Line 14, "The project took over six months". | Honoured in the draft. Not honoured in the published file. See F1. |
+
+The round 3 row also matched "We were late anyway" in the front-matter
+description. The Gate 2 row discusses only the duration. The phrase is still at
+line 6. Reading `keep` as covering both halves of the row is reasonable and is
+what appears to have happened.
+
+No new disclosure hits in the draft. No ticket keys, no employer, no product, no
+internal host, no colleague name, no code block. One new hit in the published
+file, listed in pass 3.
+
+### The duration correction
+
+The draft, the ledger and the Gate 2 table agree on "over six months".
+
+- Draft line 14: "The project took over six months".
+- Ledger revision 2 table, row for line 13, cites A5 and A5b and says the
+  corrected figure is used.
+- `03-interview.md` lines 70 to 73 record A5b in Alex's words.
+- Gate 2 row: "over six months", with the correction attributed and dated.
+- Front matter carries no duration at all, so nothing to go stale there.
+
+Two stale survivors, neither in published text:
+
+- `05-claims.md` line 96, under "Still deliberately not written": "Any planned
+  duration for the eight-month project." That is a live statement about the
+  current post, not a round record, and it still says eight months.
+- `06-checks.md` lines 198 and 297 say "eight months". Those are the round 3
+  record and should stay as written. A record of what was true then is not a
+  stale figure.
+
+### The section merge
+
+"The brief is where it goes wrong" is gone and its material sits inside "Two
+words for the same thing". Claim by claim, nothing was orphaned:
+
+| Claim from the deleted section | Where it is now |
+| --- | --- |
+| "Which moves the problem upstream, into the part of the process that has not changed at all." | Lines 59 to 60, opening the merged section. |
+| "The briefs I work from are often too high level" and the three fragments after it | Lines 60 to 62, unchanged. |
+| "Requirements reviews and technical kick-offs run in silence." | Reworded into lines 80 to 81. |
+| "This is not a complaint about one function ... handed to whoever writes the code." | Lines 81 to 83, unchanged. |
+| "That used to be survivable. A thin brief cost one developer some guessing. Now it costs a fan-out of agents building confidently on the guess." | Lines 85 to 86. The middle sentence was dropped, which is the right call: round 3 marked it as replacing an invented unit with nothing measurable. |
+
+The merge did not lose a claim. It did create one new sentence and it did leave
+two transitions damaged. N9, N10, N11 and N12 below.
+
+The METR paragraph is gone from the body. Its References entry survives at lines
+136 to 137. That is a reference with nothing citing it, which the procedure does
+not forbid. Its ledger row is now orphaned. See N13.
+
+### Pass 1: sourcing
+
+Twenty-four draft lines carry first person, front matter included. Twenty-three
+have a ledger row. One does not.
+
+#### Blocking, in the draft
+
+- **BLOCKING UNSOURCED  line 25**  "We did the right thing and the schedule went
+  exactly where it was always going."  No ledger row, in either table. Grep for
+  "right thing" and "schedule went" across `05-claims.md` returns nothing. The
+  sentence is first person plural about the team, so it is inside the pass 1
+  net. Round 3 reported "every one has a ledger row", and its voice pass listed
+  six team plurals when there are seven, so this line was missed twice.
+  Substance check: both halves are supported by A4, nobody was added and the
+  project ran far over. The gap is the ledger row, not the claim. The fix is one
+  row, not a cut. It still blocks under the written rule, and the written rule is
+  the reason two earlier rounds caught invented material.
+
+#### Blocking, in the file that publishes
+
+`content/posts/mythical-man-month-in-the-age-of-ai.md` is modified in the working
+tree and no longer matches `04-draft.md`. The committed version at 6973bfb does
+match. Someone has round-tripped the working copy through an editor that inserts
+curly quotes, escapes square brackets and leaves trailing double spaces, and made
+content edits inside it that never came back to the draft or the ledger.
+
+The procedure scopes pass 1 to `04-draft.md`. These are reported as blocking
+anyway, because that file is what Hugo renders and the whole point of the gate is
+that nothing unsourced reaches the public site.
+
+- **F1  BLOCKING DRIFTED  published line 13**  "The project took about over 6
+  months."  A stale figure artefact: "about eight months" was edited to "over six
+  months" without removing "about", so the published text now reads "about over
+  6 months". It is ungrammatical and it is the one figure Alex personally
+  corrected. The same edit deleted "Which tells you how closely anyone was
+  holding that number", which has a ledger row at `05-claims.md` line 13.
+
+- **F2  BLOCKING UNSOURCED  published line 21**  "I read the book for the first
+  time because of that meeting on 2024."  The date is new, has no ledger row, and
+  contradicts the record: `03-interview.md` line 28 reads "First read was 2025",
+  derived from A2's "last year" given in an interview dated 2026-08-26. Alex may
+  have corrected himself. Nothing in this folder says so, and 00-state.md's own
+  process note is the rule here: an answer that does not reach the file did not
+  happen.
+
+- **F3  BLOCKING UNSOURCED  published line 9**  "I still remember that someone
+  proposed adding people to a project that was already late."  "I still remember
+  that" is a new first-person memory claim with no ledger row. It is a small
+  claim and A3 supports the underlying event, but it was added outside the
+  ledger, which is exactly the route the invented material took in rounds 1
+  and 2.
+
+- **F4  BLOCKING, front matter  published lines 1 to 8**  The YAML block is
+  destroyed. There is an opening `---` and no closing one, `title:` has become a
+  markdown H2, every value is wrapped in curly quotes, and the tag and category
+  brackets are backslash-escaped. Hugo will not parse this as front matter. The
+  title has also changed to "The book won the argument and the project was still
+  late, is this outdated in the age of AI?" and the date has moved back to
+  2026-08-24. Neither change is recorded anywhere.
+
+  One more content edit rides along, at published line 38: "Now the constraint is
+  how well the work is cut up". Harmless, sourced to A10 option A either way,
+  listed for completeness.
+
+#### Sourced, no action
+
+The twenty-three remaining first-person lines all carry rows and all still say
+what their rows say. Spot-checked against the interview rather than against round
+3's report:
+
+- line 6 front matter, to A3, A4, A13. Unchanged from round 3.
+- line 14, to A5 and A5b, with the corrected figure.
+- line 28, to A2 and A3, now with the batch job clause gone.
+- lines 32, 34, 36 to 37, to A1, A2b, A13, `01-source.md` lines 62 to 64.
+- lines 39 to 41, to A10 option A and A6.
+- lines 49, 51 to 53, to A6 and McKinney.
+- line 60, to A6.
+- lines 66, 71 to 74, 76 to 78, to A7 and A8.
+- lines 93 to 94, to A7.
+- lines 101, 103, 106 to 108, to A10 option C and A6.
+- line 123, reader-inclusive, voice rule 6 allows it.
+- lines 125 to 128, to A9.
+
+No MISATTRIBUTED findings. No first-person sentence points at a `[research]`
+block. No UNCITED findings: Brooks, McKinney and the token figure are attributed
+in the text and carry References entries.
+
+#### Notes, not blocking
+
+- **N9  lines 80 to 81**  "None of that was in the brief, and the meetings where
+  it should have surfaced ran in silence."  New in this revision, created by the
+  merge, and it has no ledger row. Not first person, so it does not block under
+  the procedure, the same call round 3 made on N2. It is the most consequential
+  thing in this round after the published file. It welds two separately sourced
+  claims into one sentence about one project. A7 supports "the upfront info was
+  wrong and an investigation outcome was missing". A6 supports the silent
+  meetings as a general pattern, present tense, no project attached. Nothing in
+  the interview says the meetings on the cross-domain work were silent. In
+  revision 3 the reader met a general complaint. Now the reader meets a specific
+  event that was never described. It should either get a ledger row that admits
+  it is a composite, or go back to the general tense.
+- **N10  line 45**  "Wes McKinney calls it the agentic tar pit."  "It" has no
+  antecedent. The sentence that supplied one, "There is a good argument going
+  around that agents make Brooks worse", was cut this round. The section now
+  opens on a dangling pronoun directly under a heading.
+- **N11  line 51**  "I still disagree."  Same cut, same cause. There is now
+  nothing earlier in the section to be still disagreeing with. The McKinney
+  sentence states a conclusion but the post never frames it as an argument being
+  made at the reader.
+- **N12  line 59**  "Which moves the problem upstream" opens a section as a
+  sentence fragment. Its antecedent, "Decomposition was always a good skill", is
+  on the far side of a heading. This was already awkward in revision 3, where a
+  METR paragraph sat between the two. It is less bad now and still wrong.
+  Related: the heading "Two words for the same thing" does not describe its first
+  two paragraphs, which are about thin briefs. The merged section is carrying the
+  old section's opening under the new section's name.
+- **N13  ledger staleness.**  Confirmed stale, as expected. Every line number in
+  both tables refers to revision 2 or 3. Against the current draft the revision 3
+  table's rows map to lines 6, 15, 28, 34, 36, 49, 89 and 119. The research table
+  maps to 19, 45 and 88, with one row that maps to nothing. Four rows are worse
+  than stale:
+  - Research table line 63, "Nineteen per cent slower while believing they were
+    faster", points at a claim that is no longer in the draft. The METR paragraph
+    was cut. Orphaned row.
+  - The revision 3 table has two rows both labelled line 30, both REMOVED, which
+    reads as a duplicate until you notice they are two different clauses.
+  - Revision 2 table row for line 49 quotes "I disagree with the conclusion, and
+    I have no numbers to put against his." Only the first half survives, as "I
+    still disagree" at line 51.
+  - "Still deliberately not written" line 96 still says "the eight-month
+    project".
+- **N14  References.**  METR is listed and nothing in the body cites it now. Not
+  a procedure violation. Worth a decision rather than an accident.
+- **N15  `03-interview.md` lines 213 to 214.**  There are two "### Q11
+  [disclosure] C1, C6" headings. The first has no content under it and is
+  immediately followed by the Q20 heading. A20 is recorded correctly. The stray
+  heading is record hygiene.
+- Carried unchanged from round 3, all still true: N3 the chief architect and the
+  surgical team compressed into one; N4 the word "only" at line 78; N5 "an
+  agreement rather than a mechanism"; N6 the grounding agent described as
+  behaviour with no instance, Q18 open; N7 "has not changed at all".
+- Resolved by this revision: round 3's N1 and its OVERSOLD entry for "nobody has
+  clean numbers here". The METR paragraph carried that sentence and both are
+  gone.
+
+### Pass 2: voice
+
+#### Mechanical
+
+All clean, verified by grep over the whole file including front matter.
+
+- Em dash, en dash, figure dash, section sign: none.
+- Banned words, full `voice.md` list: none. No "harness" as a verb, no
+  "landscape", no "leverage".
+- Filler openers: none. No "That said," as a paragraph opener.
+- Bold spans: zero in the file.
+- Exclamation marks: zero.
+- Australian spelling: consistent.
+- Sentence length: inside rule 1 throughout.
+
+One rule fires, at slightly higher strength than round 3 reported.
+
+- Lines 6, 14, 25, 39, 78, 89, 90 and 123. **Seven team plurals, not six.** Round
+  3's list missed line 25, "We did the right thing". The team, not the reader:
+  "We were late anyway", "what we said it would take", "We did the right thing",
+  "how fast we could write the code", "our shared vocabulary". Close to
+  reader-inclusive and probably fine: "Very few of us work that way", "we call
+  it", "the year we automated the typing". Voice rule 6 wants first person
+  singular. Non-blocking, unchanged in character since round 2.
+
+#### Section verdicts
+
+Six body sections now, down from seven.
+
+- opening, lines 9 to 15  **SPECIFIC.**  Unchanged except the duration. Still the
+  best material in the post.
+- "Being right is not the same as being on time", lines 17 to 28  **SPECIFIC,
+  borderline.**  Shorter now that the batch job clause is gone. "Not adding
+  people is not a plan. It is the absence of one specific mistake." is still the
+  line that carries the section.
+- "Why I went back to it", lines 30 to 41  **SPECIFIC, borderline.**  Unchanged.
+  Ten points, ninety seconds, six months. No incident, and the post still never
+  says which of the ten points moved. Q12 open.
+- "More agents is not the problem", lines 43 to 55  **GENERIC.**  Improved, not
+  fixed. The cut worked as intended: thirteen lines where there were nineteen,
+  and the borrowed material no longer outweighs Alex's position. What is left is
+  three McKinney sentences, one token aside, and the same three opinion sentences
+  Alex has had since revision 2. There is still no fan-out, no task, no
+  assumption that went unwritten, nothing that came back and had to be repaired.
+  A competent writer with `01-source.md` open and one sentence of Alex's opinion
+  still produces this. Q14 is the fix and it is still unanswered. This is the
+  third round with the same verdict and the note in `03-interview.md` line 110
+  said it first: the answer is a pattern, not a story.
+- "Two words for the same thing", lines 57 to 97  **SPECIFIC.**  The merge did
+  its job. Round 3 marked the brief material ABSTRACT because it described a
+  category with no instance. The instance now follows it in the same section,
+  three paragraphs later. That is the correct structural answer to an unanswered
+  Q15, and it is honest, because nothing was invented to fill the hole. The
+  section is long and it earns the length. Lines 96 to 97 remain a capability
+  description with no instance, Q18 open.
+- "The part nobody upstream sees", lines 99 to 115  **SPECIFIC, borderline.**
+  Unchanged.
+- "Where this actually sits", lines 117 to 128  **SPECIFIC.**  Unchanged.
+
+Count: six body sections, five specific or borderline specific, one GENERIC, zero
+ABSTRACT. Round 3 was seven sections, two GENERIC, and it recorded the brief
+section as ABSTRACT as well. Deleting a section is a blunt fix and in this case it
+was the right one. The post got shorter and more of it is now Alex.
+
+#### OVERSOLD
+
+- lines 96 to 97, the grounding agent. Keeps A7's "used properly" hedge, still
+  never says where it fails. Voice rule 9 wants the concession first. Carried.
+- lines 59 to 60, "the part of the process that has not changed at all."
+  Absolute, rhetorical. Carried.
+- lines 90 to 91, "an agreement rather than a mechanism." Absolute, no source.
+  Carried.
+- Resolved: "nobody has clean numbers here", cut with the METR paragraph.
+
+#### Ending
+
+Not SUMMARY-END. The post lands on the Slack thread and the half-built lifecycle,
+and the last sentence is an admission. Voice rule 10 satisfied. Unchanged.
+
+### Pass 3: disclosure
+
+The draft is clean and Gate 2 is closed. Grep confirms no ticket key, no
+employer, no product name, no internal URL or hostname, no code block, no account
+identifier, no colleague name. Every named person is public.
+
+One new row, and it is in the published file rather than the draft.
+
+| File and line | Matched text | Concern | Decision |
+| --- | --- | --- | --- |
+| `content/posts/...md` line 21 | "because of that meeting on 2024" | A date attached to a work anecdote. The procedure lists dates of unreleased work as a hit, and a year narrows the class of work a colleague would have to sort through. It also partly reverses the Gate 2 ruling on this exact sentence, which was "generalise, by removal" and took narrowing detail out of it. Separately blocking as F2 because it is unsourced and contradicts the record. | pending |
+
+Two Gate 2 rows deserve a second look, neither of them a new hit:
+
+- The silent meetings row was ruled `keep` against a general statement. The
+  passage is now attached to one project. The ruling is probably still what Alex
+  would say. It was not made against this wording.
+- The lifecycle row closed two matched texts with one ruling and only names one
+  of them. A20's reasoning covers the grounding agent as well. Nobody wrote that
+  down.
+
+### Is the post honest
+
+The draft, yes, with two things named out loud.
+
+Every claim in `04-draft.md` traces to something Alex said, and the two rounds
+that found invented material found it in places this round can confirm are still
+empty. The reread motive is A13's question, not a feeling somebody wrote for him.
+The duration is his own correction. The bridge, the two account nouns, the API
+contract and the rework are A7 and A8 almost verbatim. The ending claims no
+results, which is the hardest kind of honesty for a post like this and it holds.
+The two structural fixes in this revision, deleting a section and cutting a
+paragraph, both made the post smaller rather than filling holes with invention.
+That is the right direction and it was done properly.
+
+The two things:
+
+1. Line 80's "the meetings where it should have surfaced ran in silence" is a
+   composite. Both halves are sourced, to different answers, about different
+   scopes. Welded together they tell the reader about an event nobody described.
+   It is a small step and it is the same kind of step that produced the findings
+   the earlier rounds caught: a true general claim getting attached to a specific
+   story because the story needed it.
+2. Line 25 has no ledger row. The claim is true against A4. The record does not
+   say so, and the record is the only thing a checker can see.
+
+The file that would actually publish, no. It carries a mangled duration, a year
+that contradicts the interview, an added memory claim, a changed title and date,
+and front matter Hugo cannot parse. None of that went through the ledger. This is
+not the draft's fault and it is not a small thing: the gate has now been run four
+times on a file that is no longer the file that ships.
+
+### Verdict
+
+BLOCKED: 4 unsourced or drifted claims (1 in the draft, 3 in the published file),
+1 broken front matter block, 1 unresolved disclosure hit. Gate 2 is closed and all
+six of its rulings are honoured in the draft. 1 section still GENERIC, down from
+2, which does not block on its own.

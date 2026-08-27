@@ -1,18 +1,19 @@
 ---
-title: "The book won the argument and the project was still late"
-date: 2026-08-27
+title: "The book won the argument and the project was still late, is this outdated in the age of AI?"
+date: 2026-08-24
 tags: ["Software Engineering", "AI", "Books"]
 categories: ["Engineering"]
 description: "Someone put The Mythical Man-Month in front of the room to stop more people being added to a late project. It worked. We were late anyway. I went back to the book to see what AI has actually changed."
 ---
 
-Someone proposed adding people to a project that was already late. Someone else
-said no, and told the room to go and read The Mythical Man-Month.
+I still remember someone proposing to add people to a project that was already
+late. Someone else said no, and told the room to go and read The Mythical
+Man-Month.
 
 Nobody was added. The book won the argument.
 
-The project took about eight months, and I cannot remember what we said it would
-take at the start. Which tells you how closely anyone was holding that number.
+The project took over six months, and I cannot remember what we said it would
+take at the start.
 
 ## Being right is not the same as being on time
 
@@ -37,18 +38,19 @@ You can get Brooks's big ideas off any summary site in ninety seconds, so I am
 not going to walk you through them. I only care about the parts that changed.
 
 Six months ago I would have told you the constraint was how fast we could write
-the code. I do not believe that any more. The constraint is how well the work is
-cut up before an agent ever touches it.
+the code. I do not believe that any more. Now the constraint is how well the work
+is cut up before an agent ever touches it.
 
 ## More agents is not the problem
 
-Wes McKinney calls it the agentic tar pit: parallel sessions produce code faster
-than humans can review it. His conclusion is that the people who do well will not
-be the ones running the most parallel sessions.
+There is a good argument going around that agents make Brooks worse. Wes McKinney
+calls it the agentic tar pit: parallel sessions produce code faster than humans
+can review it. His conclusion is that the people who do well will not be the ones
+running the most parallel sessions.
 
 He is burning ten billion tokens a month. I have opinions. Weigh accordingly.
 
-I still disagree. Parallel execution works for me. What makes rework expensive is
+I disagree. Parallel execution works for me. What makes rework expensive is
 dependencies and hidden complexity, and rework with an agent can cost more than
 rework by hand. The fix for that is not fewer agents. It is a cleaner cut.
 
@@ -56,7 +58,7 @@ Decomposition was always a good skill. It matters more now than it did.
 
 ## Two words for the same thing
 
-Which moves the problem upstream, into the part of the process that has not
+That moves the problem upstream, into the part of the process that has not
 changed at all. The briefs I work from are often too high level. Design
 considerations missing. Architectural decisions clearly made somewhere, written
 down nowhere. Feedback arriving after the decisions it should have shaped.
@@ -77,8 +79,9 @@ I built a bridge between the two concepts instead. It kept the design and the
 implementation simple, it resolved, and it cost rework getting there. It only
 came up because our shared vocabulary has inconsistencies in it.
 
-None of that was in the brief, and the meetings where it should have surfaced ran
-in silence. Requirements reviews and technical kick-offs both. This is not a
+None of that was in the brief. The meetings where that sort of thing should
+surface run in silence, requirements reviews and technical kick-offs both. This
+is not a
 complaint about one function. A room where nobody argues is not agreement. It is
 a room where the disagreement has been handed to whoever writes the code.
 

@@ -67,9 +67,14 @@ answer. No need to name the project.
 A5: "nearly 8 months? I can't remember." About eight months in the end. The
 original estimate is not remembered.
 
-Use both halves. The post says roughly eight months and says plainly that Alex
-cannot remember what was promised at the start. That is a fact about how the
-estimate was treated, not a hole in the story. Do not invent a planned figure.
+A5b, correction, 2026-08-27: "eight months should be over 6 months". Alex revised
+the figure down after reading the draft. The post now says over six months. A5's
+"nearly 8" was itself hedged with a question mark, so the corrected figure is the
+one to use.
+
+Use both halves. The post says over six months and says plainly that Alex cannot
+remember what was promised at the start. That is a fact about how the estimate was
+treated, not a hole in the story. Do not invent a planned figure.
 
 ### Q6 [no-story] C1
 Q: Now the AI half. Tell me about one time you ran several agents in parallel on
@@ -206,6 +211,14 @@ These two are the spine of the draft. A is the disagreement with the prior art.
 C is the observation nobody else in the field is writing.
 
 ### Q11 [disclosure] C1, C6
+### Q20 [disclosure] closed at Gate 2
+Q: Is the AI native software development lifecycle personal work or employer
+work? As written the sentence reads as personal. If it is employer sponsored, the
+post announces an internal unreleased project under your real name.
+A20: "ai native sdlc is a common term, its okay to use". Alex ruled the term
+generic and cleared the sentence. Disclosure row closed on his instruction.
+
+### Q11 [disclosure] C1, C6
 Q: The framing decision. The post says briefs arrive too thin and that
 requirements reviews and kick-offs run in silence. Three ways to write it: keep
 it as your current workplace, generalise to "teams I have worked in", or write it
@@ -281,4 +294,12 @@ A:
 ### Q19 [r2] [unsourced] line 59
 Q: Have you ever measured your own throughput with and without AI? The draft has
 you saying you never have. True?
+A:
+
+### Q21 [r4] [conflict] opening
+Q: You hand-edited the published file to say you read the book "on 2024". A2 says
+you read it while working on the optimisation work "last year", which from the
+2026 session date is 2025. Which year is right? The post currently carries no
+year, because asserting a year the interview contradicts is worse than omitting
+one.
 A:

@@ -5,6 +5,31 @@ the Codemanship Bluffer's Guide shape: short paragraphs, named subheads, dry
 asides. No new factual claims were added in the restructure. The asides are
 commentary on facts already sourced below.
 
+Revision 4 changes, applied 2026-08-27.
+
+Alex hand-edited the published file. Those edits were kept and reapplied to a
+clean copy, because the file had been round-tripped through an editor that broke
+the front matter and replaced the quotes. Draft and published file are now
+byte-identical, which is the discipline that slipped.
+
+| Line | Sentence | Source | Note |
+| --- | --- | --- | --- |
+| 2 | Title extended with "is this outdated in the age of AI?" | A13 | Alex's own edit, and it matches the question he says he reread with. |
+| 3 | date 2026-08-24 | Alex | His edit, kept. |
+| 9 | "I still remember someone proposing to add people to a project that was already late." | A3 | Alex's edit. A3 is his account of that meeting, so the memory framing is his to make. |
+| 14 | "over six months" | A5b | His correction. He had left "about over 6 months" in the hand edit, which is a slip from applying it in place. Repaired. |
+| 14 | "Which tells you how closely anyone was holding that number." | REMOVED | Alex cut this aside. His call, kept cut. |
+| 41 | "Now the constraint is how well the work is cut up" | A6, A10 A | His edit, adds emphasis only. |
+| 25 | "We did the right thing and the schedule went exactly where it was always going." | A4 | Row added. Round 4 found this sentence had no row in either table, though A4 supports it. Sourcing gap in the ledger, not in the post. |
+| 80 | "None of that was in the brief. The meetings where that sort of thing should surface run in silence." | A7, A6 | Rewritten. The merged version welded a specific brief gap (A7) to a general pattern of silent meetings (A6) and so asserted a specific silent meeting nobody described. Now the brief gap stays specific and the silence stays general. |
+
+REMOVED from the research table: the METR row. That paragraph was cut in
+revision 3 and the row was left pointing at nothing.
+
+STALE: line numbers in the revision 2 and revision 3 tables below. They were
+correct when written and have shifted twice since. Match rows by sentence, not by
+number.
+
 New in revision 3, and their sources:
 
 | Line | Sentence | Source | Note |
@@ -32,7 +57,7 @@ what the interview supports. Nothing was filled in.
 | Line | Sentence, shortened | Source | Note |
 | --- | --- | --- | --- |
 | 6 | Front matter description: colleague put the book in front of the room, nobody added, still very late, rereading it now after a year of agent work | A3, A4, A5, A1, A2b | Front matter is published text and was missing from revision 1's ledger. "Put in front of the room" matches A3, where the colleague told people to read it. It does not say quoted. |
-| 13 | "I cannot remember what we said it would take at the start" | A5 | A5 verbatim: "nearly 8 months? I can't remember." |
+| 13 | "The project took over six months, and I cannot remember what we said it would take at the start" | A5, A5b | A5: "nearly 8 months? I can't remember." A5b corrects the figure to over six months after Alex read the draft. The corrected figure is used. |
 | 30 | "I read the book for the first time because of that meeting." | A2, A3 | A2 places the first read during the work. A3 gives the meeting as the trigger. |
 | 30 | "work on a batch job that had to finish inside a fixed window" | A2 | Generalised from the work named in A2 under the high-level rule. Disclosure row open, Alex rules. |
 | 35 | "I am rereading it now. I have been back through the ten points I took notes on the first time, and back through the notes." | A1, A2b | Both halves now stated. A1 says the reread is in progress. A2b says the ten points and the notes were covered. Revision 1 dropped A1 and the checker flagged it. Q12 still open. |
@@ -60,7 +85,6 @@ what the interview supports. Nothing was filled in.
 | --- | --- | --- |
 | 17 | Brooks's Law, 1975 wording | Brooks, The Mythical Man-Month |
 | 45 | The agentic tar pit, and the conclusion about parallel sessions | Wes McKinney, The Mythical Agent-Month |
-| 50 | Nineteen per cent slower while believing they were faster | METR 2025 trial |
 | 94 | Conceptual integrity, designed as if by one mind | Brooks |
 | 119 | Brooks on key people | Brooks |
 
@@ -93,7 +117,7 @@ Cut because the checker found no source, rather than filled in:
 
 ## Still deliberately not written
 
-- Any planned duration for the eight-month project. A5 does not remember it.
+- Any planned duration for the project. A5 does not remember it.
 - Any count of agents, tokens, or measured speedup.
 - Any claim that the AI native SDLC works, or that the grounding agent has run
   on real work. Q18 open.
