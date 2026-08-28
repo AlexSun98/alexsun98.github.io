@@ -3,6 +3,7 @@ title: "The Mythical Man-Month, is this outdated in the age of AI?"
 date: 2026-08-24
 tags: ["Software Engineering", "AI", "Books", "Reflection", "Mythical Man-Month"]
 categories: ["Engineering"]
+pinned: true
 description: "Brooks’s law was supposed to die in the age of AI. After six months of daily human-agent work, I went back to the book. It hasn’t aged at all."
 ---
 ## Why I Went Back To It

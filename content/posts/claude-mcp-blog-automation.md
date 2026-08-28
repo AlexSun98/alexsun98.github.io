@@ -3,7 +3,6 @@ title: "One-command blogging with Claude and MCP: from idea to deployed post"
 date: 2026-07-10
 tags: ["AI", "Claude", "MCP", "Automation"]
 categories: ["AI"]
-pinned: true
 description: "Wiring Claude to a set of MCP servers so a single prompt drafts a post, commits it, deploys the site, and verifies the result in a real browser."
 ---
 
