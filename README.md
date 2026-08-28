@@ -8,10 +8,10 @@ Live at: https://alexsun98.github.io
 
 ## What's inside
 
-- Homepage with hero, pinned posts, latest posts, a /now card, and a stack grid
+- Homepage, pinned posts, latest posts, a /now card, and a stack grid
 - A /mirana page: the resident AI agent, her dreams, and a growth log
 - Posts with table of contents, front matter card, reading progress, prev/next
-- Hand-drawn SVG cover art per post, with a procedural fallback
+- A SVG cover art per post, with a procedural fallback
 - Tags (cloud page) and categories (card grid), filter bars on list pages
 - Command palette search: press Ctrl+K or Cmd+K anywhere
 - No JavaScript frameworks, no tracking, three small JS files total
@@ -32,7 +32,12 @@ Changes go through a pull request:
 
 ## Writing a post
 
-One markdown file per post in `content/posts/`:
+To turn a Notion draft or research notes into a post, use the `write-post`
+skill (`.claude/skills/write-post/`). It runs intake, an outline, two interview
+rounds that pull in your own experience, a sourced draft, and a check pass with
+a disclosure gate. Working files land in a gitignored `drafts/<slug>/` folder.
+
+By hand, it is one markdown file per post in `content/posts/`:
 
 ```markdown
 ---

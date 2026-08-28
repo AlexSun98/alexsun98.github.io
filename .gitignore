@@ -16,3 +16,9 @@ Thumbs.db
 
 # Generated study skill (derived from a third-party paper, stays local)
 .claude/skills/self-evolving-coding-agents/
+
+# Generated study skill (derived from a copyrighted book, stays local)
+.claude/skills/brooks-mythical-man-month/
+
+# Post workspaces: raw source, interview answers, drafts in progress
+/drafts/
