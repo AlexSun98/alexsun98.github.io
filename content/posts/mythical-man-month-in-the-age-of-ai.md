@@ -1,157 +1,90 @@
 ---
 title: "The Mythical Man-Month, is this outdated in the age of AI?"
 date: 2026-08-24
-tags: ["Software Engineering", "AI", "Books", "Reflection"]
+tags: ["Software Engineering", "AI", "Books", "Reflection", "Mythical Man-Month"]
 categories: ["Engineering"]
-description: "Someone put The Mythical Man-Month in front of the room to stop more people being added to a late project. It worked. We were late anyway. I went back to the book to see what AI has actually changed."
+description: "Brooks’s law was supposed to die in the age of AI. After six months of daily human-agent work, I went back to the book. It hasn’t aged at all."
 ---
-
+## Why I Went Back To It
 I still remember someone proposing to add people to a project that was already
-late. It is a reasonable instinct, and a generous one. The work is behind, so
-find more hands.
+late. It is a reasonable instinct, the work is behind, so find more hands. Someone 
+else stepped in and mentioned Brook's *The Mythical Man-Month*. Nobody was added. 
+The book won the argument. The project took over a few more months. I cannot remember 
+what we said it would take at the start.
 
-Someone else said no, and told the room to go and read The Mythical Man-Month.
+I am rereading it now, along with the ten points I noted on the first time.
+But this time, I went back with one specific question "Is Brooks’s law outdated in the age of AI"?
 
-Nobody was added. The book won the argument.
+Six months ago I would have told you the Brook's law was changing, but after intensive daily 
+practice of human-AI collaboration since Feb 2026, I've completely changed my mind. 
+The book hasn't aged out, pretty much every single one comes back in a new way, spinning up ten 
+subagents to finish in an hour is just 1975’s "add ten developers to finish it in a month", running 
+3 parallel AI sessions for multiple approaches is 1975’s "send three teams down different paths", handing 
+a project end-to-end to an autonomous agent is exactly "outsource it all and lose conceptual integrity" in 1975.
 
-The project took over six months. I cannot remember what we said it would take
-at the start.
+You can easily get Brooks's big ideas off any summary website in 90 seconds, so I won't walk 
+you through them again here. My focus is more on the parts where AI directly impacts his principles.
 
-## Being right is not the same as being on time
+A major thank-you to *Meari-Prototype*. I’m not trying to pretend I came up with all of this on my own, I honestly borrowed heavily from his work. I was just lucky to find someone who had already laid it out so brilliantly, and his structural framework and core points remains a constant reference in my digital lab notes. It genuinely benefits from another careful read-through for anyone currently in the reality of working or building with AI agents.
 
-Brooks, 1975: adding manpower to a late software project makes it later. Fifty
-years of quotation later, it still holds up.
 
-It is also only half a sentence. It tells you what not to do. It says nothing
-about how to finish.
+## Three Hills To Climb In Context Of 2026.
+First: software's difficulty comes from the thing itself, not from its tools. Tools get discarded generation after generation, assemblers in 1975, structured programming in 1985, object orientation in 1995, agile in 2005, containerization in 2015, and at every turnover someone shouts "the silver bullet has arrived, software's difficulty is solved." Speaking of automating typings, I was one of them. However, software's fundamental difficulties live in conceptual construction, specification, and the adjudication of correctness, these difficulties don't live in the tools, they live in the problem being solved. Tools can eliminate accidental complexity, they cannot eliminate essential complexity. As an aside, some complexity is actually manufactured before it gets "solved."
 
-We did the right thing and the schedule went exactly where it was always going.
-Not adding people is not a plan. It is the absence of one specific mistake.
+Second: the difficulty of managing software is mainly the difficulty of managing communication and judgment. As a project grows and headcount grows, the most expensive thing stops being coding, testing, or hardware, it becomes getting everyone aligned on the same concept. Brooks spends most of the book discussing organizational forms of communication, the surgical team, the separation of architect from implementer, the workbook, milestones and self-deception, an independent product-testing group. None of these discussions are about technology, they're about how information flows through an organization, where judgment gets made, and who bears responsibility.
 
-I read the book for the first time because of that meeting.
+Third: documentation isn't a record, it's the vehicle for decisions. Brooks holds that a project's critical documents are the project itself, the project speaks it self, the act of writing documentation forces hundreds of small decisions to become visible, and those small decisions are the project's skeleton. Without documentation, those decisions live only inside a few people's heads and can vanish at any moment, with documentation, you're casting bones for the project.
 
-## Why I went back to it
+Therefore, the core of software engineering is the organization of judgment. Technology changes, the discipline of organizing judgment does not. I believe this is the soul of Brook's law.
 
-I am rereading it now, along with the ten points I took notes on the first time.
+In the age of agents, what Brook's law changes is where judgment gets made (some of it is now made by AI other than a human), how it gets recorded (some of the record is now a AI prompt), and how it gets communicated (some of the communication is now tokens). The fact that judgment needs to be organized has not changed. Teams that ignore this will re-enact the oldest failure modes with the most advanced agent systems.
 
-I went back with one question. Is this outdated in the age of AI?
+## Three Generations of Readers
+Brooks's book has had three generations of readers.
 
-You can get Brooks's big ideas off any summary site in ninety seconds, so I am
-not going to walk you through them. I only care about the parts that changed.
+The first generation managed people. 1975 to 1995, Brooks's direct audience. The problems they dealt with were how to organize teams of dozens, how to estimate schedules, how to avoid the trap of adding people. Brooks's proposed solutions: the surgical team, chief-architect ownership, an independent test group, "plan to throw one away" are almost entirely aimed at this layer.
 
-Six months ago I would have told you the constraint was how fast we could write
-the code. I do not believe that any more. Now the constraint is how well the
-work is cut up before an agent ever touches it.
+The second generation managed code. 1995 to 2025, the agile era. Team sizes shrank, but software complexity exploded. What this generation took from Brooks's book was the structural lessons: conceptual integrity, modularity, iterative development, documentation as equivalent to design. The 1995 twentieth-anniversary edition added "No Silver Bullet" and the self-assessment, filling out this layer of the argument.
 
-## More agents is not the problem
+The third generation manages agents. Post-2024. This generation faces a new problem: alongside themselves in the project there is now one or several agents capable of acting autonomously. You're not managing people, and you're not entirely writing code either, you're orchestrating a group of non-human executors while holding the whole thing together. The thing being managed is, one could say, an entirely new species, but the management principles are startlingly familiar, because what Brooks was ever discussing was never the peculiarity of the species "human"， it's the general law of "multiple agents collaborating to complete a large conceptual construction."
 
-There is a good argument going around that agents make Brooks worse. Wes
-McKinney calls it the agentic tar pit: parallel sessions produce code faster
-than humans can review it. His conclusion is that the people who do well will
-not be the ones running the most parallel sessions.
+## Glossary
+A handful of terms need explaining up front.
 
-He is burning ten billion tokens a month. I have opinions. Weigh accordingly.
+**Agent:** An AI system that can pick its own tools, take actions, see the results, and decide what to do next, without a human guiding every step or a fixed script telling it exactly what to do.
 
-Yes and no. Parallel execution is not the risk. It should be the default now,
-with sequential demoted to the exception.
+**Harness:** The supporting setup that runs the agent. It controls which tools the agent gets, what information it sees, how long it runs, when it stops, and how success is judged. The same AI can act very differently depending on its harness.
 
-What burns people is turning agents loose on dependencies and hidden complexity
-that nobody resolved first. That is where rework with an agent costs more than
-rework by hand.
+**Subagent:** A smaller agent that a main agent creates to handle a specific sub-task. The main agent stays in charge and gets the results back.
 
-You need two conditions.
+**Human-in-the-loop:** A setup where a person checks the agent’s work every step (or every few steps) and can step in to change things. The opposite is a fully automatic “set it and forget it” run.
 
-One, a single source of truth that is genuinely agent-ready. Clean decomposition
-up front, every dependency resolved before an agent touches a line.
+**Context window:** The hard limit on how much text the AI can see at one time (usually 200K–1M tokens today). Even that amount can feel tight on big projects.
 
-Two, human judgment anchored at both ends. Full control of what goes in, and a
-firm gate before anything is delivered.
+**Token:** The basic chunk the AI uses to process text. Roughly one English word characters equals one token. Everything about cost, speed, and memory is measured in tokens.
 
-That is not rocket science. It is just clean architecture.
+**Criterion / milestone:** The clear standard that decides “is the job finished?” Good criteria (sometimes called scoring or reward functions) are what make an agent system trustworthy.
 
-## Two words for the same thing
+## AI = Looping Harness + LLM.
 
-That moves the problem upstream, into the part of the process that has not
-changed at all. The briefs I work from are often too high level. Design
-considerations missing. Architectural decisions clearly made somewhere, written
-down nowhere. Feedback arriving after the decisions it should have shaped.
+The Harness is a state machine, not a Scaffolding. Calling the harness “scaffolding” makes it sound like the AI is the smart brain and the harness just supplies helpful tools, but that’s totally wrong, the LLM is merely a function that gets called, while the real driver is the harness itself, which is a kind of sytem, a state machine that is always in one clear state (waiting for input, deciding the next step, calling a tool, asking the AI, or finishing) and moves to the next state based on what happens (the AI’s reply, a tool’s result, your new message, or an error). Everyday things like traffic lights, ATMs, and elevators work the same way, without a looping process the AI is just a one-shot answer, and with it it's a true agent, which is why an agent’s quality and its most common failures depend far more on how the harness is designed than on how smart the underlying model is.
 
-Here is what that costs.
+LLMs have no memory, only context. Every time you talk to an AI, each message is a completely separate API call with no built-in memory. The model only sees whatever text the harness packs into that single call. The feeling that “it remembers our conversation” comes entirely from the harness, which gathers earlier messages (or a summary of them) and stuffs them into the context before every new request. That means the quality of what the AI produces depends almost completely on the quality of the context it is given. A clean, relevant, well-organized context yields good answers. A noisy or contradictory context yields messy ones. Building good context is therefore the entire job of agent engineering. Tools, the state machine, prompts, and documentation are all just ways of deciding what goes into the next call. And the central question today is how to use fifty years of software-engineering wisdom to keep high-quality context inside the model’s limited window.
 
-The clearest case I have hit was cross-domain. Hidden dependencies, validation
-rules, and two parts of the system using different words for things that
-overlapped. Ledger account in one place, bank account in the other.
 
-Treating them as one concept would have made the technical solution simpler.
-That was the tempting path. The information I was given up front was wrong on
-this point, an investigation outcome was missing, and the question came back
-several times. An API contract decision was sitting on top of it, which is a bad
-place to be guessing.
+## Turing’s Wall: Why Agents Can’t Decide When to Quit
+The harness has a “task complete” state, but unlike a traffic light or ATM that stops on an external signal like a timer or button press, it asks the LLM itself whether the task is done. This setup runs straight into what we can call Turing’s Wall, the hard theoretical limit Turing proved in 1936, which states that no program can reliably decide whether any given program will eventually stop. This is a limit in principle, not a matter of insufficient computing power or clever enough algorithms. 
 
-I built a bridge between the two concepts instead. It kept the design and the
-implementation simple, it resolved, and it cost rework getting there. It only
-came up because our shared vocabulary has inconsistencies in it.
+An agent is just software made of an LLM plus a looping harness, so the same rule applies, when the LLM’s judgment of “should I stop?” is wired directly into the loop’s exit condition, “should it stop” and “will it halt” become the same undecidable question. The only exception is when the finishing line is fully formalized and machine-checkable (pass these tests, solve this equation), then the harness can simply verify the criterion without needing the LLM to decide. e.g., a merge request in a CI/CD pipeline that demands the same result survive three independent verification rounds, each started in a completely fresh session with no shared memory, only outcomes that hold up under this external, repeatable check can be trusted as truly done. On every other kind of task, where “done” is fuzzy or contextual, no LLM-powered system can independently and reliably know when to quit. That is why any claim of fully autonomous agents is only realistic on clear, formal goals, and why every practical agent system must hard-wire external circuit-breakers (maximum rounds, token budgets, repeated-error limits) into the harness instead of trusting the model to stop itself.
 
-None of that was in the brief. The meetings where that sort of thing should
-surface run in silence, requirements reviews and technical kick-offs both. This
-is not a complaint about one function. A room where nobody argues is not
-agreement. It is a room where the disagreement has been handed to whoever writes
-the code.
+Looking back after finishing the whole book, the 1975 original has not aged at all. It was simply waiting for its third generation of readers. The following eighteen chapters are the unfolding of that sentence. 
 
-That used to be survivable. Now a thin brief costs a fan-out of agents building
-confidently on the guess.
-
-Brooks called this conceptual integrity and wanted a system designed as if by
-one mind. His mechanism was a small team around a chief architect. Very few of
-us work that way. Fifty years on we call it a ubiquitous language, which in
-practice is an agreement rather than a mechanism.
-
-An agent will not paper over that gap the way a person does. In my experience it
-gets confused instead.
-
-I use a grounding agent for this, and it earns its place when I use it properly.
-I have it check what a brief claims against the code, rather than wait for
-someone to volunteer the missing detail. It is not a replacement for the
-meeting. It is what I do when the meeting produces nothing.
-
-## The part nobody upstream sees
-
-Here is the thing I had wrong for longer.
-
-I used to think AI would expose thin requirements. The gap would finally become
-visible, because a machine fails loudly where a person copes.
-
-It does not work like that. A senior engineer absorbs the gap. The investigation
-that should have happened gets done anyway, the call that should have been made
-at kick-off gets made, and the work ships. It looks like it worked.
-
-The cross-domain case above is exactly that. It resolved, so from the outside
-the process looks healthy.
-
-That is Brooks on key people, arriving from a direction he did not predict. The
-scarce person is not the one who writes the most code. It is the one whose quiet
-corrections are holding the process up.
-
-## Where this actually sits
-
-The vocabulary decision from that work is still in a Slack thread. Searchable,
-technically. The next person to touch it will not find it, and neither will the
-next agent.
-
-The oldest point in the book, still biting, in the year we automated the typing.
-
-It is also why I am building an AI native software development lifecycle, one
-that puts domain context into a knowledge base instead of a chat history. It is
-work in progress. I have no results to report yet, and I am not going to pretend
-otherwise.
+Next: *The Tar Pit - Why software engineering is uniquely difficult*.
 
 ## References
 
 - Frederick P. Brooks Jr, The Mythical Man-Month, 1975, and No Silver Bullet,
   1986.
-- Jason Gorman, The Bluffer's Guide to The Mythical Man-Month, Codemanship,
-  2023.
-- Wes McKinney, The Mythical Agent-Month, O'Reilly Radar, 2026.
-- Murat Demirbas, Agentic AI and The Mythical Agent-Month, January 2026.
-- METR, Measuring the Impact of Early-2025 AI on Experienced Open-Source
-  Developer Productivity, 2025.
+- Meari-Prototype, [The Mythical Man-Month in the Age of Agents](https://github.com/Meari-Prototype/agent-mythical-man-month-2026/blob/main/README-en.md),
+  2026.
+
