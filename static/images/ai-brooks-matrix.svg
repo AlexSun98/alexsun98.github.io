@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Card Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <linearGradient id="card-top-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+
+    <linearGradient id="card-top-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </linearGradient>
+
+    <linearGradient id="card-bottom-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#831843"/>
+      <stop offset="100%" stop-color="#500724"/>
+    </linearGradient>
+
+    <linearGradient id="card-bottom-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="100%" stop-color="#180202"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="glow-tar" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Markers for arrows -->
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrow-pink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ec4899" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef4444" />
+    </marker>
+  </defs>
+
+  <!-- Title Section -->
+  <text x="480" y="42" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="800" letter-spacing="0.5">THE AI BROOKS MATRIX</text>
+  <text x="480" y="65" text-anchor="middle" fill="#94a3b8" font-size="13">Navigating software friction in the age of AI Agents</text>
+
+  <!-- Axis Labels -->
+  <text x="555" y="98" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700" letter-spacing="1">SYSTEM COMPLEXITY (APIs, DBs, Microservices) ───►</text>
+  <text x="50" y="380" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700" letter-spacing="1" transform="rotate(-90, 50, 380)">◄─── PRODUCTION RIGOUR (Testing, Docs, Maintenance)</text>
+
+  <!-- Matrix Canvas Outer Boundary -->
+  <rect x="130" y="115" width="790" height="530" rx="16" fill="url(#bg-grad)" stroke="#1e293b" stroke-width="2" />
+
+  <!-- Grid Dividers -->
+  <line x1="525" y1="115" x2="525" y2="645" stroke="#334155" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="130" y1="380" x2="920" y2="380" stroke="#334155" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- ================= TOP-LEFT: AI HOME FIELD ================= -->
+  <g transform="translate(150, 135)" filter="url(#shadow)">
+    <rect width="355" height="225" rx="12" fill="url(#card-top-left)" stroke="#10b981" stroke-width="1.5"/>
+    <!-- Icon & Badge -->
+    <circle cx="30" cy="30" r="14" fill="#047857"/>
+        <text x="55" y="30" fill="#f0fdf4" font-size="17" font-weight="700">AI Home Field</text>
+    <text x="55" y="46" fill="#6ee7b7" font-size="11" font-weight="600">TOP-LEFT • SUPER EASY</text>
+    
+    <text x="20" y="82" fill="#34d399" font-size="13" font-weight="700">This is AI's absolute jam.</text>
+    <text x="20" y="110" fill="#e2e8f0" font-size="12.5">• Quick scripts &amp; throwaway demos</text>
+    <text x="20" y="132" fill="#e2e8f0" font-size="12.5">• Single file, instant execution</text>
+    <text x="20" y="154" fill="#e2e8f0" font-size="12.5">• Disposable single-use code</text>
+    
+    <rect x="20" y="175" width="315" height="32" rx="6" fill="#065f46" opacity="0.6"/>
+    <text x="30" y="195" fill="#a7f3d0" font-size="12" font-weight="600">Cost: A fraction of before • Velocity: Minutes</text>
+  </g>
+
+  <!-- ================= TOP-RIGHT: SNEAKY STICKY ZONE ================= -->
+  <g transform="translate(545, 135)" filter="url(#shadow)">
+    <rect width="355" height="225" rx="12" fill="url(#card-top-right)" stroke="#f59e0b" stroke-width="1.5"/>
+    <!-- Icon & Badge -->
+    <circle cx="30" cy="30" r="14" fill="#b45309"/>
+        <text x="55" y="30" fill="#fffbeb" font-size="17" font-weight="700">Sneaky Sticky Zone</text>
+    <text x="55" y="46" fill="#fcd34d" font-size="11" font-weight="600">TOP-RIGHT • TRICKY</text>
+    
+    <text x="20" y="82" fill="#fbbf24" font-size="13" font-weight="700">Looks fast until connections shift.</text>
+    <text x="20" y="110" fill="#e2e8f0" font-size="12.5">• Hooking scripts to APIs &amp; DBs</text>
+    <text x="20" y="132" fill="#e2e8f0" font-size="12.5">• Prompt makes wiring feel smooth</text>
+    <text x="20" y="154" fill="#e2e8f0" font-size="12.5">• One interface change = full cascade break</text>
+
+    <rect x="20" y="175" width="315" height="32" rx="6" fill="#92400e" opacity="0.6"/>
+    <text x="30" y="195" fill="#fde68a" font-size="12" font-weight="600">Trap: Illusion of integration stability</text>
+  </g>
+
+  <!-- ================= BOTTOM-LEFT: DEBT DISASTER ================= -->
+  <g transform="translate(150, 400)" filter="url(#shadow)">
+    <rect width="355" height="225" rx="12" fill="url(#card-bottom-left)" stroke="#ec4899" stroke-width="1.5"/>
+    <!-- Icon & Badge -->
+    <circle cx="30" cy="30" r="14" fill="#be185d"/>
+        <text x="55" y="30" fill="#fdf2f8" font-size="17" font-weight="700">Debt Disaster</text>
+    <text x="55" y="46" fill="#f472b6" font-size="11" font-weight="600">BOTTOM-LEFT • MESSY</text>
+    
+    <text x="20" y="82" fill="#f472b6" font-size="13" font-weight="700">Instant long-term technical debt.</text>
+    <text x="20" y="110" fill="#e2e8f0" font-size="12.5">• Personal tools meant to last long-term</text>
+    <text x="20" y="132" fill="#e2e8f0" font-size="12.5">• AI dumps code without tests or docs</text>
+    <text x="20" y="154" fill="#e2e8f0" font-size="12.5">• Zero edge-case handling included</text>
+
+    <rect x="20" y="175" width="315" height="32" rx="6" fill="#9d174d" opacity="0.6"/>
+    <text x="30" y="195" fill="#fbcfe8" font-size="12" font-weight="600">Result: You inherited unmaintainable bloat</text>
+  </g>
+
+  <!-- ================= BOTTOM-RIGHT: THE MODERN TAR PIT ================= -->
+  <g transform="translate(545, 400)" filter="url(#shadow)">
+    <rect width="355" height="225" rx="12" fill="url(#card-bottom-right)" stroke="#ef4444" stroke-width="2"/>
+    <!-- Icon & Badge -->
+    <circle cx="30" cy="30" r="14" fill="#991b1b" filter="url(#glow-tar)"/>
+        <text x="55" y="30" fill="#ffffff" font-size="17" font-weight="700">The Modern Tar Pit</text>
+    <text x="55" y="46" fill="#f87171" font-size="11" font-weight="700">BOTTOM-RIGHT • THE BIG ONE</text>
+    
+    <text x="20" y="82" fill="#f87171" font-size="13" font-weight="700">Generated far faster than it can be understood.</text>
+    <text x="20" y="110" fill="#fecaca" font-size="12.5">• Large enterprise-grade systems</text>
+    <text x="20" y="132" fill="#fecaca" font-size="12.5">• Code is generated fast, but nobody understands it</text>
+    <text x="20" y="154" fill="#fecaca" font-size="12.5">• Massive context loss &amp; ghost bugs</text>
+
+    <rect x="20" y="175" width="315" height="32" rx="6" fill="#7f1d1d" opacity="0.8"/>
+    <text x="30" y="195" fill="#fca5a5" font-size="12" font-weight="700">Brain Status: Totally Overloaded</text>
+  </g>
+
+  <!-- ================= CONNECTING / FLOW ARROWS ================= -->
+
+  <!-- Top Horizontal Arrow (To Sticky) -->
+  <path d="M 455 180 L 533 180" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arrow-amber)" stroke-dasharray="4 2"/>
+  
+  <!-- Left Vertical Arrow (To Debt) -->
+  <path d="M 230 310 L 230 388" stroke="#ec4899" stroke-width="2.5" fill="none" marker-end="url(#arrow-pink)" stroke-dasharray="4 2"/>
+
+  <!-- Bottom Horizontal Arrow (To Tar Pit) -->
+  <path d="M 455 540 L 533 540" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrow-red)"/>
+
+  <!-- Right Vertical Arrow (To Tar Pit) -->
+  <path d="M 830 310 L 830 388" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrow-red)"/>
+
+</svg>

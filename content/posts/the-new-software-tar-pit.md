@@ -1,0 +1,94 @@
+---
+title: "The new software tar pit and how AI made it stickier"
+date: 2026-09-04
+tags: ["Software Engineering", "AI", "Books", "Reflection", "Mythical Man-Month", "Coding Agents"]
+categories: ["Engineering"]
+description: "Brooks priced a program at one and a programming systems product at nine. AI cut the price of the one. The other eight are still there, and they are harder to see."
+---
+## Is the tar pit better or worse now?
+
+I keep coming back to Brooks's opening picture of big software projects as prehistoric tar pits, where teams got stuck and sank deeper the more they struggled. He wrote that in 1975. Rereading it in 2026, the question I want answered is simple. Is the pit better or worse now? Same pit, same depth. What changed is the water on top of it. It is clearer than it has ever been, and a pit that looks shallow is a more dangerous pit.
+
+I am more productive than I have ever been, but productivity is not quality. I know the tar is there. The catch is that an agent hands me code faster than anyone can read it, and sooner or later a bug surfaces in a stretch nobody has actually looked at. That is the moment the depth shows, not because I stopped paying attention, but because the code grew faster than attention can.
+
+## Reflection 1. The Brooks 9x matrix "past vs present"
+
+Brooks drew a grid showing how much harder it is to build a real product than a simple program. About nine times harder. The nine comes from two separate factors of 3x. A quick script is 1x effort, a shippable, integrated product is 9x.
+
+* **Top left, 1x.** A throwaway script for my own use.
+* **Bottom left, 3x.** A standalone product other people can use, but not engineered for integration.
+* **Top right, 3x.** A module built for system integration, but not productised.
+* **Bottom right, 9x.** A battle tested, component grade product that others can depend on.
+
+![Brooks's matrix of software effort. A program on its own is one unit. Add interfaces and integration and it is three. Add testing, documentation and generalisation and it is three. Do both and it is nine.](/images/brooks-9x-efforts.svg)
+
+Read the matrix along its two axes and it comes down to two kinds of work. Across is integration, down is productisation, and each one triples the cost on its own.
+
+* **Productisation, 3x.** Taking code from "works for me" to "works for anyone". That means documentation (how to use it), testing (verifying distinct scenarios), error handling (managing unexpected input without falling over), edge cases (empty payloads, massive payloads, concurrent calls), maintainability (structuring the code so I can add a feature six months from now), and observability (knowing immediately if and why it fails). None of that shows in a thirty second demo video, yet it runs every minute the product is in production.
+* **System integration, 3x.** Moving from a standalone script to a component inside a larger system means interface alignment (strict contracts with other modules), version compatibility (dependency upgrades that do not break the build), environment isolation (the same behaviour in local, staging and production), deployment pipelines (zero downtime releases and instant rollbacks), monitoring and alerting, and backup strategies. This layer is independent of productisation. Both are mandatory, and each costs its own 3x.
+
+Back in 1975, Brooks pointed out that a big reason projects ran over was that managers estimated using the bottom left corner for work that had to ship in the bottom right. They would see a developer finish the core logic, call it basically done, and then hit the remaining 8x head on.
+
+Fifty years on, the four corners are exactly where Brooks left them. What has shifted is how the cost is spread across them, and the shift is happening entirely in the top left corner. Getting a throwaway piece of code to run is not free, an agent still burns tokens, my time and a review, but it costs a fraction of what it did. The other three corners have not moved at anything like the same speed. That is the new trap, and it is not a failure of judgement, it is a speed mismatch. The building end of an implementation now moves at the speed of an agent. The productising and integrating end still moves at the speed of people, reviewers, testers, the team that owns the other side of the interface, the release window. The code reaches "it runs on my machine" long before the rest can catch up, and the gap between the two is where the trouble collects. The other eight have not vanished. They are queued behind a much faster front end, and they get paid in maintenance, after launch, when the complaints arrive, or in the next rewrite.
+
+![The same four cells read for AI agents. The zone names came from a model I asked for help, not from Brooks. Top left, AI home field, quick scripts. Top right, sneaky sticky zone, code wired to APIs and databases. Bottom left, debt disaster, long lived tooling. Bottom right, the modern tar pit, large systems.](/images/ai-brooks-matrix.svg)
+
+* **Top left, 1x.** AI's home field. Quick scripts, tiny demos, disposable code. Cheap to make, and cheap to throw away.
+* **Bottom left, 3x.** The debt disaster, the tools that have to last. Even with a serious harness around the agent, tech debt still gets in, because the harness checks each task on its own and nobody checks the codebase as a whole. I don't run agents bare here, I run a harness with a planner, an implementer, a verifier and a finalizer, plus a handoff agent for when context fills up, and the verifier grades every task on seven checks before anything is accepted. It is a decent setup and I can see where it leaks from my own design. One of the harness loops is built to answer one question, is this task done right, and it answers it well. It does not ask whether the codebase is still in one piece after the task landed. Take a date formatter. The implementer writes one because the task needs it. Two weeks ago a different task wrote the same thing three folders over. The planner can grep for it, and sometimes does, but nothing makes it look, and the verifier passes the new one on every check because it is correct, tested and to standard. This is not a made up case. One codebase I work in has two of them, and they were there before my time. Next quarter someone fixes a timezone bug in one and not the other. Every agent starts with a clean memory, which is exactly what keeps the verifier honest, so nothing in the pipeline carries a picture of the codebase from one change to the next. The gate also lets a task through with up to two warnings on it. They get written into the verdict, but nothing routes them to me and nothing stops the next task starting, so across a sprint of twenty tasks that can be as many as forty known small problems, recorded and never acted on. The harness is good at catching the loud debt. The quiet debt lives between tasks.
+* **Top right, 3x.** The sneaky sticky zone, where my code touches things I don't own, an API, a database, another team's service. Integrations have always broken, for humans as much as agents, and what an agent changes is who remembers the join and who notices when they were guessing. When I wire an integration myself I carry it around afterwards, and when the other team announces a change something in my head goes off. The agent has no afterwards, its knowledge of that dependency ends with the session. It also learns the contract differently. I read the docs, then go and ask the owning team, and where I am not sure I leave a comment saying so. The agent works from whatever the docs and the code give it at that moment, and my planner is told to ask when a requirement is vague, which it does. What it cannot do is ask when it doesn't know it is guessing, and a stale doc reads exactly like a current one. The code it hands back looks finished either way, with nothing in it saying where the confidence came from. Multiply that by how many more integrations get wired now, and nobody is holding the map of them.
+* **Bottom right, 9x.** The modern tar pit. Large systems. AI writes the code far faster than before, and understanding it, checking it and integrating it got harder in the same stroke.
+
+I can prompt a working app into existence in thirty minutes, and I see YouTube posts celebrating exactly that, "a full web app built in 30 minutes". What is on screen is the cheapest corner of the matrix. I have done my own version of it. On one of my side projects I asked an agent for a load test suite and had it in under an hour, seventy files and several hundred test cases. It felt like a week of work landing in an afternoon. I have also seen someone claim they refactored 2000 files in an afternoon with an AI assistant. Maybe they did. Seventy files or two thousand, the count is a 1x number, it measures how fast the edits were made. The 9x questions are the ones the count leaves out. Who read the diff, what the test suite looked like before and after, how many of those files another team depends on, and what happens the first time one of them misbehaves in production. The work is finished when the system has run on it, not when the last file was saved.
+
+If I mistake a green tick from an agent for a finished product, I have not saved time. I have scheduled an explosion for launch day.
+
+## Reflection 2. The easy part versus the hard part
+
+Brooks split software difficulty in two. Here is how AI handles each half, as far as I can tell.
+
+**The easier part, accidental difficulty.** Boilerplate, syntax, setup, and the searching that eats the day. AI is very good here. It writes the boring code, sets up the environment, and answers the quick questions. If that were all of software engineering, the job would be finished. It is not.
+
+**The hard part, essential difficulty.** Brooks named four properties that make this half hard, complexity, conformity, changeability and invisibility, and he said no tool would touch them because they belong to the problem, not to the tooling. He was right, and an agent makes each one a bit heavier, though not in the same way. Complexity is the one I feel every day. An agent writes a few hundred lines of dense logic in the time it takes me to read the ticket, and all the states that code can be in are now mine to hold, whether or not I typed them. Conformity is the quiet one. The harness enforces the conventions I wrote down, and does it well, but a codebase has a lot of agreement in it that never got written down, and an agent working from the files in front of it produces pieces that are each correct and slightly out of step with their neighbours. Changeability is where the missing why bites. When I change my own code I remember the reason it is shaped the way it is, and when I change an agent's code I am reading the shape and inferring the reason, which is slower and sometimes wrong. Invisibility was Brooks's deepest of the four, and it is the one I have least answer to. Software has no shape you can look at, and the feel for a system, where the data goes and which module is load bearing, gets built by writing it. When most of the writing is done by something else, that feel builds slower, and I notice it most when something breaks and I do not immediately know where to look.
+
+## Reflection 3. Why anyone stays in the pit at all? The five joys and the five woes
+
+Brooks closes the chapter by asking why anyone stays in the pit at all, and answers with five joys and five woes. Meari-Prototype reread that list for the agent era, and I am going to lean on their reading here because it matches what I see.
+
+The joys, in Brooks's order. Making things. Making things that are useful to other people. Fitting complex parts together and watching them work. Learning something new because the work never repeats. And working in a medium made of pure thought, where the distance between an idea and a running thing is one compile.
+
+The woes, same order. You have to get it exactly right, a computer forgives nothing. Other people set your goals and you depend on things you do not control. Creative work comes bundled with grunt work. The last stretch is always slower than the rest. And the thing you built is at risk of being out of date by the time it ships.
+
+Fifty years on, none of the ten has gone anywhere. What has moved is the weight.
+
+Meari's reading, and I think it lands, is that the five joys have been redistributed rather than reduced. Two got richer, one got fainter, one split, and one was pushed to an extreme.
+
+The two that got richer are the first two. Making things, because the distance from an idea to a demo has never been shorter, and making things other people use, because one developer can now realistically serve tens of thousands of users, which was not a sensible plan ten years ago. I feel the first of these every time I get from an idea to something running in an afternoon, and it has not stopped being a small thrill.
+
+The one that got fainter is fitting the parts together with your own hands, and Meari calls this the subtlest shift. Their description is that when you write code yourself you touch the shape of the pieces and feel them click, and when you type a prompt you are touching the requirement while the fitting happens inside the agent, out of sight. Meari's point is that the people who came into this for that click, the ones who loved the IDE for the moment two things lined up, feel a strange weightlessness in the agent era, and that they have to go and find the same pleasure a level up, in designing systems, tuning harnesses and debugging what the agent did. That is where I found mine, and I do not miss the old one.
+
+The one that split is learning. For work an agent handles well, the joy of learning drops, because you can build the thing without learning it. For work it handles badly, the joy of learning rises, because those are now the scarce skills, judgement, auditing, systems thinking, a feel for the wider situation. Meari names the painful question this leaves a young programmer with, whether to spend years going deep on something an agent already does well. That question did not exist in 1975, when every skill was worth learning because nobody else could do it for you.
+
+The one pushed to an extreme is working in pure thought. Brooks called code a pure thought medium, but in 1975 a lot of small, physical friction still sat between the idea and the running program. Getting the syntax exactly right, making the build script work, chasing a missing dependency. None of that was the actual problem, it was just in the way. Agents have cleared most of it. Thinking a thing clearly is now much closer to having built it, which sounds like a gift and is also exactly the illusion the rest of this post is about.
+
+Meari draws two conclusions from this and I agree with both. The first is that these joys are the reason a human stays in the loop at all. As long as a few of them are still alive, people want to be in the seat doing the work rather than behind it reviewing. The second is the mirror image. A fully autonomous run, hours in front of a black box waiting for a result you cannot touch, kills all five at once. Even the fifth flips over. An hours long black box is the least pliable medium there is. You can see the intermediate output but not change it, see the mistake but not correct it, and the only move left is to wait. Meari says that is less like thinking and more like supervising a subordinate who does not listen, whom you cannot fire, cannot direct and cannot step in for. I said in the last post that an agent cannot reliably tell when it is finished. Sitting outside a black box waiting for it to finish is what that looks like from my side. It is one reason my harness hands control back to me after three failed rounds. I would rather be in the run than watching it.
+
+The woes have moved around too, and I recognise all five. Perfectionism is the odd one. The agent took over the spelling and the syntax, so that kind of getting it exactly right is gone, but a rewrite is now so cheap that I keep asking for one more, and I end up polishing longer than I used to. Depending on things I do not control is worse, not better, because the agent joined the list. The same prompt on a different day gives me a different answer, a different model takes a different route, and none of that stops me being the person who owns what ships. The grunt work is mostly out of sight under a harness, until a task gets bigger than one context window, at which point it is all back, which is why I have a handoff agent at all. The slow last stretch is the same as it always was, it just hurts more now, because the first ninety percent turned up so fast that stopping dead at the end feels like walking into a wall. And obsolescence used to be a worry measured in years. Now every model release moves the floor under whatever I built on top of it, my own harness included.
+
+## The tar pit is still the tar pit
+
+Brooks ends the chapter on something close to comfort. Every programmer swims in the same ten joys and woes, so nobody is alone in the pit. When I read that in 2026 the circle feels wider than he could have meant. I share those ten with the people who wrote software in 1975, with everyone who works next to an agent today, and, strangely, with the agent itself. It chases perfection too. It depends on things it cannot control. It does a huge amount of grunt work, reading file after file to find one function. And it struggles most where the finish line is least clear.
+
+I do not take any of that as permission to relax. Brooks wrote the book to show that the difficulty of software is not an accident and not a surprise. It is built in, it has a structure, and it has names. Once I can name a difficulty I can organise around it. When I cannot, it swallows me.
+
+What changed for me in practice is small. I stopped reading speed as progress. Before I hand a task to an agent I say out loud which cell of the grid it belongs in, and if it is not the cheap one I decide who is going to read the output before the agent writes it. And "done" now means an automated check has passed, not that the agent said so. Until a check exists, the task is not finished.
+
+The water is clearer. The depth is the same. Keeping both in mind is part of my job now, and it is the part I did not have to do in 2025.
+
+## References
+
+* Frederick P. Brooks Jr, *The Mythical Man-Month*, 1975. Chapter 1, The Tar
+  Pit, figure 1.1, and the joys and woes of the craft.
+* Frederick P. Brooks Jr, *No Silver Bullet. Essence and Accidents of Software
+  Engineering*, 1986.
+* Meari-Prototype, [The Mythical Man-Month in the Age of Agents](https://github.com/Meari-Prototype/agent-mythical-man-month-2026/blob/main/README-en.md),
+  2026. The reading of the five joys and five woes in Reflection 3 follows theirs.

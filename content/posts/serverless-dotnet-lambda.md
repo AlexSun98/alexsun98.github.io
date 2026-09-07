@@ -4,6 +4,7 @@ date: 2026-06-18
 tags: [".NET", "AWS", "Serverless"]
 categories: ["Engineering"]
 description: "Notes on running C# APIs serverless: where cold starts actually hurt, and the three settings that matter before you reach for provisioned concurrency."
+sample: true
 ---
 
 > Sample post, here to fill out the list page and tag filters. Replace it
