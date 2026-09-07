@@ -44,6 +44,7 @@
       </div>
       <div class="cover-wrap">
         {{ partial "cover.html" (dict "page" . "height" 220) }}
+        {{ partial "sample-stamp.html" . }}
       </div>
       <div class="md">
         {{ .Content }}
@@ -52,7 +53,7 @@
         {{ partial "logo.html" (dict "size" 56) }}
         <div style="flex:1">
           <div class="t">Found this useful?</div>
-          <div class="s">Subscribe to the RSS feed or say hi on GitHub.</div>
+          <div class="s">Subscribe to the RSS feed or say hi and star me on GitHub.</div>
           <div class="ctas">
             <a class="cta ink" href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
             {{ with .Site.Home.OutputFormats.Get "rss" }}<a class="cta paper" href="{{ .Permalink }}">RSS ↗</a>{{ end }}

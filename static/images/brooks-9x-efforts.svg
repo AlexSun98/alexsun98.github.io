@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" style="background-color: #0d1117; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="grid-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#0d1117" />
+    </linearGradient>
+    
+    <linearGradient id="card-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <linearGradient id="card-grad-target" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#371b28" />
+      <stop offset="100%" stop-color="#1f121b" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    
+    <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Markers for arrows -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f43f5e" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="45" text-anchor="middle" fill="#f3f4f6" font-size="24" font-weight="700" letter-spacing="0.5">THE EVOLUTION OF SOFTWARE EFFORT</text>
+  <text x="480" y="70" text-anchor="middle" fill="#9ca3af" font-size="14">Fred Brooks' Mythical Man-Month Matrix (1x → 9x Complexity)</text>
+
+  <!-- X-Axis Label -->
+  <text x="560" y="105" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="600" letter-spacing="1">INTERFACES &amp; INTEGRATION ───►</text>
+
+  <!-- Y-Axis Label -->
+  <text x="65" y="360" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="600" letter-spacing="1" transform="rotate(-90, 65, 360)">◄─── TESTING &amp; DOCUMENTATION</text>
+
+  <!-- Canvas Outer Boundary / Matrix Background -->
+  <rect x="150" y="120" width="760" height="480" rx="16" fill="url(#grid-bg)" stroke="#30363d" stroke-width="2" />
+
+  <!-- Grid Dividers -->
+  <line x1="530" y1="120" x2="530" y2="600" stroke="#30363d" stroke-width="2" stroke-dasharray="6 6"/>
+  <line x1="150" y1="360" x2="910" y2="360" stroke="#30363d" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- ================= QUADRANT 1: PROGRAM ================= -->
+  <g transform="translate(170, 140)" filter="url(#shadow)">
+    <rect width="340" height="200" rx="12" fill="url(#card-grad-1)" stroke="#374151" stroke-width="1.5"/>
+    <rect x="15" y="15" width="30" height="24" rx="6" fill="#374151"/>
+    <text x="30" y="31" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="700">1X</text>
+    <text x="55" y="32" fill="#f9fafb" font-size="18" font-weight="700">A Program</text>
+    <text x="55" y="52" fill="#6b7280" font-size="12" font-weight="500">Standalone Utility</text>
+    
+    <text x="20" y="95" fill="#d1d5db" font-size="13">• Written in isolation</text>
+    <text x="20" y="120" fill="#d1d5db" font-size="13">• Solves a single specific problem</text>
+    <text x="20" y="145" fill="#d1d5db" font-size="13">• Run only by the author</text>
+    <text x="20" y="170" fill="#6b7280" font-size="12" font-style="italic">Base Effort = 1 Unit</text>
+  </g>
+
+  <!-- ================= QUADRANT 2: PROGRAMMING SYSTEM ================= -->
+  <g transform="translate(550, 140)" filter="url(#shadow)">
+    <rect width="340" height="200" rx="12" fill="url(#card-grad-1)" stroke="#374151" stroke-width="1.5"/>
+    <rect x="15" y="15" width="30" height="24" rx="6" fill="#1e3a8a"/>
+    <text x="30" y="31" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="700">3X</text>
+    <text x="55" y="32" fill="#f9fafb" font-size="18" font-weight="700">Programming System</text>
+    <text x="55" y="52" fill="#6b7280" font-size="12" font-weight="500">Component in a Larger Array</text>
+    
+    <text x="20" y="95" fill="#d1d5db" font-size="13">• Strict interface definitions</text>
+    <text x="20" y="120" fill="#d1d5db" font-size="13">• Integrated with other components</text>
+    <text x="20" y="145" fill="#d1d5db" font-size="13">• Resource &amp; memory constraints</text>
+    <text x="20" y="170" fill="#60a5fa" font-size="12" font-weight="600">Requires 3X Effort</text>
+  </g>
+
+  <!-- ================= QUADRANT 3: PROGRAMMING PRODUCT ================= -->
+  <g transform="translate(170, 380)" filter="url(#shadow)">
+    <rect width="340" height="200" rx="12" fill="url(#card-grad-1)" stroke="#374151" stroke-width="1.5"/>
+    <rect x="15" y="15" width="30" height="24" rx="6" fill="#1e3a8a"/>
+    <text x="30" y="31" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="700">3X</text>
+    <text x="55" y="32" fill="#f9fafb" font-size="18" font-weight="700">Programming Product</text>
+    <text x="55" y="52" fill="#6b7280" font-size="12" font-weight="500">Generalised &amp; Maintained</text>
+    
+    <text x="20" y="95" fill="#d1d5db" font-size="13">• Thoroughly tested &amp; debugged</text>
+    <text x="20" y="120" fill="#d1d5db" font-size="13">• Full documentation</text>
+    <text x="20" y="145" fill="#d1d5db" font-size="13">• Usable &amp; extendable by anyone</text>
+    <text x="20" y="170" fill="#60a5fa" font-size="12" font-weight="600">Requires 3X Effort</text>
+  </g>
+
+  <!-- ================= QUADRANT 4: SYSTEM PRODUCT (GOAL) ================= -->
+  <g transform="translate(550, 380)" filter="url(#shadow)">
+    <rect width="340" height="200" rx="12" fill="url(#card-grad-target)" stroke="#f43f5e" stroke-width="2"/>
+    <rect x="15" y="15" width="30" height="24" rx="6" fill="#881337"/>
+    <text x="30" y="31" text-anchor="middle" fill="#fda4af" font-size="12" font-weight="700">9X</text>
+    <text x="55" y="32" fill="#ffffff" font-size="18" font-weight="700">Programming System Product</text>
+    <text x="55" y="52" fill="#f43f5e" font-size="12" font-weight="600">The Ultimate Goal (Production Grade)</text>
+    
+    <text x="20" y="95" fill="#f3f4f6" font-size="13">• Both a System AND a Product</text>
+    <text x="20" y="120" fill="#f3f4f6" font-size="13">• Full interface specs + complete testing</text>
+    <text x="20" y="145" fill="#f3f4f6" font-size="13">• High maintenance &amp; integration cost</text>
+    <text x="20" y="170" fill="#f43f5e" font-size="13" font-weight="700">Total Cost = 3 × 3 = 9X Effort</text>
+  </g>
+
+  <!-- ================= MULTIPLIER ARROWS & LABELS ================= -->
+  
+  <!-- Top Horizontal Arrow (X3 Effort) -->
+  <path d="M 460 180 L 538 180" stroke="#38bdf8" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+  <rect x="475" y="160" width="50" height="20" rx="4" fill="#0d1117" stroke="#38bdf8" stroke-width="1"/>
+  <text x="500" y="174" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="800">✕ 3</text>
+
+  <!-- Left Vertical Arrow (X3 Effort) -->
+  <path d="M 230 310 L 230 368" stroke="#38bdf8" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+  <rect x="205" y="325" width="50" height="20" rx="4" fill="#0d1117" stroke="#38bdf8" stroke-width="1"/>
+  <text x="230" y="339" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="800">✕ 3</text>
+
+  <!-- Bottom Horizontal Arrow (X3 Effort) -->
+  <path d="M 460 510 L 538 510" stroke="#f43f5e" stroke-width="3" fill="none" marker-end="url(#arrow-red)" />
+  <rect x="475" y="490" width="50" height="20" rx="4" fill="#0d1117" stroke="#f43f5e" stroke-width="1"/>
+  <text x="500" y="504" text-anchor="middle" fill="#f43f5e" font-size="11" font-weight="800">✕ 3</text>
+
+  <!-- Right Vertical Arrow (X3 Effort) -->
+  <path d="M 800 310 L 800 368" stroke="#f43f5e" stroke-width="3" fill="none" marker-end="url(#arrow-red)" />
+  <rect x="775" y="325" width="50" height="20" rx="4" fill="#0d1117" stroke="#f43f5e" stroke-width="1"/>
+  <text x="800" y="339" text-anchor="middle" fill="#f43f5e" font-size="11" font-weight="800">✕ 3</text>
+
+</svg>

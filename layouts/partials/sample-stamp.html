@@ -1,0 +1,6 @@
+{{- /* A big red rubber stamp over the cover of a post marked `sample: true`
+     in front matter. The two starter posts carry it so nobody mistakes them
+     for real writing. Remove the flag, or the post, and the stamp goes. */ -}}
+{{- if .Params.sample }}
+<div class="sample-stamp" aria-label="Sample post"><span>SAMPLE</span></div>
+{{- end }}

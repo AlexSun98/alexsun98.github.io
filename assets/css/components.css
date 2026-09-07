@@ -45,3 +45,28 @@
 /* ─── Squiggle + mascot helpers ─── */
 .squiggle { display: block; }
 
+/* Red rubber stamp over the cover of a post with `sample: true`. */
+.cover-wrap, .cover-slot { position: relative; }
+.sample-stamp {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.sample-stamp span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: clamp(30px, 11cqw, 76px);
+  line-height: 1;
+  letter-spacing: 0.14em;
+  color: #d8261c;
+  border: 0.14em solid #d8261c;
+  border-radius: 0.16em;
+  padding: 0.12em 0.45em 0.1em 0.55em;
+  transform: rotate(-12deg);
+  background: rgba(253, 252, 245, 0.82);
+  box-shadow: 0 0 0 0.05em rgba(253, 252, 245, 0.9), 3px 3px 0 rgba(21, 20, 21, 0.35);
+}
+.cover-wrap, .cover-slot { container-type: inline-size; }
