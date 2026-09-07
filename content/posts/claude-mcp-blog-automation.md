@@ -4,6 +4,7 @@ date: 2026-07-10
 tags: ["AI", "Claude", "MCP", "Automation"]
 categories: ["AI"]
 description: "Wiring Claude to a set of MCP servers so a single prompt drafts a post, commits it, deploys the site, and verifies the result in a real browser."
+sample: true
 ---
 
 > Just a sample post for test, here so the post layout has something real to render.
