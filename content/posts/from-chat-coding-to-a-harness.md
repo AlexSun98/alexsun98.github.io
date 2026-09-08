@@ -9,15 +9,24 @@ description: "The chat window stopped working for me on anything large. What rep
 
 In June I drew a diagram. It was called an AI-driven end-to-end development process, it had three swim lanes, and the footnote said the harness is the layer that connects everything. The chat window had stopped working for me on anything large. I could not run an engineering method through a turn by turn chat box. The context kept going missing, and a big piece of work would not break down into pieces the model could hold.
 
-I was not the only one. Several engineering teams published write-ups this year of the same move, from a person driving an agent by hand to a pipeline driving it. They are in my notes now. The failure they describe is the one I had. The window fills with pasted rules and background, and a long session compresses them away until the model forgets a rule it was given earlier. Nobody carries the business knowledge, so a person explains it every time. Nothing outside writing code is automated. And one window runs one task. One of the write-ups put it as a formula. Code output is AI capability multiplied by context quality, so when context quality goes to zero the model's strength does not matter.
+I was not the only one. Several engineering teams published write-ups this year of the same move, from a person driving an agent by hand to a pipeline driving it. They are in my notes now. The clearest of them gives four reasons chat coding stops scaling, and they are close to the ones I had.
 
-Mine were about context and decomposition. I wrote down a third of my own in July, when the agent kept writing code that was not the way I would write it. I gave it two causes. Either the existing code around it was smelly and it copied the smell, or it did not follow the new pattern, or the context engineering needed work.
+1. Context window inflation. Background, standards and rules get pasted into every session, and a long session compresses them away until the model forgets a rule it was given earlier.
+2. Missing business knowledge. Nobody carries it, so a person explains the services and how they join, every time, and the explanation is single use.
+3. No automated loop outside coding. Requirement analysis, deployment, verification and testing stay manual, so the speed gain stops at the code.
+4. No parallelism. One window runs one task, so three independent APIs means three windows and a person switching between them.
+
+Their summary is that the more complex, large and repeatable the task, the less chat coding gives back. Another write-up put it as a formula. Code output is AI capability multiplied by context quality, so when context quality goes to zero the model's strength does not matter.
+
+Mine were the first two, context and decomposition. I wrote down a third of my own in July, when the agent kept writing code that was not the way I would write it. I gave it two causes. Either the existing code around it was smelly and it copied the smell, or it did not follow the new pattern, or the context engineering needed work.
 
 ## A harness is a state machine, with files in it
 
 The harness is a state machine and the model is a function it calls. I put it that way in the man-month post in August, but the June design already worked like that. Every node handed off to the next by writing a file, not by passing anything in memory, so a run could be killed and restarted from whatever file was written last. The files sat in four layers. Per task: an intent file, the requirement, the design, the verification result. Per round: a state file, a flow status, evidence. Across tasks: lessons that become patterns that become instincts. And across versions of the harness itself: the verification results feed back and grade the harness.
 
 I did not invent the shape. It came out of the references I had been collecting. The teams I read later use the same trick. State lives in a JSON file, and an orchestrator reads the file rather than its own memory to decide the next step. Hooks stop the run quitting early or resume it in a new session. The reason looks the same in all of them. A model has no memory, only context, and a file outlives a context window in a way a conversation does not.
+
+The same write-up splits a harness into two halves. A knowledge layer holds what the business knows, generated from code and corrected by hand. An end-to-end pipeline runs on top of it and consumes that knowledge at every step. Mine has the second half. The first half is a box on my diagram, and the last section of this post is about what that costs.
 
 ## Two agents, then five
 
