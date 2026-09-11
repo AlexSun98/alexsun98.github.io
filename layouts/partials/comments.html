@@ -6,10 +6,9 @@
      named in [params.comments] or the box renders an error instead.
 
      The theme is a CSS file this site serves. giscus loads it inside its own
-     iframe, which is the only way to restyle the widget. giscus has to fetch
-     it over a public https URL, so only the production build points at it.
-     Every other build, the dev server included, falls back to a built-in
-     theme name.
+     iframe, which is the only way to restyle the widget, and it fetches the
+     file itself, so themeUrl has to be the deployed URL rather than a local
+     path. The dev server therefore shows the deployed copy of the theme.
 
      Off switches, widest first:
        enable = false   in [params.comments] turns it off site-wide
@@ -18,12 +17,17 @@
 {{- $page := . -}}
 {{- $c := .Site.Params.comments | default dict -}}
 {{- if and $c.enable $c.repo (ne $page.Params.comments false) (not $page.Params.sample) }}
-{{- $theme := $c.devTheme | default "light" -}}
-{{- if and $c.themeUrl hugo.IsProduction }}{{ $theme = ($c.themeUrl | absURL) }}{{ end -}}
+{{- $theme := $c.themeUrl | default $c.theme | default "light" -}}
 <section class="comments" id="comments">
   <div class="comments-head">
     <div class="kicker mono">✦ comments</div>
-    <h2>Leave a note</h2>
+    <h2>{{ $c.title | default "Guestbook" }}</h2>
+    <p class="lede">{{ $c.lede | default "Feel free to share what you think. Comments run on GitHub, so you sign in with a GitHub account." | safeHTML }}</p>
+    <ul class="notes">
+      <li class="chip sm" style="background:var(--lime)">markdown works</li>
+      {{ if $c.reactions }}<li class="chip sm" style="background:var(--peach)">reactions on</li>{{ end }}
+      <li class="chip sm" style="background:var(--sky)">edit or delete anytime</li>
+    </ul>
   </div>
   <div class="giscus-slot">
     <noscript>Comments need JavaScript. Open a discussion on the repo instead.</noscript>

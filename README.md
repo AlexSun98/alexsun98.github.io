@@ -116,10 +116,10 @@ https://giscus.app/themes/light.css, with a short override block appended at
 the end. The override hides the giscus credit line and moves the widget onto
 the same paper colour as the card around it.
 
-giscus has to fetch that file over a public https URL, which localhost is not,
-so only the production build points at it. Every other build, `hugo server`
-included, falls back to the built-in theme named in `devTheme`. The widget
-still works locally, it just wears the stock GitHub light theme.
+giscus fetches that file from inside its own iframe and cannot reach
+localhost, so `themeUrl` is the deployed URL, not a local path. The dev server
+shows the deployed copy of the theme, which means a change to the file only
+appears locally after it is merged and GitHub Pages has rebuilt.
 
 To refresh the base theme, download that URL again and keep the override block
 at the end of the file.

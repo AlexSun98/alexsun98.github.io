@@ -20,8 +20,22 @@
 .comments-head h2 {
   font-family: 'Fraunces', 'Noto Sans SC', serif;
   font-weight: 900;
-  font-size: 24px;
-  margin: 6px 0 16px;
+  font-size: 26px;
+  margin: 6px 0 8px;
+}
+.comments-head .lede {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.comments-head .notes {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 18px;
+  padding: 0;
 }
 
 /* Reserve room so the card does not jump when the iframe reports its height. */

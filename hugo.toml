@@ -173,6 +173,9 @@ title = "Alex's Blog"
   # category there. They are public, not secrets.
   [params.comments]
     enable = true
+    # Heading and the sentence under it, above the comment box.
+    title = "Guestbook"
+    lede = "Feel free to share what you think. Comments run on GitHub, so you sign in with a GitHub account."
     repo = "AlexSun98/alexsun98.github.io"
     repoId = "R_kgDOTh4hrw"
     # Announcements is the right category: only repo maintainers can open a
@@ -186,8 +189,9 @@ title = "Alex's Blog"
     inputPosition = "bottom"
     lang = "en"
     # Theme CSS this site serves, loaded inside the giscus iframe. It is the
-    # stock giscus light theme with our overrides appended.
-    themeUrl = "css/giscus.css"
-    # giscus has to fetch themeUrl over a public https URL, which localhost is
-    # not, so any build outside production uses this built-in theme name.
-    devTheme = "light"
+    # stock giscus light theme with our overrides appended. giscus fetches it
+    # itself and cannot reach localhost, so this has to be the deployed URL.
+    # The dev server shows the deployed copy, not local edits to the file.
+    themeUrl = "https://alexsun98.github.io/css/giscus.css"
+    # Used only when themeUrl is blank.
+    theme = "light"
