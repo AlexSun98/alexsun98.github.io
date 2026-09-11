@@ -70,6 +70,13 @@ Every post card carries an SVG cover.
   SVG. Same name as the markdown file. See the existing files in that folder
   for the style: 240x140 viewBox, ink strokes, pastel background.
 
+Keep every cover inside **y=46 to y=94**. The SVG uses `preserveAspectRatio`
+`slice`, so the canvas is cropped to a wide strip rather than fitted, and the
+strip is a different shape in each place a cover appears. The tightest is the
+post detail page on a large screen, which shows y=44.4 to y=95.6. A caption
+drawn below y=94 loses its bottom half there. The numbers for every position
+are in the comment at the top of `layouts/partials/cover.html`.
+
 The fastest way to get a custom cover is to ask an AI agent to read the post
 and draw one in the style of the existing covers.
 
