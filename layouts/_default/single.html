@@ -6,6 +6,27 @@
   </div>
   <div class="post-detail">
     <aside class="toc">
+      <nav class="post-nav">
+        <div class="head">◊ posts</div>
+        <div class="branch">
+          {{ with .PrevInSection }}
+          <a class="step" href="{{ .RelPermalink }}">
+            <span class="kicker">← prev</span>
+            <span class="title">{{ .Title }}</span>
+          </a>
+          {{ end }}
+          {{ with .NextInSection }}
+          <a class="step" href="{{ .RelPermalink }}">
+            <span class="kicker">next →</span>
+            <span class="title">{{ .Title }}</span>
+          </a>
+          {{ end }}
+          <a class="step all" href="{{ "/posts/" | relURL }}">
+            <span class="kicker">↑ index</span>
+            <span class="title">All posts</span>
+          </a>
+        </div>
+      </nav>
       <div class="head">◊ table of contents</div>
       {{ if strings.Contains .TableOfContents "<li>" }}
       <nav class="toc-list" id="toc">{{ .TableOfContents }}</nav>

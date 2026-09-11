@@ -114,6 +114,61 @@
   border-color: var(--coral);
 }
 
+/* The post nav is the same trunk-and-dot tree as the contents, one level up:
+   where this post sits among the others rather than where you sit inside it. */
+.post-nav { margin-bottom: 22px; }
+.post-nav .branch {
+  border-left: 2px solid var(--line);
+  margin-left: 5px;
+}
+.post-nav .step {
+  display: block;
+  position: relative;
+  margin-left: 14px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.post-nav .step:hover { background: var(--cream-warm); color: var(--ink); }
+/* The dot straddles the trunk, same as a heading in the contents below. */
+.post-nav .step::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 12px;
+  width: 7px;
+  height: 7px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+}
+.post-nav .step:hover::before {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+.post-nav .kicker {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--mute);
+  letter-spacing: 1px;
+}
+/* Titles run long, so each one stops after two lines rather than pushing the
+   contents off the top of the sidebar. */
+.post-nav .title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 12.5px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.post-nav .all .title { font-weight: 500; color: var(--mute); }
+
 .share-box {
   margin-top: 24px;
   padding: 14px;
