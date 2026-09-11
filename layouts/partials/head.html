@@ -19,7 +19,11 @@
   {{- $sheets := slice "base" "header" "home" "list" "post" "about" "taxonomy" "now" "components" "comments" "footer" "responsive" "palette" "notfound" -}}
   {{- $parts := slice -}}
   {{- range $sheets }}{{ $parts = $parts | append (resources.Get (printf "css/%s.css" .)) }}{{ end -}}
-  {{- $css := $parts | resources.Concat "css/main.css" }}
+  {{- /* Fingerprinted, so the filename changes whenever the stylesheet does.
+       Without it every deploy ships the same /css/main.css URL and browsers
+       keep serving the copy they already have, which shows up as a page
+       missing the newest rules. */ -}}
+  {{- $css := $parts | resources.Concat "css/main.css" | resources.Fingerprint "sha256" }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
   {{ with .OutputFormats.Get "rss" }}
