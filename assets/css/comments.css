@@ -1,6 +1,6 @@
-/* Comment box at the foot of a post. The utterances iframe brings its own
-   GitHub styling, so this file only builds the paper card around it and
-   trims the iframe's default margins. */
+/* Comment box at the foot of a post. The giscus iframe brings its own styling
+   from static/css/giscus.css, so this file only builds the paper card around
+   it. */
 
 .comments {
   margin-top: 40px;
@@ -24,7 +24,6 @@
   margin: 6px 0 16px;
 }
 
-/* utterances injects .utterances into this slot and caps itself at 760px.
-   The post column is wider than that, so let it use the full width. */
-.utterances-slot .utterances { max-width: 100%; margin: 0; }
-.utterances-slot { min-height: 60px; }
+/* Reserve room so the card does not jump when the iframe reports its height. */
+.giscus-slot { min-height: 150px; }
+.giscus-slot .giscus-frame { width: 100%; border: 0; }

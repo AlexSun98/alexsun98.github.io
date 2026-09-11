@@ -1,9 +1,14 @@
-{{- /* Reader comments, stored as GitHub Issues by utterances.
+{{- /* Reader comments, stored as GitHub Discussions by giscus.
 
-     One issue per post, keyed by the post path. Readers sign in with their
-     own GitHub account, so the site holds no accounts, no database and no
-     tracking script. The utterances GitHub App must be installed on the repo
+     One discussion per post, keyed by the post path. Readers sign in with
+     their own GitHub account, so the site holds no accounts, no database and
+     no tracking script. The giscus GitHub App must be installed on the repo
      named in [params.comments] or the box renders an error instead.
+
+     The theme is a CSS file this site serves. giscus loads it inside its own
+     iframe, which is the only way to restyle the widget. giscus has to fetch
+     it over a public https URL, so the dev server falls back to a built-in
+     theme name.
 
      Off switches, widest first:
        enable = false   in [params.comments] turns it off site-wide
@@ -12,20 +17,28 @@
 {{- $page := . -}}
 {{- $c := .Site.Params.comments | default dict -}}
 {{- if and $c.enable $c.repo (ne $page.Params.comments false) (not $page.Params.sample) }}
+{{- $theme := $c.devTheme | default "light" -}}
+{{- if and $c.themeUrl (not hugo.IsServer) }}{{ $theme = ($c.themeUrl | absURL) }}{{ end -}}
 <section class="comments" id="comments">
   <div class="comments-head">
     <div class="kicker mono">✦ comments</div>
     <h2>Leave a note</h2>
   </div>
-  <div class="utterances-slot">
-    <noscript>Comments need JavaScript. Open an issue on the repo instead.</noscript>
-    <script src="https://utteranc.es/client.js"
-            repo="{{ $c.repo }}"
-            issue-term="{{ $c.issueTerm | default "pathname" }}"
-            {{- with $c.label }}
-            label="{{ . }}"
-            {{- end }}
-            theme="{{ $c.theme | default "github-light" }}"
+  <div class="giscus-slot">
+    <noscript>Comments need JavaScript. Open a discussion on the repo instead.</noscript>
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ $c.repo }}"
+            data-repo-id="{{ $c.repoId }}"
+            data-category="{{ $c.category }}"
+            data-category-id="{{ $c.categoryId }}"
+            data-mapping="{{ $c.mapping | default "pathname" }}"
+            data-strict="1"
+            data-reactions-enabled="{{ if $c.reactions }}1{{ else }}0{{ end }}"
+            data-emit-metadata="0"
+            data-input-position="{{ $c.inputPosition | default "bottom" }}"
+            data-theme="{{ $theme }}"
+            data-lang="{{ $c.lang | default "en" }}"
+            data-loading="lazy"
             crossorigin="anonymous"
             async>
     </script>

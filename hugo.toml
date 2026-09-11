@@ -164,21 +164,30 @@ title = "Alex's Blog"
     url = "/mirana/"
     color = "var(--mirana)"
 
-  # Comments at the foot of every post, run by utterances. Each post gets one
-  # GitHub Issue in `repo`, and readers sign in with their own GitHub account.
-  # The utterances GitHub App has to be installed on that repo first:
-  # https://github.com/apps/utterances
+  # Comments at the foot of every post, run by giscus. Each post gets one
+  # GitHub Discussion in `repo`, and readers sign in with their own GitHub
+  # account. The giscus GitHub App has to be installed on that repo first:
+  # https://github.com/apps/giscus
+  #
+  # The two id values come from https://giscus.app after you pick the repo and
+  # category there. They are public, not secrets.
   [params.comments]
     enable = true
-    # Public repo that holds the issues. Keep it the site repo unless you want
-    # the comment threads somewhere separate.
     repo = "AlexSun98/alexsun98.github.io"
-    # How a post maps to its issue: pathname, url, title or og:title.
+    repoId = "R_kgDOTh4hrw"
+    # Announcements is the right category: only repo maintainers can open a
+    # discussion in it by hand, so the threads stay one per post.
+    category = "Announcements"
+    categoryId = "DIC_kwDOTh4hr84DFX4u"
+    # How a post maps to its discussion: pathname, url, title or og:title.
     # pathname survives a retitle, so prefer it.
-    issueTerm = "pathname"
-    # Label put on every issue utterances opens. Create it in the repo first,
-    # otherwise the first comment fails.
-    label = "comment"
-    # github-light, github-dark, preferred-color-scheme, and the rest of
-    # https://github.com/utterance/utterances/tree/master/src/themes
-    theme = "github-light"
+    mapping = "pathname"
+    reactions = true
+    inputPosition = "bottom"
+    lang = "en"
+    # Theme CSS this site serves, loaded inside the giscus iframe. It is the
+    # stock giscus light theme with our overrides appended.
+    themeUrl = "css/giscus.css"
+    # giscus has to fetch themeUrl over a public https URL, which localhost is
+    # not, so `hugo server` uses this built-in theme name instead.
+    devTheme = "light"

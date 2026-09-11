@@ -14,7 +14,7 @@ Live at: https://alexsun98.github.io
 - A SVG cover art per post, with a procedural fallback
 - Tags (cloud page) and categories (card grid), filter bars on list pages
 - Command palette search: press Ctrl+K or Cmd+K anywhere
-- Comments under every post, stored as GitHub Issues by utterances
+- Comments under every post, stored as GitHub Discussions by giscus
 - No JavaScript frameworks, no tracking, three small JS files total
 
 ## Deployment
@@ -89,27 +89,45 @@ Page content:
 ## Comments
 
 Every post gets a comment box at the bottom, run by
-[utterances](https://utteranc.es). A comment is a GitHub Issue on this repo,
-so there is no database, no account system and no tracking script. Readers
-sign in with their own GitHub account and can edit or delete what they wrote.
+[giscus](https://giscus.app). A thread is a GitHub Discussion on this repo, so
+there is no database, no account system and no tracking script. Readers sign
+in with their own GitHub account and can edit or delete what they wrote.
 
-Settings live in `hugo.toml` under `[params.comments]`: the repo that holds
-the issues, how a post maps to its issue (`pathname`), the label put on new
-issues, and the utterances theme.
+Settings live in `hugo.toml` under `[params.comments]`. The `repoId` and
+`categoryId` values come from the configurator at https://giscus.app once you
+pick the repo and the category. Both are public identifiers, not secrets.
 
-The box needs three things on the GitHub side, done once:
+The box needs two things on the GitHub side, done once:
 
-1. The repo is public and has Issues turned on.
-2. The `comment` label exists, because utterances puts it on every issue it
-   opens. Without it the first comment on a post fails.
-3. The utterances GitHub App is installed on the repo:
-   https://github.com/apps/utterances
+1. The repo is public and has Discussions turned on, with an `Announcements`
+   category. Announcements is the right one: only maintainers can open a
+   discussion there by hand, so the threads stay one per post.
+2. The giscus GitHub App is installed on the repo:
+   https://github.com/apps/giscus
 
-Until step 3 is done the section renders its heading and then nothing.
+Until step 2 is done the section renders its heading and then nothing.
 
-To turn comments off, set `enable = false` under `[params.comments]` for the
-whole site, or `comments: false` in one post's front matter. Posts marked
-`sample: true` never get a box.
+### Theme
+
+`static/css/giscus.css` is the widget's theme. giscus loads it inside its own
+iframe, which is the only way to reach the widget's markup from here. The file
+is the stock giscus `light` theme, downloaded from
+https://giscus.app/themes/light.css, with a short override block appended at
+the end. The override hides the giscus credit line and moves the widget onto
+the same paper colour as the card around it.
+
+giscus has to fetch that file over a public https URL, so `hugo server` falls
+back to the built-in theme named in `devTheme`. The custom theme only shows up
+on the deployed site.
+
+To refresh the base theme, download that URL again and keep the override block
+at the end of the file.
+
+### Turning it off
+
+Set `enable = false` under `[params.comments]` for the whole site, or
+`comments: false` in one post's front matter. Posts marked `sample: true`
+never get a box.
 
 ## Previewing locally
 
@@ -139,6 +157,7 @@ layouts/
 assets/css/                the theme, one file per page area
 static/
   js/                      palette.js (search), progress.js (reading bar)
+  css/giscus.css           the comment widget's theme, loaded in its iframe
   images/                  logo.png, alex.png, mirana.png
 .github/workflows/hugo.yml the auto-deploy job
 ```
