@@ -7,7 +7,8 @@
 
      The theme is a CSS file this site serves. giscus loads it inside its own
      iframe, which is the only way to restyle the widget. giscus has to fetch
-     it over a public https URL, so the dev server falls back to a built-in
+     it over a public https URL, so only the production build points at it.
+     Every other build, the dev server included, falls back to a built-in
      theme name.
 
      Off switches, widest first:
@@ -18,7 +19,7 @@
 {{- $c := .Site.Params.comments | default dict -}}
 {{- if and $c.enable $c.repo (ne $page.Params.comments false) (not $page.Params.sample) }}
 {{- $theme := $c.devTheme | default "light" -}}
-{{- if and $c.themeUrl (not hugo.IsServer) }}{{ $theme = ($c.themeUrl | absURL) }}{{ end -}}
+{{- if and $c.themeUrl hugo.IsProduction }}{{ $theme = ($c.themeUrl | absURL) }}{{ end -}}
 <section class="comments" id="comments">
   <div class="comments-head">
     <div class="kicker mono">✦ comments</div>

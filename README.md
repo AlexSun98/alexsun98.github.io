@@ -116,9 +116,10 @@ https://giscus.app/themes/light.css, with a short override block appended at
 the end. The override hides the giscus credit line and moves the widget onto
 the same paper colour as the card around it.
 
-giscus has to fetch that file over a public https URL, so `hugo server` falls
-back to the built-in theme named in `devTheme`. The custom theme only shows up
-on the deployed site.
+giscus has to fetch that file over a public https URL, which localhost is not,
+so only the production build points at it. Every other build, `hugo server`
+included, falls back to the built-in theme named in `devTheme`. The widget
+still works locally, it just wears the stock GitHub light theme.
 
 To refresh the base theme, download that URL again and keep the override block
 at the end of the file.

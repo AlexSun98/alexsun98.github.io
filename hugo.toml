@@ -189,5 +189,5 @@ title = "Alex's Blog"
     # stock giscus light theme with our overrides appended.
     themeUrl = "css/giscus.css"
     # giscus has to fetch themeUrl over a public https URL, which localhost is
-    # not, so `hugo server` uses this built-in theme name instead.
+    # not, so any build outside production uses this built-in theme name.
     devTheme = "light"
