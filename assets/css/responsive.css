@@ -12,6 +12,10 @@
   .now-stack { grid-template-columns: 1fr; }
   .post-detail { grid-template-columns: 1fr; }
   .toc, .side-meta { position: static; }
+  /* Stacked above the article, the sidebar post nav would sit between the
+     reader and the post. The breadcrumb and the cards at the foot already
+     carry prev, next and back to posts on a narrow screen. */
+  .post-nav { display: none; }
   .posts-grid { grid-template-columns: repeat(2, 1fr); }
   .featured-grid { grid-template-columns: 1fr; }
   .stack-grid { grid-template-columns: repeat(4, 1fr); }
