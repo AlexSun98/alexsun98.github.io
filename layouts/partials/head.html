@@ -16,7 +16,7 @@
   {{- /* The stylesheet lives in assets/css/ as one file per page or concern.
        Concatenated in this order into the single css/main.css the site
        always shipped. Order matters: later rules win the cascade. */ -}}
-  {{- $sheets := slice "base" "header" "home" "list" "post" "about" "taxonomy" "now" "components" "footer" "responsive" "palette" "notfound" -}}
+  {{- $sheets := slice "base" "header" "home" "list" "post" "about" "taxonomy" "now" "components" "comments" "footer" "responsive" "palette" "notfound" -}}
   {{- $parts := slice -}}
   {{- range $sheets }}{{ $parts = $parts | append (resources.Get (printf "css/%s.css" .)) }}{{ end -}}
   {{- $css := $parts | resources.Concat "css/main.css" }}

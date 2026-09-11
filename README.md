@@ -14,6 +14,7 @@ Live at: https://alexsun98.github.io
 - A SVG cover art per post, with a procedural fallback
 - Tags (cloud page) and categories (card grid), filter bars on list pages
 - Command palette search: press Ctrl+K or Cmd+K anywhere
+- Comments under every post, stored as GitHub Issues by utterances
 - No JavaScript frameworks, no tracking, three small JS files total
 
 ## Deployment
@@ -85,6 +86,31 @@ Page content:
   from `[[params.now]]` in `hugo.toml` and are shared with the homepage.
 - Your logo is `static/images/logo.png`. Replace the file, keep the name.
 
+## Comments
+
+Every post gets a comment box at the bottom, run by
+[utterances](https://utteranc.es). A comment is a GitHub Issue on this repo,
+so there is no database, no account system and no tracking script. Readers
+sign in with their own GitHub account and can edit or delete what they wrote.
+
+Settings live in `hugo.toml` under `[params.comments]`: the repo that holds
+the issues, how a post maps to its issue (`pathname`), the label put on new
+issues, and the utterances theme.
+
+The box needs three things on the GitHub side, done once:
+
+1. The repo is public and has Issues turned on.
+2. The `comment` label exists, because utterances puts it on every issue it
+   opens. Without it the first comment on a post fails.
+3. The utterances GitHub App is installed on the repo:
+   https://github.com/apps/utterances
+
+Until step 3 is done the section renders its heading and then nothing.
+
+To turn comments off, set `enable = false` under `[params.comments]` for the
+whole site, or `comments: false` in one post's front matter. Posts marked
+`sample: true` never get a box.
+
 ## Previewing locally
 
 Not required for publishing, but useful:
@@ -126,7 +152,6 @@ Ideas that fit the theme, roughly in order of effort:
 - Custom covers for each new post (see above)
 - A GitHub contribution heatmap section (CSS for it already exists in
   `main.css`; it was removed from the homepage but is easy to restore)
-- Comments via giscus (GitHub Discussions), self-contained and free
 - Dark mode: the theme is light-only by design, but `main.css` is variable
   driven, so a dark palette is a contained change
 

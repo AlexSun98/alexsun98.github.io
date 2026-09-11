@@ -1,0 +1,39 @@
+{{- /* Reader comments, stored as GitHub Issues by utterances.
+
+     One issue per post, keyed by the post path. Readers sign in with their
+     own GitHub account, so the site holds no accounts, no database and no
+     tracking script. The utterances GitHub App must be installed on the repo
+     named in [params.comments] or the box renders an error instead.
+
+     Off switches, widest first:
+       enable = false   in [params.comments] turns it off site-wide
+       comments: false  in a post's front matter turns it off for that post
+       sample: true     on a post never gets a box */ -}}
+{{- $page := . -}}
+{{- $c := .Site.Params.comments | default dict -}}
+{{- if and $c.enable $c.repo (ne $page.Params.comments false) (not $page.Params.sample) }}
+<section class="comments" id="comments">
+  <div class="comments-head">
+    <div class="kicker mono">✦ comments</div>
+    <h2>Leave a note</h2>
+    <p>
+      Comments are GitHub Issues on
+      <a href="https://github.com/{{ $c.repo }}/issues" target="_blank" rel="noopener">{{ $c.repo }}</a>.
+      Sign in with GitHub to post one, then edit or delete it there whenever you want.
+    </p>
+  </div>
+  <div class="utterances-slot">
+    <noscript>Comments need JavaScript. Open an issue on the repo instead.</noscript>
+    <script src="https://utteranc.es/client.js"
+            repo="{{ $c.repo }}"
+            issue-term="{{ $c.issueTerm | default "pathname" }}"
+            {{- with $c.label }}
+            label="{{ . }}"
+            {{- end }}
+            theme="{{ $c.theme | default "github-light" }}"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+</section>
+{{- end }}

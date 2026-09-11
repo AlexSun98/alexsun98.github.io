@@ -1,0 +1,44 @@
+/* Comment box at the foot of a post. The utterances iframe brings its own
+   GitHub styling, so this file only builds the paper card around it and
+   trims the iframe's default margins. */
+
+.comments {
+  margin-top: 40px;
+  padding: 24px 28px 18px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.comments-head .kicker {
+  font-size: 11px;
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.comments-head h2 {
+  font-family: 'Fraunces', 'Noto Sans SC', serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin: 6px 0 6px;
+}
+.comments-head p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.comments-head a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  background: var(--lime);
+  border-bottom: 2px solid var(--line);
+  padding: 0 4px;
+}
+.comments-head a:hover { background: var(--yellow); }
+
+/* utterances injects .utterances into this slot and caps itself at 760px.
+   The post column is wider than that, so let it use the full width. */
+.utterances-slot .utterances { max-width: 100%; margin: 0; }
+.utterances-slot { min-height: 60px; }

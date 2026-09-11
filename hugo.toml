@@ -163,3 +163,22 @@ title = "Alex's Blog"
     name = "Mirana"
     url = "/mirana/"
     color = "var(--mirana)"
+
+  # Comments at the foot of every post, run by utterances. Each post gets one
+  # GitHub Issue in `repo`, and readers sign in with their own GitHub account.
+  # The utterances GitHub App has to be installed on that repo first:
+  # https://github.com/apps/utterances
+  [params.comments]
+    enable = true
+    # Public repo that holds the issues. Keep it the site repo unless you want
+    # the comment threads somewhere separate.
+    repo = "AlexSun98/alexsun98.github.io"
+    # How a post maps to its issue: pathname, url, title or og:title.
+    # pathname survives a retitle, so prefer it.
+    issueTerm = "pathname"
+    # Label put on every issue utterances opens. Create it in the repo first,
+    # otherwise the first comment fails.
+    label = "comment"
+    # github-light, github-dark, preferred-color-scheme, and the rest of
+    # https://github.com/utterance/utterances/tree/master/src/themes
+    theme = "github-light"
