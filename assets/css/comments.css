@@ -21,22 +21,8 @@
   font-family: 'Fraunces', 'Noto Sans SC', serif;
   font-weight: 900;
   font-size: 24px;
-  margin: 6px 0 6px;
+  margin: 6px 0 16px;
 }
-.comments-head p {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  margin: 0 0 16px;
-}
-.comments-head a {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  background: var(--lime);
-  border-bottom: 2px solid var(--line);
-  padding: 0 4px;
-}
-.comments-head a:hover { background: var(--yellow); }
 
 /* utterances injects .utterances into this slot and caps itself at 760px.
    The post column is wider than that, so let it use the full width. */
