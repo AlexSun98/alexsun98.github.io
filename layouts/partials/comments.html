@@ -1,0 +1,52 @@
+{{- /* Reader comments, stored as GitHub Discussions by giscus.
+
+     One discussion per post, keyed by the post path. Readers sign in with
+     their own GitHub account, so the site holds no accounts, no database and
+     no tracking script. The giscus GitHub App must be installed on the repo
+     named in [params.comments] or the box renders an error instead.
+
+     The theme is a CSS file this site serves. giscus loads it inside its own
+     iframe, which is the only way to restyle the widget, and it fetches the
+     file itself, so themeUrl has to be the deployed URL rather than a local
+     path. The dev server therefore shows the deployed copy of the theme.
+
+     Off switches, widest first:
+       enable = false   in [params.comments] turns it off site-wide
+       comments: false  in a post's front matter turns it off for that post
+       sample: true     on a post never gets a box */ -}}
+{{- $page := . -}}
+{{- $c := .Site.Params.comments | default dict -}}
+{{- if and $c.enable $c.repo (ne $page.Params.comments false) (not $page.Params.sample) }}
+{{- $theme := $c.themeUrl | default $c.theme | default "light" -}}
+<section class="comments" id="comments">
+  <div class="comments-head">
+    <div class="kicker mono">✦ comments</div>
+    <h2>{{ $c.title | default "Guestbook" }}</h2>
+    <p class="lede">{{ $c.lede | default "Feel free to share what you think. Comments run on GitHub, so you sign in with a GitHub account." | safeHTML }}</p>
+    <ul class="notes">
+      <li class="chip sm" style="background:var(--lime)">markdown works</li>
+      {{ if $c.reactions }}<li class="chip sm" style="background:var(--peach)">reactions on</li>{{ end }}
+      <li class="chip sm" style="background:var(--sky)">edit or delete anytime</li>
+    </ul>
+  </div>
+  <div class="giscus-slot">
+    <noscript>Comments need JavaScript. Open a discussion on the repo instead.</noscript>
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ $c.repo }}"
+            data-repo-id="{{ $c.repoId }}"
+            data-category="{{ $c.category }}"
+            data-category-id="{{ $c.categoryId }}"
+            data-mapping="{{ $c.mapping | default "pathname" }}"
+            data-strict="1"
+            data-reactions-enabled="{{ if $c.reactions }}1{{ else }}0{{ end }}"
+            data-emit-metadata="0"
+            data-input-position="{{ $c.inputPosition | default "bottom" }}"
+            data-theme="{{ $theme }}"
+            data-lang="{{ $c.lang | default "en" }}"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+</section>
+{{- end }}

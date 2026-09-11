@@ -1,24 +1,29 @@
 {{- $h := int (default 180 .height) -}}
+{{- /* Idea, agent, live post. Three boxes and two arrows.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to
+       a wide strip, not fitted. The tightest crop is the post detail page on
+       a large screen, which shows y=44.4 to y=95.6. Keep everything, wording
+       above all, between y=46 and y=94. See layouts/partials/cover.html. */ -}}
 <svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--lavender)">
+  <text x="22" y="54" font-family="JetBrains Mono, monospace" font-size="7" opacity=".6">$ blog --publish</text>
   <!-- prompt box -->
-  <rect x="22" y="46" width="56" height="48" rx="5" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
-  <text x="50" y="66" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">✎ idea</text>
-  <path d="M32 76h36M32 84h24" stroke="#151415" stroke-width="2" opacity=".25" stroke-linecap="round"/>
+  <rect x="22" y="58" width="56" height="34" rx="5" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <text x="50" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">&#9998; idea</text>
+  <path d="M32 79h36M32 85h24" stroke="#151415" stroke-width="2" opacity=".25" stroke-linecap="round"/>
   <!-- claude box -->
-  <rect x="92" y="46" width="56" height="48" rx="5" fill="#151415" stroke="#151415" stroke-width="2"/>
-  <path d="M120 56l1.8 5h5.4l-4.4 3.4 1.7 5.2-4.5-3.2-4.5 3.2 1.7-5.2-4.4-3.4h5.4z" fill="#f5dc5a"/>
-  <text x="120" y="86" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#fdfcf5">claude+mcp</text>
+  <rect x="92" y="58" width="56" height="34" rx="5" fill="#151415" stroke="#151415" stroke-width="2"/>
+  <path d="M120 63l1.8 5h5.4l-4.4 3.4 1.7 5.2-4.5-3.2-4.5 3.2 1.7-5.2-4.4-3.4h5.4z" fill="#f5dc5a"/>
+  <text x="120" y="87" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#fdfcf5">claude+mcp</text>
   <!-- live box -->
-  <rect x="162" y="46" width="56" height="48" rx="5" fill="#b5f26a" stroke="#151415" stroke-width="2"/>
-  <text x="190" y="66" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">✓ live</text>
-  <text x="190" y="82" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8">deployed</text>
+  <rect x="162" y="58" width="56" height="34" rx="5" fill="#b5f26a" stroke="#151415" stroke-width="2"/>
+  <text x="190" y="73" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700">&#10003; live</text>
+  <text x="190" y="85" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7">deployed</text>
   <!-- arrows -->
-  <path d="M78 70h8m66 0h8" stroke="#151415" stroke-width="2"/>
-  <polygon points="86,66 92,70 86,74" fill="#151415"/>
-  <polygon points="156,66 162,70 156,74" fill="#151415"/>
+  <path d="M78 75h8m66 0h8" stroke="#151415" stroke-width="2"/>
+  <polygon points="86,71 92,75 86,79" fill="#151415"/>
+  <polygon points="156,71 162,75 156,79" fill="#151415"/>
   <!-- sparkles -->
-  <path d="M36 24l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
-  <path d="M204 20l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#f5dc5a" stroke="#151415" stroke-width="1.2"/>
-  <path d="M120 116q40-10 80 0" fill="none" stroke="#151415" stroke-width="2" stroke-linecap="round" opacity=".35"/>
-  <text x="46" y="120" font-family="JetBrains Mono, monospace" font-size="8" opacity=".6">$ blog --publish</text>
+  <path d="M84 48l1.8 3.6 3.6 1.8-3.6 1.8-1.8 3.6-1.8-3.6-3.6-1.8 3.6-1.8z" fill="#ef7065" stroke="#151415" stroke-width="1.2"/>
+  <path d="M226 50l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#f5dc5a" stroke="#151415" stroke-width="1.2"/>
 </svg>

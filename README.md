@@ -14,6 +14,7 @@ Live at: https://alexsun98.github.io
 - A SVG cover art per post, with a procedural fallback
 - Tags (cloud page) and categories (card grid), filter bars on list pages
 - Command palette search: press Ctrl+K or Cmd+K anywhere
+- Comments under every post, stored as GitHub Discussions by giscus
 - No JavaScript frameworks, no tracking, three small JS files total
 
 ## Deployment
@@ -69,6 +70,13 @@ Every post card carries an SVG cover.
   SVG. Same name as the markdown file. See the existing files in that folder
   for the style: 240x140 viewBox, ink strokes, pastel background.
 
+Keep every cover inside **y=46 to y=94**. The SVG uses `preserveAspectRatio`
+`slice`, so the canvas is cropped to a wide strip rather than fitted, and the
+strip is a different shape in each place a cover appears. The tightest is the
+post detail page on a large screen, which shows y=44.4 to y=95.6. A caption
+drawn below y=94 loses its bottom half there. The numbers for every position
+are in the comment at the top of `layouts/partials/cover.html`.
+
 The fastest way to get a custom cover is to ask an AI agent to read the post
 and draw one in the style of the existing covers.
 
@@ -84,6 +92,50 @@ Page content:
 - `content/now.md` holds the /now page prose. The four status cards come
   from `[[params.now]]` in `hugo.toml` and are shared with the homepage.
 - Your logo is `static/images/logo.png`. Replace the file, keep the name.
+
+## Comments
+
+Every post gets a comment box at the bottom, run by
+[giscus](https://giscus.app). A thread is a GitHub Discussion on this repo, so
+there is no database, no account system and no tracking script. Readers sign
+in with their own GitHub account and can edit or delete what they wrote.
+
+Settings live in `hugo.toml` under `[params.comments]`. The `repoId` and
+`categoryId` values come from the configurator at https://giscus.app once you
+pick the repo and the category. Both are public identifiers, not secrets.
+
+The box needs two things on the GitHub side, done once:
+
+1. The repo is public and has Discussions turned on, with an `Announcements`
+   category. Announcements is the right one: only maintainers can open a
+   discussion there by hand, so the threads stay one per post.
+2. The giscus GitHub App is installed on the repo:
+   https://github.com/apps/giscus
+
+Until step 2 is done the section renders its heading and then nothing.
+
+### Theme
+
+`static/css/giscus.css` is the widget's theme. giscus loads it inside its own
+iframe, which is the only way to reach the widget's markup from here. The file
+is the stock giscus `light` theme, downloaded from
+https://giscus.app/themes/light.css, with a short override block appended at
+the end. The override hides the giscus credit line and moves the widget onto
+the same paper colour as the card around it.
+
+giscus fetches that file from inside its own iframe and cannot reach
+localhost, so `themeUrl` is the deployed URL, not a local path. The dev server
+shows the deployed copy of the theme, which means a change to the file only
+appears locally after it is merged and GitHub Pages has rebuilt.
+
+To refresh the base theme, download that URL again and keep the override block
+at the end of the file.
+
+### Turning it off
+
+Set `enable = false` under `[params.comments]` for the whole site, or
+`comments: false` in one post's front matter. Posts marked `sample: true`
+never get a box.
 
 ## Previewing locally
 
@@ -113,6 +165,7 @@ layouts/
 assets/css/                the theme, one file per page area
 static/
   js/                      palette.js (search), progress.js (reading bar)
+  css/giscus.css           the comment widget's theme, loaded in its iframe
   images/                  logo.png, alex.png, mirana.png
 .github/workflows/hugo.yml the auto-deploy job
 ```
@@ -126,7 +179,6 @@ Ideas that fit the theme, roughly in order of effort:
 - Custom covers for each new post (see above)
 - A GitHub contribution heatmap section (CSS for it already exists in
   `main.css`; it was removed from the homepage but is easy to restore)
-- Comments via giscus (GitHub Discussions), self-contained and free
 - Dark mode: the theme is light-only by design, but `main.css` is variable
   driven, so a dark palette is a contained change
 

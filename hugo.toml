@@ -163,3 +163,35 @@ title = "Alex's Blog"
     name = "Mirana"
     url = "/mirana/"
     color = "var(--mirana)"
+
+  # Comments at the foot of every post, run by giscus. Each post gets one
+  # GitHub Discussion in `repo`, and readers sign in with their own GitHub
+  # account. The giscus GitHub App has to be installed on that repo first:
+  # https://github.com/apps/giscus
+  #
+  # The two id values come from https://giscus.app after you pick the repo and
+  # category there. They are public, not secrets.
+  [params.comments]
+    enable = true
+    # Heading and the sentence under it, above the comment box.
+    title = "Guestbook"
+    lede = "Feel free to share what you think. Comments run on GitHub, so you sign in with a GitHub account."
+    repo = "AlexSun98/alexsun98.github.io"
+    repoId = "R_kgDOTh4hrw"
+    # Announcements is the right category: only repo maintainers can open a
+    # discussion in it by hand, so the threads stay one per post.
+    category = "Announcements"
+    categoryId = "DIC_kwDOTh4hr84DFX4u"
+    # How a post maps to its discussion: pathname, url, title or og:title.
+    # pathname survives a retitle, so prefer it.
+    mapping = "pathname"
+    reactions = true
+    inputPosition = "bottom"
+    lang = "en"
+    # Theme CSS this site serves, loaded inside the giscus iframe. It is the
+    # stock giscus light theme with our overrides appended. giscus fetches it
+    # itself and cannot reach localhost, so this has to be the deployed URL.
+    # The dev server shows the deployed copy, not local edits to the file.
+    themeUrl = "https://alexsun98.github.io/css/giscus.css"
+    # Used only when themeUrl is blank.
+    theme = "light"
