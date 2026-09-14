@@ -9,23 +9,17 @@ subtitle: "Principles, architecture, and implementation for agentic engineering"
 weight: 1
 status: "in progress"
 accent: "var(--aqua)"
-description: "How to build an agentic coding system that can stop itself: the harness that runs the lifecycle, the knowledge layer that decides what an agent may believe, and the teams and habits that have to change around both."
+description: "How to build an agentic coding system that can stop itself: the harness that runs the lifecycle, the knowledge layer that decides what an agent may believe, and the teams around both, which are not a separate problem."
 ---
 
-Agentic coding is moving off the chat window and onto something shaped like a
-production line. Specs in, code out, checks that can stop the run. A line earns
-its speed from being able to halt itself, and the checks are what buy the speed
-rather than what slow it down.
+A production line is only worth its speed because it can halt itself. This book
+is about building a coding system that works the same way, and about the two
+lanes that run through one: the harness that carries work from a spec to a
+deploy, and the knowledge layer underneath it that decides what an agent is
+allowed to believe.
 
-This book is about building that line. Two lanes run through it. The harness
-runs the lifecycle end to end, from specs, requirements and context through
-generation, tests, evaluation and deploy. Knowledge engineering sits underneath
-it, holding domain state and context pipelines and deciding what an agent is
-allowed to believe. The top lane fails loudly, a gate goes red and a run stops.
-The bottom lane does not, which is why it is the one that hurts.
-
-The stack in the title means two things. The technology, and the organisation
-around it. They are harder to separate than I expected.
+The stack in the title is the technology and the organisation both. They do not
+come apart, so the book does not treat them as two subjects.
 
 It runs in three parts.
 
@@ -38,10 +32,9 @@ pipelines, telemetry, and keeping the two lanes in step.
 **Part III, implementation.** Repository layouts, control loops, running the
 thing day to day, and real source. That is the part with the scars in it.
 
-It is for architects, principal engineers and engineering leaders who are
-already past the chat window. It is not about picking the best model, which is
-the component you will replace most often.
+Written for people who have already got past the chat window and now have a
+setup that mostly works, without being able to say why it fails when it fails.
 
-I am writing it in the open, one chapter at a time. Chapters go up when they are
-readable, not when they are finished, and the front matter on each one says
-which it is.
+It goes up a chapter at a time while it is still being written. Chapters change
+under you, and the front matter on each one says whether it is a draft. The
+preface is the place to start.
