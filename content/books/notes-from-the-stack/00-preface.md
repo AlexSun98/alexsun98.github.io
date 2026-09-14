@@ -8,11 +8,9 @@ draftSlug: notes-from-the-stack-preface
 tags: ["Harness Engineering", "Knowledge Engineering", "Agentic Coding"]
 description: "A day in robot valley, then a diagram with two lanes. The top lane is the harness and it fails loudly. The bottom lane is knowledge, and it does not go red."
 ---
-In March I spent a day in the Shenzhen Science and Technology Museum with my family. Most of it went on robot valley. What is down there is a mix: working line, static display, video wall. A whole day was not enough. Nobody got bored, which I had not expected.
+In March I spent a day in the Shenzhen Science and Technology Museum and Robot Valley with my family. What is down there is a mix of working line, dynamic/static display, video wall. A whole day was not enough. Nobody got bored, which I had not expected.
 
-The part I could not put down was simple. A production line that builds robots.
-
-The production lines I later read about are not the ones I saw. The Longhua pilot line for humanoid robots opened on 12 April, a month after the museum, so nothing I watched that day was it. What I know about those lines I read afterwards, and I did not measure any of it. Reporting on the Leju Robotics line puts the Longhua pilot at about two hours to assemble one unit, and the follow-on factory in Foshan at one unit every thirty minutes.
+The part I could not put down was simple. A humanoid robot pilot production line that builds robots. Reporting on the Leju Robotics line puts the Longhua pilot at about two hours to assemble one unit, and the follow-on factory in Foshan at one unit every thirty minutes.
 
 The figure that stayed with me was not the speed. Before a robot leaves the building it has to pass 77 inspections and 41 tests that simulate real operating conditions.
 

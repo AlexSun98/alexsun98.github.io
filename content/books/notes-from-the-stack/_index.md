@@ -23,14 +23,23 @@ come apart, so the book does not treat them as two subjects.
 
 It runs in three parts.
 
-**Part I, principles.** Golden eval sets, modularity, domain driven design,
-jidoka. Old ideas that matter more now, not less.
+**Part I, principles. The why.** Fifty years of software engineering did not
+stop counting when agents arrived. It started counting for more, because an
+agent runs the fundamentals faster in whichever direction you point it. Golden
+eval sets, modularity, boundary enforcement, the human in the loop, and jidoka,
+which in an agentic system is the evaluation loop that stops a bad change before
+it reaches anything downstream.
 
-**Part II, architecture and capabilities.** The harness blueprint, context
-pipelines, telemetry, and keeping the two lanes in step.
+**Part II, system architecture and capabilities. The how.** Harness design,
+context engineering, orchestration patterns and the toolchain around them. This
+is where the two lanes get drawn properly: the top lane running the delivery
+loops from spec to deploy, the bottom lane holding knowledge, retrieval and
+state.
 
-**Part III, implementation.** Repository layouts, control loops, running the
-thing day to day, and real source. That is the part with the scars in it.
+**Part III, implementation. The what.** Repository layout, the harness assembled
+a step at a time, control loops, running it day to day, and real source. Most
+writing on this stops at a prompt. This part is the working thing, and it is
+where the scars are.
 
 Written for people who have already got past the chat window and now have a
 setup that mostly works, without being able to say why it fails when it fails.
