@@ -25,15 +25,19 @@
     {{- if $chapters }}{{ $pct = div (mul (len $chapters) 100) (int (default (len $chapters) .Params.plannedChapters)) }}{{ end -}}
     {{- if gt $pct 100 }}{{ $pct = 100 }}{{ end -}}
     <div class="shelf-item" style="--accent:{{ .Params.accent | default "var(--aqua)" | safeCSS }}">
-      <a class="shelf-spine" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+      {{- /* The spine is not its own link. The title's anchor is stretched over
+             the whole card below, so a click anywhere on it opens the book, the
+             same way a chapter row works. Nesting anchors would be invalid, so
+             the jump links are raised above the stretched one instead. */ -}}
+      <div class="shelf-spine">
         <span class="n">{{ len $chapters }} ch</span>
         <span class="t">{{ .Title }}</span>
-      </a>
+      </div>
       <div class="shelf-body">
         {{- /* The shelf takes the short name and the subtitle under it. The full
                name is the two of them joined, so printing it here and then the
                subtitle again would say the same words twice. */ -}}
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <h2><a class="stretch" href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ with .Params.subtitle }}<div class="shelf-sub">{{ . }}</div>{{ end }}
         {{ with .Description }}<p>{{ . }}</p>{{ end }}
         <div class="shelf-meta">

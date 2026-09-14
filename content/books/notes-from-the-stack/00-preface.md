@@ -90,13 +90,7 @@ The model is the component with the shortest life in the whole system. Building 
 
 ## How to read it
 
-Three parts.
-
-Part I, principles. Golden eval sets, modularity, domain driven design, jidoka. Old ideas that matter more now, not less.
-
-Part II, architecture and capabilities. The harness blueprint, context pipelines, telemetry, and keeping the two lanes in step.
-
-Part III, implementation. Repository layouts, control loops, running the thing day to day, and real source. That is the part with the scars in it.
+Three parts. Principles, then architecture and capabilities, then implementation. The contents page lists what sits in each one, so I will not repeat it here.
 
 I wrote it for architects, principal engineers and engineering leaders who have got past the chat window. Parts of it will date badly. I have tried to say which parts.
 

@@ -380,3 +380,18 @@
   border-bottom: 1px dashed var(--mute);
 }
 .book-page .front-matter .yaml a:hover { border-bottom-color: var(--ink); background: var(--accent, var(--aqua)); }
+
+/* The whole book card is one click target, like a chapter row. The title's
+   anchor is stretched over the card rather than wrapping it, because the card
+   also holds the jump links and an anchor inside an anchor is invalid. The
+   jump links sit above the stretched one so they still take their own click. */
+.shelf-item { position: relative; }
+.shelf-item a.stretch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+.shelf-jump { position: relative; z-index: 1; }
+.shelf-item:focus-within { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--line); }
+.shelf-spine { cursor: pointer; }

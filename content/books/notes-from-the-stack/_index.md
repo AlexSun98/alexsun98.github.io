@@ -27,10 +27,20 @@ The bottom lane does not, which is why it is the one that hurts.
 The stack in the title means two things. The technology, and the organisation
 around it. They are harder to separate than I expected.
 
-Three parts. Principles, then architecture and capabilities, then implementation
-with the scars left in. It is for architects, principal engineers and
-engineering leaders who are already past the chat window. It is not about
-picking the best model, which is the component you will replace most often.
+It runs in three parts.
+
+**Part I, principles.** Golden eval sets, modularity, domain driven design,
+jidoka. Old ideas that matter more now, not less.
+
+**Part II, architecture and capabilities.** The harness blueprint, context
+pipelines, telemetry, and keeping the two lanes in step.
+
+**Part III, implementation.** Repository layouts, control loops, running the
+thing day to day, and real source. That is the part with the scars in it.
+
+It is for architects, principal engineers and engineering leaders who are
+already past the chat window. It is not about picking the best model, which is
+the component you will replace most often.
 
 I am writing it in the open, one chapter at a time. Chapters go up when they are
 readable, not when they are finished, and the front matter on each one says
