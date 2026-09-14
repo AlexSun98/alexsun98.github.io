@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{- /* The book landing page. Chapters come from content/book/*.md and are
+       ordered by the `weight` in their front matter. A chapter with
+       `hidden: true` is kept out of the list, which is how a chapter in
+       progress stays unlisted without being deleted. */ -}}
+{{- $chapters := where .RegularPages "Params.hidden" "!=" true -}}
+{{- $chapters = $chapters.ByWeight -}}
+{{- $words := 0 -}}
+{{- range $chapters }}{{ $words = add $words .WordCount }}{{ end -}}
+<div class="page-wrap">
+  <div class="page-title-row">
+    <div class="kicker mono">~/book $ ls -la | wc -l → <strong>{{ len $chapters }}</strong></div>
+    <h1 class="display">{{ with .Params.bookTitle }}{{ . }}{{ else }}{{ .Title }}{{ end }}</h1>
+    {{ with .Content }}{{ . }}{{ end }}
+  </div>
+
+  {{ if $chapters }}
+  <div class="filter-bar">
+    <span class="label">book:</span>
+    <a class="filter-chip active" href="{{ .RelPermalink }}">{{ len $chapters }} chapter{{ if ne (len $chapters) 1 }}s{{ end }}</a>
+    <a class="filter-chip" href="{{ .RelPermalink }}">{{ if ge $words 1000 }}~{{ printf "%.1fk" (div (float $words) 1000) }}{{ else }}{{ $words }}{{ end }} words</a>
+    {{ with .Params.status }}<a class="filter-chip" href="#">{{ . }}</a>{{ end }}
+  </div>
+  <div class="posts-grid">
+    {{ range $chapters }}
+    <a class="post-card" href="{{ .RelPermalink }}">
+      <div class="cover-slot">
+        {{ partial "cover.html" (dict "page" . "height" 140) }}
+      </div>
+      <div class="body">
+        <div class="date mono">{{ with .Params.chapter }}chapter {{ . }}{{ else }}chapter{{ end }} · {{ .ReadingTime }}m</div>
+        <h3 class="display">{{ .Title }}</h3>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+        <div class="tags">
+          {{ range first 3 .Params.tags }}<span class="chip sm" style="background:var(--cream-warm)">#{{ . }}</span>{{ end }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="mono" style="color:var(--mute)">No chapters yet.</p>
+  {{ end }}
+</div>
+{{ end }}

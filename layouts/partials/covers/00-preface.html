@@ -1,0 +1,72 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Two lanes, the same gate frame on each one. Top: the bar is down, a bad
+       part is held behind it, the lamp is lit. Bottom: the identical bar is up,
+       the lamp reads fine, and the bad part has already gone through and off
+       the edge. Same machinery, one failure you can see and one you cannot.
+       That is the post.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip. The tightest crop is the post detail page on a large screen,
+       y=44.4 to y=95.6. Everything here sits between y=46 and y=93. See
+       layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--lavender)">
+
+  <!-- ================= top lane: the harness. it fails loudly ================= -->
+
+  <text x="14" y="52" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">harness</text>
+
+  <!-- the belt -->
+  <line x1="14" y1="64" x2="226" y2="64" stroke="#151415" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- good parts, still moving -->
+  <rect x="70" y="55" width="9" height="9" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="86" y="55" width="9" height="9" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- the lamp, lit, with sparks. you are told -->
+  <circle cx="112" cy="59" r="4.5" fill="#ef7065" stroke="#151415" stroke-width="2"/>
+  <path d="M112 51v2.4M119.4 54.2l-1.7 1.7M104.6 54.2l1.7 1.7" stroke="#151415" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- the bad part, caught, stopped against the bar -->
+  <rect x="128" y="55" width="9" height="9" fill="#f5dc5a" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M130 57l5 5M135 57l-5 5" stroke="#151415" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- the gate frame, and the bar down across the belt -->
+  <rect x="141" y="48" width="4.5" height="16" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="175" y="48" width="4.5" height="16" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="141" y="57" width="38.5" height="7" fill="#ef7065" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- belt past the gate is empty. the line halted -->
+
+  <!-- ============== bottom lane: knowledge. it fails quietly ============== -->
+
+  <text x="14" y="74" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">knowledge</text>
+
+  <!-- the belt -->
+  <line x1="14" y1="86" x2="226" y2="86" stroke="#151415" stroke-width="2.4" stroke-linecap="round"/>
+
+  <!-- parts moving, same as above -->
+  <rect x="70" y="77" width="9" height="9" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="86" y="77" width="9" height="9" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- the same lamp, steady, no sparks. nothing tells you -->
+  <circle cx="112" cy="81" r="4.5" fill="#b5f26a" stroke="#151415" stroke-width="2"/>
+
+  <!-- the same frame, bar up. the belt underneath is clear -->
+  <rect x="141" y="70" width="4.5" height="16" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="175" y="70" width="4.5" height="16" fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="141" y="70" width="38.5" height="7" fill="#b5f26a" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- the bad part, through, tilted, on its way out of the building -->
+  <g transform="rotate(-12 190.5 81.5)">
+    <rect x="186" y="77" width="9" height="9" fill="#ef7065" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M188 79l5 5M193 79l-5 5" stroke="#151415" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <path d="M204 81.5h16M216 78l4 3.5-4 3.5" stroke="#151415" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- accents, corner fill only -->
+  <path d="M220 54v4M218 56h4" stroke="#151415" stroke-width="1.6" stroke-linecap="round" opacity=".35"/>
+  <path d="M60 60v3" stroke="#151415" stroke-width="1.6" stroke-linecap="round" opacity=".25"/>
+
+  <!-- the idea, named -->
+  <text x="14" y="93" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">the bottom lane never goes red</text>
+</svg>

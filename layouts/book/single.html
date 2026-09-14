@@ -1,0 +1,120 @@
+{{ define "main" }}
+{{- /* One chapter of the book. Chapters are ordered by the `weight` in their
+       front matter, not by date, so prev and next are worked out from the
+       weight-sorted list rather than from .PrevInSection. */ -}}
+{{- $chapters := where .CurrentSection.RegularPages "Params.hidden" "!=" true -}}
+{{- $chapters = $chapters.ByWeight -}}
+{{- $prev := "" -}}{{- $next := "" -}}
+{{- range $i, $c := $chapters -}}
+  {{- if eq $c.RelPermalink $.RelPermalink -}}
+    {{- if gt $i 0 }}{{ $prev = index $chapters (sub $i 1) }}{{ end -}}
+    {{- if lt (add $i 1) (len $chapters) }}{{ $next = index $chapters (add $i 1) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+<div class="page-wrap post-page">
+  <div class="breadcrumb mono">
+    <a href="{{ "/" | relURL }}">~</a> / <a href="{{ .CurrentSection.RelPermalink }}">book</a> / <strong>{{ .File.BaseFileName }}.md</strong>
+  </div>
+  <div class="post-detail">
+    <aside class="toc">
+      <nav class="post-nav">
+        <div class="head">◊ chapters</div>
+        <div class="branch">
+          {{ range $chapters }}
+          <a class="step{{ if eq .RelPermalink $.RelPermalink }} all{{ end }}" href="{{ .RelPermalink }}">
+            <span class="kicker">{{ with .Params.chapter }}{{ . }}{{ else }}·{{ end }}</span>
+            <span class="title">{{ .Title }}</span>
+          </a>
+          {{ end }}
+          <a class="step all" href="{{ .CurrentSection.RelPermalink }}">
+            <span class="kicker">↑ index</span>
+            <span class="title">All chapters</span>
+          </a>
+        </div>
+      </nav>
+      <div class="head">◊ table of contents</div>
+      {{ if strings.Contains .TableOfContents "<li>" }}
+      <nav class="toc-list" id="toc">{{ .TableOfContents }}</nav>
+      {{ else }}
+      <div class="toc-list mono" style="color:var(--mute);font-size:12px">// no headings</div>
+      {{ end }}
+      <div class="share-box">
+        <div class="label mono">✦ share</div>
+        <div class="btns">
+          <button type="button" onclick='window.open("https://twitter.com/intent/tweet?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title),"_blank")'>X</button>
+          <button type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href)">🔗</button>
+          <button type="button" onclick="window.print()">✎</button>
+        </div>
+      </div>
+    </aside>
+    <article>
+      <div class="post-tags">
+        <a class="chip" style="background:var(--aqua)" href="{{ .CurrentSection.RelPermalink }}">{{ with .CurrentSection.Params.bookTitle }}{{ . }}{{ else }}The book{{ end }}</a>
+        {{ with .Params.chapter }}<a class="chip" style="background:var(--cream-warm)" href="{{ $.CurrentSection.RelPermalink }}">chapter {{ . }}</a>{{ end }}
+        {{ range .Params.tags }}<a class="chip" style="background:var(--cream-warm)" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
+      </div>
+      <h1 class="display">{{ .Title }}</h1>
+      <div class="byline">
+        <div class="who">
+          {{ partial "logo.html" (dict "size" 34) }}
+          <div>
+            <strong>{{ .Site.Params.name }}</strong>
+            <span class="handle">@{{ .Site.Params.github }}</span>
+          </div>
+        </div>
+        <span class="mute">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+        <span class="mute">·</span>
+        <span>{{ .WordCount }} words</span>
+        {{ if not .Date.IsZero }}
+        <span class="mute">·</span>
+        <span>updated {{ .Date.Format "2006-01-02" }}</span>
+        {{ end }}
+      </div>
+      <div class="cover-wrap">
+        {{ partial "cover.html" (dict "page" . "height" 220) }}
+      </div>
+      <div class="md">
+        {{ .Content }}
+      </div>
+      {{ if or $prev $next }}
+      <div class="prev-next">
+        {{ with $prev }}
+        <a class="card" href="{{ .RelPermalink }}">
+          <div class="kicker">← previous chapter</div>
+          <div class="title">{{ .Title }}</div>
+        </a>
+        {{ else }}<span></span>{{ end }}
+        {{ with $next }}
+        <a class="card next" href="{{ .RelPermalink }}">
+          <div class="kicker">next chapter →</div>
+          <div class="title">{{ .Title }}</div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ partial "comments.html" . }}
+    </article>
+    <aside class="side-meta">
+      <div class="front-matter">
+        <div class="head">◊ front matter</div>
+        <div class="yaml">
+          <div><span class="k">book:</span> {{ with .CurrentSection.Params.bookTitle }}{{ . }}{{ else }}untitled{{ end }}</div>
+          {{ with .Params.chapter }}<div><span class="k">chapter:</span> {{ . }}</div>{{ end }}
+          <div><span class="k">title:</span> {{ .File.BaseFileName }}</div>
+          <div><span class="k">author:</span> {{ .Site.Params.firstName }}</div>
+          <div><span class="k">words:</span> {{ if ge .WordCount 1000 }}~{{ printf "%.1fk" (div (float .WordCount) 1000) }}{{ else }}{{ .WordCount }}{{ end }}</div>
+          <div><span class="k">status:</span> {{ with .Params.status }}{{ . }}{{ else }}draft{{ end }}</div>
+        </div>
+      </div>
+      <div class="reading-progress">
+        <div class="label">✦ reading</div>
+        <div class="text" data-minutes="{{ .ReadingTime }}">read 0% · ~{{ .ReadingTime }} min left</div>
+        <div class="bar"><div></div></div>
+      </div>
+    </aside>
+  </div>
+</div>
+<script src="{{ "js/progress.js" | relURL }}" defer></script>
+<script src="{{ "js/toc.js" | relURL }}" defer></script>
+{{ end }}
