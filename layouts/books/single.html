@@ -1,43 +1,50 @@
 {{ define "main" }}
-{{- /* One chapter of the book. Chapters are ordered by the `weight` in their
-       front matter, not by date, so prev and next are worked out from the
-       weight-sorted list rather than from .PrevInSection. */ -}}
-{{- $chapters := where .CurrentSection.RegularPages "Params.hidden" "!=" true -}}
-{{- $chapters = $chapters.ByWeight -}}
-{{- $prev := "" -}}{{- $next := "" -}}
+{{- /* One chapter. Chapters are ordered by the `weight` in their front matter,
+       not by date, so prev and next come from the weight-sorted list rather
+       than from .PrevInSection. */ -}}
+{{- $book := .Parent -}}
+{{- $chapters := (where $book.RegularPages "Params.hidden" "!=" true).ByWeight -}}
+{{- $prev := "" -}}{{- $next := "" -}}{{- $idx := 0 -}}
 {{- range $i, $c := $chapters -}}
   {{- if eq $c.RelPermalink $.RelPermalink -}}
+    {{- $idx = $i -}}
     {{- if gt $i 0 }}{{ $prev = index $chapters (sub $i 1) }}{{ end -}}
     {{- if lt (add $i 1) (len $chapters) }}{{ $next = index $chapters (add $i 1) }}{{ end -}}
   {{- end -}}
 {{- end -}}
-<div class="page-wrap post-page">
+{{- $accent := $book.Params.accent | default "var(--aqua)" -}}
+<div class="page-wrap post-page book-page" style="--accent:{{ $accent | safeCSS }}">
   <div class="breadcrumb mono">
-    <a href="{{ "/" | relURL }}">~</a> / <a href="{{ .CurrentSection.RelPermalink }}">book</a> / <strong>{{ .File.BaseFileName }}.md</strong>
+    <a href="{{ "/" | relURL }}">~</a> /
+    <a href="{{ "/books/" | relURL }}">books</a> /
+    <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a> /
+    <strong>{{ .File.BaseFileName }}.md</strong>
   </div>
   <div class="post-detail">
     <aside class="toc">
-      <nav class="post-nav">
-        <div class="head">◊ chapters</div>
-        <div class="branch">
+      {{- /* One tree, not two boxes. The chapter you are reading opens into its
+             own sections, so the whole book and your place in it are visible at
+             the same time: book / chapters / this chapter / its sections. */ -}}
+      <nav class="book-tree">
+        <a class="tree-root" href="{{ $book.RelPermalink }}">
+          <span class="k">◇</span>
+          <span class="t">{{ $book.Title }}</span>
+        </a>
+        <ol class="tree-chapters">
           {{ range $chapters }}
-          <a class="step{{ if eq .RelPermalink $.RelPermalink }} all{{ end }}" href="{{ .RelPermalink }}">
-            <span class="kicker">{{ with .Params.chapter }}{{ . }}{{ else }}·{{ end }}</span>
-            <span class="title">{{ .Title }}</span>
-          </a>
+          {{- $here := eq .RelPermalink $.RelPermalink -}}
+          <li{{ if $here }} class="here"{{ end }}>
+            <a class="tree-chapter" href="{{ .RelPermalink }}">
+              <span class="n">{{ with .Params.chapter }}{{ . }}{{ else }}·{{ end }}</span>
+              <span class="t">{{ .Title }}</span>
+            </a>
+            {{ if and $here (strings.Contains $.TableOfContents "<li>") }}
+            <div class="tree-sections toc-list" id="toc">{{ $.TableOfContents }}</div>
+            {{ end }}
+          </li>
           {{ end }}
-          <a class="step all" href="{{ .CurrentSection.RelPermalink }}">
-            <span class="kicker">↑ index</span>
-            <span class="title">All chapters</span>
-          </a>
-        </div>
+        </ol>
       </nav>
-      <div class="head">◊ table of contents</div>
-      {{ if strings.Contains .TableOfContents "<li>" }}
-      <nav class="toc-list" id="toc">{{ .TableOfContents }}</nav>
-      {{ else }}
-      <div class="toc-list mono" style="color:var(--mute);font-size:12px">// no headings</div>
-      {{ end }}
       <div class="share-box">
         <div class="label mono">✦ share</div>
         <div class="btns">
@@ -48,9 +55,15 @@
       </div>
     </aside>
     <article>
+      <div class="chapter-place">
+        <span>{{ $book.Title }}</span>
+        <span class="pips" aria-hidden="true">
+          {{ range $i, $c := $chapters }}<i class="{{ if eq $i $idx }}here{{ else if lt $i $idx }}on{{ end }}"></i>{{ end }}
+        </span>
+        <span>chapter {{ add $idx 1 }} of {{ len $chapters }}</span>
+      </div>
       <div class="post-tags">
-        <a class="chip" style="background:var(--aqua)" href="{{ .CurrentSection.RelPermalink }}">{{ with .CurrentSection.Params.bookTitle }}{{ . }}{{ else }}The book{{ end }}</a>
-        {{ with .Params.chapter }}<a class="chip" style="background:var(--cream-warm)" href="{{ $.CurrentSection.RelPermalink }}">chapter {{ . }}</a>{{ end }}
+        {{ with .Params.part }}<a class="chip" style="background:var(--accent)" href="{{ $book.RelPermalink }}">Part {{ . }}</a>{{ end }}
         {{ range .Params.tags }}<a class="chip" style="background:var(--cream-warm)" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
       </div>
       <h1 class="display">{{ .Title }}</h1>
@@ -81,13 +94,18 @@
       <div class="prev-next">
         {{ with $prev }}
         <a class="card" href="{{ .RelPermalink }}">
-          <div class="kicker">← previous chapter</div>
+          <div class="kicker">← {{ with .Params.chapter }}chapter {{ . }}{{ else }}previous{{ end }}</div>
           <div class="title">{{ .Title }}</div>
         </a>
-        {{ else }}<span></span>{{ end }}
+        {{ else }}
+        <a class="card" href="{{ $book.RelPermalink }}">
+          <div class="kicker">← contents</div>
+          <div class="title">{{ $book.Title }}</div>
+        </a>
+        {{ end }}
         {{ with $next }}
         <a class="card next" href="{{ .RelPermalink }}">
-          <div class="kicker">next chapter →</div>
+          <div class="kicker">{{ with .Params.chapter }}chapter {{ . }}{{ else }}next{{ end }} →</div>
           <div class="title">{{ .Title }}</div>
         </a>
         {{ end }}
@@ -99,12 +117,12 @@
       <div class="front-matter">
         <div class="head">◊ front matter</div>
         <div class="yaml">
-          <div><span class="k">book:</span> {{ with .CurrentSection.Params.bookTitle }}{{ . }}{{ else }}untitled{{ end }}</div>
+          <div><span class="k">book:</span> {{ $book.Title }}</div>
+          {{ with .Params.part }}<div><span class="k">part:</span> {{ . }}</div>{{ end }}
           {{ with .Params.chapter }}<div><span class="k">chapter:</span> {{ . }}</div>{{ end }}
-          <div><span class="k">title:</span> {{ .File.BaseFileName }}</div>
           <div><span class="k">author:</span> {{ .Site.Params.firstName }}</div>
           <div><span class="k">words:</span> {{ if ge .WordCount 1000 }}~{{ printf "%.1fk" (div (float .WordCount) 1000) }}{{ else }}{{ .WordCount }}{{ end }}</div>
-          <div><span class="k">status:</span> {{ with .Params.status }}{{ . }}{{ else }}draft{{ end }}</div>
+          <div><span class="k">status:</span> {{ .Params.status | default "draft" }}</div>
         </div>
       </div>
       <div class="reading-progress">

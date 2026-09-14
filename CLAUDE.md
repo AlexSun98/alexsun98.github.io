@@ -31,6 +31,28 @@ Enable the hook once per clone:
 git config core.hooksPath .githooks
 ```
 
+## Books
+
+Long-form work lives in `content/books/<book-slug>/`, one file per chapter,
+ordered by `weight`. The book's own page is its table of contents and the
+`/books/` page is the shelf. Layouts are in `layouts/books/`.
+
+A chapter runs through the write-post skill exactly like a post does, and
+`.claude/skills/write-post/chapters.md` covers what is different about drafting
+one. The pre-commit hook guards `content/books/` as well as `content/posts/`,
+and finds the drafts workspace through the `draftSlug` front matter key.
+
+A chapter page is the same width and the same three column grid as a post.
+`assets/css/books.css` adds the chapter tree, the sticky rail and the shelf, and
+deliberately overrides no widths or type sizes from `post.css`. Keep it that
+way: a reader moving between a post and a chapter should not cross a layout
+boundary.
+
+Body text in `.md` is justified with automatic hyphenation, set in `post.css`.
+Hyphenation depends on `lang="en"` in `baseof.html`. Code blocks, tables and
+headings stay ragged right, and justification switches off under 640px, where
+the line is too short to justify without looking broken.
+
 ## Style
 
 `.claude/skills/write-post/voice.md` holds the voice rules and the banned word

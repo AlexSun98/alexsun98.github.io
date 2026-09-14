@@ -1,8 +1,10 @@
 ---
 title: "Notes from the Stack"
-bookTitle: "Notes from the Stack"
+subtitle: "Building agentic coding systems that can stop themselves"
+weight: 1
 status: "in progress"
-description: "A book about building agentic coding systems that can stop themselves. Written in the open, one chapter at a time."
+accent: "var(--aqua)"
+description: "Harness engineering and knowledge engineering, the two lanes of an agentic coding system, and why the quiet one is the one that hurts."
 ---
 
 I am writing this in the open, one chapter at a time. Chapters go up when they

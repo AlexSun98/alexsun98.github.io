@@ -244,6 +244,41 @@
 }
 .md > *:first-child { margin-top: 0; }
 .md p { margin: 0 0 1.1em; }
+
+/* Justified body text, so the right edge lines up with the left.
+   Hyphenation is not optional here. A justified column with no hyphens opens
+   rivers of white space between words, and the narrower the column the worse
+   it gets. `hyphens: auto` needs the lang on <html>, which baseof.html sets.
+   Anything with its own internal spacing is left alone below. */
+.md p,
+.md li {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 7 4 3;
+}
+
+/* Never stretched: code keeps its own spacing, table cells set their own
+   widths, and a heading or a caption reads worse stretched than ragged. */
+.md pre,
+.md pre code,
+.md table,
+.md th,
+.md td,
+.md h2,
+.md h3,
+.md h4 {
+  text-align: left;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
+
+/* A short line cannot be justified without looking broken, so below the
+   phone breakpoint the text goes back to ragged right. */
+@media (max-width: 640px) {
+  .md p,
+  .md li { text-align: left; }
+}
 .md strong { color: var(--ink); }
 .md em { font-style: italic; }
 .md ul, .md ol { padding-left: 20px; margin: 0 0 1em; }

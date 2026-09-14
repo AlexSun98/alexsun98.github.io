@@ -17,7 +17,10 @@
 {{- $p := .page -}}
 {{- $h := int (default 180 .height) -}}
 {{- $custom := "" -}}
+{{- /* A chapter is named for its place in a book (00-preface), so the same
+     basename can appear in two books. Try the book-qualified name first. */ -}}
 {{- with $p.File }}{{ $custom = printf "partials/covers/%s.html" .BaseFileName }}{{ end -}}
+{{- if eq $p.Section "books" }}{{ with $p.Parent }}{{ $q := printf "partials/covers/%s-%s.html" (path.Base .RelPermalink) $p.File.BaseFileName }}{{ if templates.Exists $q }}{{ $custom = $q }}{{ end }}{{ end }}{{ end -}}
 {{- if and $custom (templates.Exists $custom) -}}
 {{ partial (strings.TrimPrefix "partials/" $custom) (dict "page" $p "height" $h) }}
 {{- else -}}

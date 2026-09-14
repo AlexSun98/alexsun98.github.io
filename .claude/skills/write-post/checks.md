@@ -22,8 +22,32 @@ The defence against invented experience.
 6. Flag as `DRIFTED` any sentence whose ledger row exists but says something
    materially different from the sentence. Paraphrase is fine. New facts are
    not.
+7. Flag as `UNSOURCED` any sentence with no "I" in it that still asserts
+   something about the work: what the book covers, how much of it covers a
+   topic, how the parts depend on each other, or what most readers or most
+   teams do. A joining sentence is a claim. Second person advice ("read it in
+   order") is not.
+8. Before trusting a ledger row, open the line it points at in
+   `03-interview.md`. If the answer there is a summary rather than the words
+   Alex used, flag it `UNVERIFIABLE` and say the record needs fixing, not the
+   prose. Do not flag the sentence itself as unsourced on that basis alone.
 
 Any `UNSOURCED`, `MISATTRIBUTED` or `DRIFTED` finding blocks publish.
+`UNVERIFIABLE` blocks until `03-interview.md` carries the verbatim answer.
+
+### Pass 1b: duplication across the site
+
+Pick the distinctive phrases in the draft, five or so, and grep the rest of the
+site for each one.
+
+```
+git grep -F "<phrase>" -- content/
+```
+
+Flag as `DUPLICATED` any sentence that already appears in another post or
+chapter. Chapters and posts here draw on the same notes, so this is common and
+it is not a sourcing fault. It blocks publish anyway: the newer one gets
+reworded.
 
 ## Pass 2: voice
 

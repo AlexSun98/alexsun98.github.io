@@ -1,0 +1,127 @@
+{{ define "main" }}
+{{- /* Two pages share this template.
+
+       /books/            the shelf, one row per book.
+       /books/<book>/     that book's contents.
+
+       The parent of /books/ is the home page, which is what tells them apart. */ -}}
+{{- $isShelf := eq .Parent.Kind "home" -}}
+
+{{ if $isShelf }}
+{{- $books := .Sections.ByWeight -}}
+<div class="page-wrap">
+  <div class="page-title-row">
+    <div class="kicker mono">~/books $ ls -la | wc -l → <strong>{{ len $books }}</strong></div>
+    <h1 class="display">{{ .Title }}</h1>
+    {{ with .Content }}{{ . }}{{ end }}
+  </div>
+
+  {{ if $books }}
+  <div class="shelf">
+    {{ range $books }}
+    {{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByWeight -}}
+    {{- $done := len (where $chapters "Params.status" "published") -}}
+    {{- $pct := 0 -}}
+    {{- if $chapters }}{{ $pct = div (mul (len $chapters) 100) (int (default (len $chapters) .Params.plannedChapters)) }}{{ end -}}
+    {{- if gt $pct 100 }}{{ $pct = 100 }}{{ end -}}
+    <div class="shelf-item" style="--accent:{{ .Params.accent | default "var(--aqua)" | safeCSS }}">
+      <a class="shelf-spine" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+        <span class="n">{{ len $chapters }} ch</span>
+        <span class="t">{{ .Title }}</span>
+      </a>
+      <div class="shelf-body">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Params.subtitle }}<div class="shelf-sub">{{ . }}</div>{{ end }}
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        <div class="shelf-meta">
+          {{ with .Params.status }}<span class="chip sm" style="background:var(--cream-warm)">{{ . }}</span>{{ end }}
+          <div class="progress-strip">
+            <div class="bar"><span style="width:{{ $pct }}%"></span></div>
+            <span class="n">{{ len $chapters }} chapter{{ if ne (len $chapters) 1 }}s{{ end }} up{{ with .Params.plannedChapters }} of {{ . }} planned{{ end }}</span>
+          </div>
+        </div>
+        {{ if $chapters }}
+        <div class="shelf-jump">
+          <span class="lbl">jump to:</span>
+          {{ range first 4 $chapters }}
+          <a href="{{ .RelPermalink }}">{{ with .Params.chapter }}{{ . }} · {{ end }}{{ .Title }}</a>
+          {{ end }}
+          {{ if gt (len $chapters) 4 }}<a href="{{ .RelPermalink }}">all {{ len $chapters }} →</a>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="mono" style="color:var(--mute)">No books yet.</p>
+  {{ end }}
+</div>
+
+{{ else }}
+{{- /* One book's contents. */ -}}
+{{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByWeight -}}
+{{- $words := 0 -}}
+{{- range $chapters }}{{ $words = add $words .WordCount }}{{ end -}}
+{{- $mins := 0 -}}
+{{- range $chapters }}{{ $mins = add $mins .ReadingTime }}{{ end -}}
+{{- $accent := .Params.accent | default "var(--aqua)" -}}
+<div class="page-wrap" style="--accent:{{ $accent | safeCSS }}">
+  <div class="breadcrumb mono">
+    <a href="{{ "/" | relURL }}">~</a> / <a href="{{ "/books/" | relURL }}">books</a> / <strong>{{ .Title }}</strong>
+  </div>
+
+  <div class="book-head">
+    <div>
+      <h1 class="display">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<div class="sub">{{ . }}</div>{{ end }}
+      <div class="lede">{{ .Content }}</div>
+    </div>
+    <div class="book-facts">
+      <div class="row"><span class="k">status</span><span>{{ .Params.status | default "draft" }}</span></div>
+      <div class="row"><span class="k">chapters</span><span>{{ len $chapters }}{{ with .Params.plannedChapters }} / {{ . }}{{ end }}</span></div>
+      <div class="row"><span class="k">words</span><span>{{ if ge $words 1000 }}~{{ printf "%.1fk" (div (float $words) 1000) }}{{ else }}{{ $words }}{{ end }}</span></div>
+      <div class="row"><span class="k">read time</span><span>~{{ $mins }} min</span></div>
+      {{ with index $chapters 0 }}
+      <a class="cta" href="{{ .RelPermalink }}">Start reading →</a>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ if $chapters }}
+  {{- /* Group by the `part` in each chapter's front matter. A chapter with no
+         part falls into one unnamed group, which is what a short book wants. */ -}}
+  {{- $parts := slice -}}
+  {{- range $chapters }}{{ $p := .Params.part | default "" }}{{ if not (in $parts $p) }}{{ $parts = $parts | append $p }}{{ end }}{{ end -}}
+  <div class="chapter-rows">
+    {{ range $pi, $part := $parts }}
+    {{ if ne $part "" }}
+    <div class="part-head">
+      <span class="n">Part {{ $part }}</span>
+      {{ with (index (where $chapters "Params.part" $part) 0).Params.partTitle }}<span class="t">{{ . }}</span>{{ end }}
+      <span class="rule"></span>
+    </div>
+    {{ end }}
+    {{ range $chapters }}
+    {{ if eq (.Params.part | default "") $part }}
+    <a class="chapter-row" href="{{ .RelPermalink }}">
+      <span class="num">{{ with .Params.chapter }}{{ . }}{{ else }}·{{ end }}</span>
+      <span>
+        <span class="t">{{ .Title }}</span>
+        {{ with .Description }}<span class="d">{{ . }}</span>{{ end }}
+      </span>
+      <span class="meta">
+        {{ .ReadingTime }} min<br>
+        {{ if ne (.Params.status | default "draft") "published" }}<span class="draft">{{ .Params.status | default "draft" }}</span>{{ end }}
+      </span>
+    </a>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="mono" style="color:var(--mute)">No chapters yet.</p>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}

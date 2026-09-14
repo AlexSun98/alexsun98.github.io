@@ -18,7 +18,7 @@ The figure that stayed with me was not the speed. Before a robot leaves the buil
 
 Twenty four assembly steps. A hundred and eighteen chances to be told no.
 
-## The line is allowed to stop
+## What the factory already knows
 
 What I was watching was not new. Factories spent a century learning it.
 
@@ -26,9 +26,13 @@ Toyota built its production system on two ideas that pull against each other. Co
 
 I am borrowing the vocabulary. I have never worked in a factory. The analogy also has an obvious hole in it. A line makes the same part twice. Software never does.
 
+## Why it is landing now
+
 It still fits better than I want it to. Agentic coding is moving off the chat window and onto something shaped like a line. Specs in, code out, checks that can stop the run.
 
-## What I deleted
+That move is what this book is about. Not the model that writes the code. The line it runs on, and the checks that are allowed to stop it.
+
+## What I tore down
 
 Earlier this year I tore down my own agentic coding setup and started again. Most of the rebuild was deletion.
 
@@ -64,7 +68,9 @@ What I settled on borrows from structured wiki practice. A hybrid base, automate
 
 That is what I mean by failing quietly. The top lane tells you it broke. The bottom lane just lets the agent be wrong with good grammar.
 
-## The other stack
+If you take one thing from this book, take that. I stopped trying to make the agent smarter and started trying to make the line stoppable.
+
+## What I mean by the stack
 
 By the stack I mean two things, and they are harder to separate than I expected.
 
@@ -74,23 +80,23 @@ The organisational stack is teams, ownership, governance, and the habits an engi
 
 I should be straight about this one. I have not moved an organisation through it. What I can tell you is what it feels like from inside the work: a senior engineer now has to be able to run a fleet of coding agents, and team coordination is a different job from the one it was. That is a feeling, not a finding. Ask me again in a year.
 
-## The model is the part you replace most
+## What this book is not
 
-None of this is about picking the best model.
+It is not about picking the best model.
 
 I have swapped models many times this year across my own builds. Haiku, Sonnet, Opus, Fable, older versions through to current. I did not keep a count, and I wish I had.
 
 The model is the component with the shortest life in the whole system. Building your method around which one is currently ahead is building on the part that turns over fastest. The harness and the knowledge base outlive every one of them.
 
-## What changed
+## How to read it
 
-I stopped trying to make the agent smarter and started trying to make the line stoppable.
+Three parts.
 
-That sounds like a small move. In practice it meant deleting most of what I had, drawing the diagram late, and accepting that the unglamorous lane is the one carrying the weight. The gates matter more than the generation. Seventy seven inspections is not a slow factory, it is a factory that is allowed to go fast.
+Part I, principles. Golden eval sets, modularity, domain driven design, jidoka. Old ideas that matter more now, not less.
 
-*Notes from the Stack* is what came out of that rebuild.
+Part II, architecture and capabilities. The harness blueprint, context pipelines, telemetry, and keeping the two lanes in step.
 
-It has three parts. Part I, principles. Golden eval sets, modularity, domain driven design, jidoka. Old ideas that matter more now, not less. Part II, architecture and capabilities. The harness blueprint, context pipelines, telemetry, and keeping the two lanes in step. Part III, implementation. Repository layouts, control loops, running the thing day to day, and real source. That is the part with the scars in it.
+Part III, implementation. Repository layouts, control loops, running the thing day to day, and real source. That is the part with the scars in it.
 
 I wrote it for architects, principal engineers and engineering leaders who have got past the chat window. Parts of it will date badly. I have tried to say which parts.
 
