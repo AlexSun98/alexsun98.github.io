@@ -8,17 +8,17 @@ draftSlug: notes-from-the-stack-preface
 tags: ["Harness Engineering", "Knowledge Engineering", "Agentic Coding"]
 description: "A day in robot valley, then a diagram with two lanes. The top lane is the harness and it fails loudly. The bottom lane is knowledge, and it does not go red."
 ---
-In March I spent a day in the Shenzhen Science and Technology Museum and Robot Valley with my family. What is down there is a mix of working line, dynamic/static display, video wall. A whole day was not enough. Nobody got bored, which I had not expected.
-
-The part I could not put down was simple. A humanoid robot pilot production line that builds robots. Reporting on the Leju Robotics line puts the Longhua pilot at about two hours to assemble one unit, and the follow-on factory in Foshan at one unit every thirty minutes.
-
-The figure that stayed with me was not the speed. Before a robot leaves the building it has to pass 77 inspections and 41 tests that simulate real operating conditions.
+Leju Robotics is reported to run a line in Foshan that turns out a humanoid robot every thirty minutes. Before one of them is allowed out of the building it has to pass 77 inspections and 41 tests that simulate real operating conditions.
 
 Twenty four assembly steps. A hundred and eighteen chances to be told no.
 
+I have not seen that factory. What I saw was in March, a day with my family in the Shenzhen Science and Technology Museum, most of it in robot valley, where working lines and static displays and video walls sit next to each other. A whole day was not enough, and nobody got bored, which I had not expected. The pilot line for those robots opened in Longhua a month after we were there, so everything past what I watched that day I read afterwards and did not measure myself.
+
+What stayed with me was not the speed. A line that fast is built around being allowed to say no.
+
 ## What the factory already knows
 
-What I was watching was not new. Factories spent a century learning it.
+None of that is new. Factories spent a century learning it.
 
 Toyota built its production system on two ideas that pull against each other. Continuous flow keeps parts moving. Jidoka stops the line the moment a defect shows up. Neither idea is worth much alone. Flow without a stop rule ships a thousand bad units quickly. A stop rule without flow is just a queue. The pairing is the whole thing, and the order matters: the right to halt comes first, and the speed is what you are allowed to have once the halt exists.
 
