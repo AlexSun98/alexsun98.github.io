@@ -9,7 +9,7 @@ subtitle: "Principles, architecture, and implementation for agentic engineering"
 weight: 1
 status: "in progress"
 accent: "var(--aqua)"
-description: "How to build an agentic coding system that can stop itself. The harness that runs the lifecycle, the knowledge layer that decides what an agent may believe, and the principles, architecture and working code behind both."
+description: "How to build an agentic coding system that can stop itself: the harness that runs the lifecycle, the knowledge layer that decides what an agent may believe, and the teams and habits that have to change around both."
 ---
 
 Agentic coding is moving off the chat window and onto something shaped like a
