@@ -106,3 +106,30 @@ git grep -F "manually driving each thread forward" -- content/
 
 Reword the newer one. Two pages on the same site shipping an identical paragraph
 reads as padding, and a reader who finds both loses trust in the rest.
+
+## Verifying the pre-commit hook
+
+The hook filters staged paths by a regex. A guard that matches nothing exits
+zero and looks exactly like a guard that passed. That has already happened here
+once: the regex said `content/(posts|book)` while the file sat in
+`content/books`, so for one commit nothing was guarded and the run reported a
+pass.
+
+Whenever the content path changes, prove three things in order, and do not
+accept the third without the first two:
+
+```
+# 1. the regex reaches the file at all
+printf 'content/books/<book>/<NN-slug>.md\n' | grep -E '^content/(posts|books)/.*[.]md$'
+
+# 2. it blocks when the evidence is gone. Stage a real change first, or the
+#    staged diff is empty and the test proves nothing.
+mv drafts/<slug> drafts/_hidden && sh .githooks/pre-commit; echo "want exit 1, got $?"
+mv drafts/_hidden drafts/<slug>
+
+# 3. it passes when the evidence is there
+sh .githooks/pre-commit; echo "want exit 0, got $?"
+```
+
+The filter is `--diff-filter=AMR`. The R matters. A chapter often arrives by
+rename, and `AM` alone skips every renamed file.

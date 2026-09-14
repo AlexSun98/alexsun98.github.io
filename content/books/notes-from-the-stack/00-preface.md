@@ -28,7 +28,7 @@ I am borrowing the vocabulary. I have never worked in a factory. The analogy als
 
 ## Why it is landing now
 
-It still fits better than I want it to. Agentic coding is moving off the chat window and onto something shaped like a line. Specs in, code out, checks that can stop the run.
+The analogy still fits better than I want it to. Agentic coding is moving off the chat window and onto something shaped like a line. Specs in, code out, checks that can stop the run.
 
 That move is what this book is about. Not the model that writes the code. The line it runs on, and the checks that are allowed to stop it.
 
@@ -68,7 +68,7 @@ What I settled on borrows from structured wiki practice. A hybrid base, automate
 
 That is what I mean by failing quietly. The top lane tells you it broke. The bottom lane just lets the agent be wrong with good grammar.
 
-If you take one thing from this book, take that. I stopped trying to make the agent smarter and started trying to make the line stoppable.
+If you take one thing from this book, take this. I stopped trying to make the agent smarter and started trying to make the line stoppable.
 
 ## What I mean by the stack
 
@@ -105,3 +105,4 @@ I wrote it for architects, principal engineers and engineering leaders who have 
 * Toyota Motor Corporation, [Toyota Production System](https://global.toyota/en/company/vision-and-philosophy/production-system/). Jidoka and just-in-time, in Toyota's own words.
 * Melvin E. Conway, [How Do Committees Invent?](http://www.melconway.com/Home/Committees_Paper.html), *Datamation*, April 1968.
 * Reporting on the Leju Robotics humanoid robot line, the Longhua pilot that opened on 12 April and the follow-on factory in Foshan. The assembly times, the 24 process steps and the 77 inspections and 41 scenario tests all come from that coverage, not from anything I measured or watched. I do not have a link for it.
+

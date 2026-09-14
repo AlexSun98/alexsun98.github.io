@@ -17,7 +17,7 @@
 repo_root=$(git rev-parse --show-toplevel)
 missing=""
 
-for path in $(git diff --cached --name-only --diff-filter=AM | grep -E '^content/(posts|book)/.*[.]md$'); do
+for path in $(git diff --cached --name-only --diff-filter=AMR | grep -E '^content/(posts|books)/.*[.]md$'); do
 	case "$path" in */_index.md) continue ;; esac
 	slug=$(awk -F': *' '/^draftSlug:/ { gsub(/[\r"]/, "", $2); print $2; exit }' "$repo_root/$path")
 	[ -n "$slug" ] || slug=$(basename "$path" .md)
