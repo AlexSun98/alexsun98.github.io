@@ -30,6 +30,9 @@
         <span class="t">{{ .Title }}</span>
       </a>
       <div class="shelf-body">
+        {{- /* The shelf takes the short name and the subtitle under it. The full
+               name is the two of them joined, so printing it here and then the
+               subtitle again would say the same words twice. */ -}}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         {{ with .Params.subtitle }}<div class="shelf-sub">{{ . }}</div>{{ end }}
         {{ with .Description }}<p>{{ . }}</p>{{ end }}
@@ -73,6 +76,10 @@
 
   <div class="book-head">
     <div>
+      {{- /* Title page treatment. The full name is the heading and the
+             subtitle together, set at two sizes, rather than one 95 character
+             run that wraps to four lines. fullTitle is the joined form and it
+             goes in the browser tab and the metadata. */ -}}
       <h1 class="display">{{ .Title }}</h1>
       {{ with .Params.subtitle }}<div class="sub">{{ . }}</div>{{ end }}
       <div class="lede">{{ .Content }}</div>

@@ -2,7 +2,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ $title := .Site.Title }}
-  {{ if not .IsHome }}{{ $title = printf "%s · %s" .Title .Site.Title }}{{ end }}
+  {{- /* A book carries a long formal name for search and a short one for the
+       interface. The tab gets the long one. */ -}}
+  {{ $pageTitle := .Params.fullTitle | default .Title }}
+  {{ if not .IsHome }}{{ $title = printf "%s · %s" $pageTitle .Site.Title }}{{ end }}
   {{ $desc := .Description | default .Site.Params.bio }}
   <title>{{ $title }}</title>
   <meta name="description" content="{{ $desc }}">

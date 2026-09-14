@@ -56,7 +56,7 @@
     </aside>
     <article>
       <div class="chapter-place">
-        <span>{{ $book.Title }}</span>
+        <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a>
         <span class="pips" aria-hidden="true">
           {{ range $i, $c := $chapters }}<i class="{{ if eq $i $idx }}here{{ else if lt $i $idx }}on{{ end }}"></i>{{ end }}
         </span>
@@ -117,7 +117,7 @@
       <div class="front-matter">
         <div class="head">◊ front matter</div>
         <div class="yaml">
-          <div><span class="k">book:</span> {{ $book.Title }}</div>
+          <div><span class="k">book:</span> <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a></div>
           {{ with .Params.part }}<div><span class="k">part:</span> {{ . }}</div>{{ end }}
           {{ with .Params.chapter }}<div><span class="k">chapter:</span> {{ . }}</div>{{ end }}
           <div><span class="k">author:</span> {{ .Site.Params.firstName }}</div>

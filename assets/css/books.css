@@ -361,3 +361,22 @@
 }
 .tree-sections a:hover { background: var(--cream-warm); color: var(--ink); }
 .tree-sections a.active { background: var(--yellow); color: var(--ink); font-weight: 700; }
+
+/* The book name is a link everywhere it appears on a chapter page: the
+   breadcrumb, the tree root, the place strip and the front matter panel. The
+   last two sit inside blocks that are otherwise plain text, so they need a cue
+   that they are clickable. A dashed underline is the site's quiet one. */
+.chapter-place a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--mute);
+  padding-bottom: 1px;
+}
+.chapter-place a:hover { border-bottom-color: var(--ink); background: var(--accent, var(--aqua)); }
+
+.book-page .front-matter .yaml a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--mute);
+}
+.book-page .front-matter .yaml a:hover { border-bottom-color: var(--ink); background: var(--accent, var(--aqua)); }
