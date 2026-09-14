@@ -6,15 +6,15 @@ date: 2026-09-14
 status: draft
 draftSlug: notes-from-the-stack-preface
 tags: ["Harness Engineering", "Knowledge Engineering", "Agentic Coding"]
-description: "A day in robot valley, then a diagram with two lanes. The top lane is the harness and it fails loudly. The bottom lane is knowledge, and it does not go red."
+description: "A hundred and eighteen gates on a robot production line, then a diagram with two lanes. The top lane is the harness and it fails loudly. The bottom lane is knowledge, and it does not go red."
 ---
-Leju Robotics is reported to run a line in Foshan that turns out a humanoid robot every thirty minutes. Before one of them is allowed out of the building it has to pass 77 inspections and 41 tests that simulate real operating conditions.
+Before a humanoid robot leaves the pilot line in Longhua, it has to pass 77 inspections and 41 tests that simulate real operating conditions. Twenty four assembly steps to build it. A hundred and eighteen chances to be told no.
 
-Twenty four assembly steps. A hundred and eighteen chances to be told no.
+That is reporting on the line, not anything I measured. The same coverage puts the Longhua pilot at about two hours a unit, and a follow-on factory in Foshan at one every thirty minutes.
 
-I have not seen that factory. What I saw was in March, a day with my family in the Shenzhen Science and Technology Museum, most of it in robot valley, where working lines and static displays and video walls sit next to each other. A whole day was not enough, and nobody got bored, which I had not expected. The pilot line for those robots opened in Longhua a month after we were there, so everything past what I watched that day I read afterwards and did not measure myself.
+I have not seen either line. What I saw was in March, a day with my family in the Shenzhen Science and Technology Museum, most of it in Robot Valley, where working lines and static displays and video walls sit next to each other. The thing I could not put down was a pilot production line that builds robots. A whole day was not enough, and nobody got bored, which I had not expected. The Longhua line opened a month after that visit, so everything past what I watched that day I read afterwards.
 
-What stayed with me was not the speed. A line that fast is built around being allowed to say no.
+What stayed with me was not the speed. It was the number of ways that line is allowed to say no.
 
 ## What the factory already knows
 
@@ -96,5 +96,5 @@ I wrote it for architects, principal engineers and engineering leaders who have 
 
 * Toyota Motor Corporation, [Toyota Production System](https://global.toyota/en/company/vision-and-philosophy/production-system/). Jidoka and just-in-time, in Toyota's own words.
 * Melvin E. Conway, [How Do Committees Invent?](http://www.melconway.com/Home/Committees_Paper.html), *Datamation*, April 1968.
-* Reporting on the Leju Robotics humanoid robot line, the Longhua pilot that opened on 12 April and the follow-on factory in Foshan. The assembly times, the 24 process steps and the 77 inspections and 41 scenario tests all come from that coverage, not from anything I measured or watched. I do not have a link for it.
+* Reporting on the Leju Robotics humanoid robot line, the Longhua pilot that opened on 12 April and the follow-on factory in Foshan. The rates, the 24 assembly steps and the 77 inspections and 41 scenario tests all come from that coverage, not from anything I measured or watched. I do not have a link for it.
 
