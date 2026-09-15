@@ -105,6 +105,26 @@ Rules:
   person editing the file needs to know why the chip is there.
 - No em dash and no section sign, in the caption or anywhere else.
 
+## Series covers
+
+A chapter's cover file is named for the series as well as the chapter, so two
+series can both have a `00` without colliding:
+
+```
+layouts/partials/covers/<series-slug>-<NN-slug>.html
+```
+
+A series itself does not get its own drawing. Wherever a series is shown with a
+cover, the homepage pinned row for instance, it uses its first chapter's. Drawing
+a separate one for the series makes the same thing look like two things, which
+is what happened the first time: a pinned series fell through to the procedural
+fallback and showed art nobody recognised.
+
+If a series ever needs its own cover, it goes at
+`layouts/partials/covers/<series-slug>.html` and the inheritance in
+`cover.html` has to learn about it. Until then, the opening chapter is the face
+of the series.
+
 ## Verify
 
 1. `hugo --quiet` builds with no errors.
