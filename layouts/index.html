@@ -1,5 +1,9 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{- /* Chapters are regular pages under /series/, so they are not in $posts and
+       were missing from the home list entirely. The list below shows both. */ -}}
+{{ $chapters := where (where .Site.RegularPages "Section" "series") "Params.hidden" "!=" true }}
+{{ $writing := (union $posts $chapters).ByDate.Reverse }}
 {{- /* A series can be pinned as well as a post. A series is a section page, so
        it is not in .Site.RegularPages and has to be gathered separately. */ -}}
 {{ $seriesList := slice }}
@@ -88,14 +92,14 @@
   </section>
   {{ end }}
 
-  {{ with $posts }}
+  {{ with $writing }}
   <section>
     <div class="section-header">
       <div>
-        <div class="kicker mono">$ ls -lt posts/</div>
-        <h2 class="display"><span style="background:var(--lime)">Latest posts</span></h2>
+        <div class="kicker mono">$ ls -lt writing/</div>
+        <h2 class="display"><span style="background:var(--lime)">Latest</span></h2>
       </div>
-      <span class="tail mono">// recent</span>
+      <span class="tail mono">// posts and chapters</span>
     </div>
     <div class="term-list">
       {{ range first 5 . }}
@@ -103,7 +107,10 @@
       {{ end }}
       <div class="term-list-foot">
         <span class="count">-- showing {{ math.Min 5 (len .) | int }} of {{ len . }} --</span>
-        <a href="{{ "/posts/" | relURL }}">view all ↗</a>
+        <span class="foot-links">
+          <a href="{{ "/posts/" | relURL }}">all posts ↗</a>
+          <a href="{{ "/series/" | relURL }}">all series ↗</a>
+        </span>
       </div>
     </div>
   </section>
