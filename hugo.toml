@@ -133,7 +133,7 @@ title = "Alex's Blog"
     text = "Beyond the Chatbox: Moving from Copilot to Self-Evolving Coding Agents Part 1: The Bottlenecks, the Paradigm Shift, and the X-Stage Roadmap (Since Feb 2026)"
   [[params.now]]
     label = "Reading"
-    text = "<<Self-Evolving Coding Agents>>"
+    text = "Self-Evolving Coding Agents"
   [[params.now]]
     label = "Playing"
     text = "Claude Code plus bot automation workflows"
