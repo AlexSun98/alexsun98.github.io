@@ -11,15 +11,9 @@ status: "in progress"
 accent: "var(--aqua)"
 description: "How to build an agentic coding system that can stop itself: the harness that runs the lifecycle, the knowledge layer that decides what an agent may believe, and the teams around both, which are not a separate problem."
 ---
+A production line is only worth its speed because it can halt itself. This series is about building a coding system that works the same way, and about the two lanes that run through one: the harness that carries work from a spec to a deploy, and the knowledge layer underneath it that decides what an agent is allowed to believe.
 
-A production line is only worth its speed because it can halt itself. This
-series is about building a coding system that works the same way, and about the
-two lanes that run through one: the harness that carries work from a spec to a
-deploy, and the knowledge layer underneath it that decides what an agent is
-allowed to believe.
-
-The stack in the title is the technology and the organisation both. They do not
-come apart, so it does not treat them as two subjects.
+The stack in the title is the technology and the organisation both. They do not come apart, so it does not treat them as two subjects.
 
 It runs in three parts.
 
@@ -41,9 +35,6 @@ a step at a time, control loops, running it day to day, and real source. Most
 writing on this stops at a prompt. This part is the working thing, and it is
 where the scars are.
 
-Written for people who have already got past the chat window and now have a
-setup that mostly works, without being able to say why it fails when it fails.
+Written for people who have already got past the chat window and now have a setup that mostly works, without being able to say why it fails when it fails.
 
-It goes up a chapter at a time while it is still being written. Chapters change
-under you, and the front matter on each one says whether it is a draft. The
-preface is the place to start.
+It goes up a chapter at a time while it is still being written. Chapters change under you, and the front matter on each one says whether it is a draft. The preface is the place to start.
