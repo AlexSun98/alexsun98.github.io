@@ -1,5 +1,9 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{- /* A series can be pinned as well as a post. A series is a section page, so
+       it is not in .Site.RegularPages and has to be gathered separately. */ -}}
+{{ $seriesList := slice }}
+{{ with .Site.GetPage "/series" }}{{ $seriesList = .Sections }}{{ end }}
 <div class="page-wrap">
 
   <section class="hero">
@@ -41,7 +45,7 @@
     </div>
   </section>
 
-  {{ $pinned := where $posts "Params.pinned" true }}
+  {{ $pinned := union (where $posts "Params.pinned" true) (where $seriesList "Params.pinned" true) }}
   {{ with $pinned }}
   <section>
     <div class="section-header">
@@ -63,9 +67,18 @@
           <h3 class="display">{{ .Title }}</h3>
           <p class="desc">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
           <div class="foot">
+            {{- /* A post is dated and has a reading time. A series has neither,
+                   so it shows how far along it is instead. */ -}}
+            {{ if eq .Kind "section" }}
+            {{ $ch := where .RegularPages "Params.hidden" "!=" true }}
+            <span>series</span>
+            <span>·</span>
+            <span>{{ len $ch }} chapter{{ if ne (len $ch) 1 }}s{{ end }}{{ with .Params.plannedChapters }} of {{ . }}{{ end }}</span>
+            {{ else }}
             <span>{{ .Date.Format "2006-01-02" }}</span>
             <span>·</span>
             <span>{{ .ReadingTime }} min read</span>
+            {{ end }}
             <span class="read">Read ↗</span>
           </div>
         </div>

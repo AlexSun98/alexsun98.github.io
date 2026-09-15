@@ -1,7 +1,11 @@
 ---
 title: "The new software tar pit and how AI made it stickier"
+chapter: "01"
+weight: 1
 date: 2026-09-04
-tags: ["Software Engineering", "AI", "Books", "Reflection", "Mythical Man-Month", "Coding Agents"]
+status: published
+aliases: ["/posts/the-new-software-tar-pit/"]
+tags: ["Software Engineering", "AI", "Reflection", "Mythical Man-Month", "Coding Agents"]
 categories: ["Engineering"]
 description: "Brooks priced a program at one and a programming systems product at nine. AI cut the price of the one. The other eight are still there, and they are harder to see."
 ---

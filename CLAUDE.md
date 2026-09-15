@@ -48,6 +48,13 @@ deliberately overrides no widths or type sizes from `post.css`. Keep it that
 way: a reader moving between a post and a chapter should not cross a layout
 boundary.
 
+Cards in a list are all the same height, and that is held by fixing how many
+lines each part gets, not by hoping the copy behaves. On the series shelf the
+title and subtitle are one line, the description is always exactly two, clamped
+when it runs long and padded when it runs short, and the jump row never wraps.
+Apply the same rule to any new card: decide the line count, then clamp to it. A
+row of cards at different heights reads as broken rather than as varied.
+
 Body text in `.md` is justified with automatic hyphenation, set in `post.css`.
 Hyphenation depends on `lang="en"` in `baseof.html`. Code blocks, tables and
 headings stay ragged right, and justification switches off under 640px, where

@@ -74,6 +74,13 @@
   font-size: 28px;
   line-height: 1.05;
   margin: 0;
+  /* One line. A two line title on one card and a one line title on the next is
+     the other thing that makes a shelf look ragged. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
 }
 .shelf-body h2 a { color: var(--ink); text-decoration: none; }
 .shelf-body h2 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
@@ -81,8 +88,31 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 12.5px;
   color: var(--mute);
+  /* One line, always, for the same reason as the description. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+  min-height: 1.5em;
 }
-.shelf-body p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+/* Every card on the shelf is the same height, and the way that is held is by
+   fixing the number of lines each part is allowed rather than hoping the copy
+   behaves. A description is always exactly two lines: clamped if it runs long,
+   padded if it runs short. A shelf of cards at different heights reads as
+   broken, not as varied. */
+.shelf-body p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: 3.2em;      /* 2 lines at 1.6 */
+}
 
 .shelf-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
@@ -107,7 +137,9 @@
 
 /* Jump straight to a chapter from the shelf. This is the navigation win:
    two clicks to any chapter becomes one. */
-.shelf-jump { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+/* One row, never two. The number of chapters differs between series and a
+   wrapping jump row would change the card height with it. */
+.shelf-jump { display: flex; flex-wrap: nowrap; gap: 6px; align-items: center; overflow: hidden; }
 .shelf-jump .lbl {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; color: var(--mute); margin-right: 2px;
