@@ -88,7 +88,7 @@ The model is the component with the shortest life in the whole system. Building 
 
 ## How to read it
 
-Three parts. Principles, then architecture and capabilities, then implementation. The contents page lists what sits in each one, so I will not repeat it here.
+Several parts. The contents page lists what sits in each one, so I will not repeat it here.
 
 I wrote it for architects, principal engineers and engineering leaders who have got past the chat window. Parts of it will date badly. I have tried to say which parts.
 
