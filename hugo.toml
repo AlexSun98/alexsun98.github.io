@@ -148,8 +148,8 @@ title = "Alex's Blog"
     url = "/posts/"
     color = "var(--lime)"
   [[params.nav]]
-    name = "books"
-    url = "/books/"
+    name = "series"
+    url = "/series/"
     color = "var(--coral)"
   [[params.nav]]
     name = "tags"

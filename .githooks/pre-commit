@@ -2,12 +2,12 @@
 # Refuse a post or chapter commit when the write-post workspace has no proof
 # the skill ran.
 #
-# A post reaches content/posts/, and a book chapter reaches content/book/, only
+# A post reaches content/posts/, and a series chapter reaches content/serie/, only
 # after the claims ledger and the checker findings exist for it. Both live in
 # drafts/<slug>/, which is gitignored, so this check is local by design.
 #
 # The workspace is found by the file's basename. When the published file is
-# named for its place in a book rather than for its subject, name the workspace
+# named for its place in a series rather than for its subject, name the workspace
 # in the front matter and the hook follows it:
 #
 #   draftSlug: notes-from-the-stack-preface
@@ -17,7 +17,7 @@
 repo_root=$(git rev-parse --show-toplevel)
 missing=""
 
-for path in $(git diff --cached --name-only --diff-filter=AMR | grep -E '^content/(posts|books)/.*[.]md$'); do
+for path in $(git diff --cached --name-only --diff-filter=AMR | grep -E '^content/(posts|series)/.*[.]md$'); do
 	case "$path" in */_index.md) continue ;; esac
 	slug=$(awk -F': *' '/^draftSlug:/ { gsub(/[\r"]/, "", $2); print $2; exit }' "$repo_root/$path")
 	[ -n "$slug" ] || slug=$(basename "$path" .md)

@@ -23,8 +23,8 @@ from the stage it names. Never restart a post that has interview answers in it.
 
 ## Posts and chapters
 
-A post goes to `content/posts/`. A book chapter goes to
-`content/books/<book>/`. Both run every stage in this file, unchanged.
+A post goes to `content/posts/`. A series chapter goes to
+`content/series/<series>/`. Both run every stage in this file, unchanged.
 
 If the work is a chapter, read `chapters.md` before Stage 4. A chapter has a
 different shape from a post and a different place on disk, and drafting a
@@ -145,7 +145,7 @@ verdict.
 Once the verdict is `CLEAR`:
 
 1. Write the post to `content/posts/<slug>.md`, or the chapter to
-   `content/books/<book>/<NN-slug>.md` with the front matter in `chapters.md`.
+   `content/series/<series>/<NN-slug>.md` with the front matter in `chapters.md`.
    A post's front matter:
 
    ```yaml

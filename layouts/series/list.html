@@ -1,24 +1,24 @@
 {{ define "main" }}
 {{- /* Two pages share this template.
 
-       /books/            the shelf, one row per book.
-       /books/<book>/     that book's contents.
+       /series/            the shelf, one row per series.
+       /series/<series>/     that series' contents.
 
-       The parent of /books/ is the home page, which is what tells them apart. */ -}}
+       The parent of /series/ is the home page, which is what tells them apart. */ -}}
 {{- $isShelf := eq .Parent.Kind "home" -}}
 
 {{ if $isShelf }}
-{{- $books := .Sections.ByWeight -}}
+{{- $all := .Sections.ByWeight -}}
 <div class="page-wrap">
   <div class="page-title-row">
-    <div class="kicker mono">~/books $ ls -la | wc -l → <strong>{{ len $books }}</strong></div>
+    <div class="kicker mono">~/series $ ls -la | wc -l → <strong>{{ len $all }}</strong></div>
     <h1 class="display">{{ .Title }}</h1>
     {{ with .Content }}{{ . }}{{ end }}
   </div>
 
-  {{ if $books }}
+  {{ if $all }}
   <div class="shelf">
-    {{ range $books }}
+    {{ range $all }}
     {{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByWeight -}}
     {{- $done := len (where $chapters "Params.status" "published") -}}
     {{- $pct := 0 -}}
@@ -26,7 +26,7 @@
     {{- if gt $pct 100 }}{{ $pct = 100 }}{{ end -}}
     <div class="shelf-item" style="--accent:{{ .Params.accent | default "var(--aqua)" | safeCSS }}">
       {{- /* The spine is not its own link. The title's anchor is stretched over
-             the whole card below, so a click anywhere on it opens the book, the
+             the whole card below, so a click anywhere on it opens the series, the
              same way a chapter row works. Nesting anchors would be invalid, so
              the jump links are raised above the stretched one instead. */ -}}
       <div class="shelf-spine">
@@ -61,12 +61,12 @@
     {{ end }}
   </div>
   {{ else }}
-  <p class="mono" style="color:var(--mute)">No books yet.</p>
+  <p class="mono" style="color:var(--mute)">Nothing here yet.</p>
   {{ end }}
 </div>
 
 {{ else }}
-{{- /* One book's contents. */ -}}
+{{- /* One series' contents. */ -}}
 {{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByWeight -}}
 {{- $words := 0 -}}
 {{- range $chapters }}{{ $words = add $words .WordCount }}{{ end -}}
@@ -75,10 +75,10 @@
 {{- $accent := .Params.accent | default "var(--aqua)" -}}
 <div class="page-wrap" style="--accent:{{ $accent | safeCSS }}">
   <div class="breadcrumb mono">
-    <a href="{{ "/" | relURL }}">~</a> / <a href="{{ "/books/" | relURL }}">books</a> / <strong>{{ .Title }}</strong>
+    <a href="{{ "/" | relURL }}">~</a> / <a href="{{ "/series/" | relURL }}">series</a> / <strong>{{ .Title }}</strong>
   </div>
 
-  <div class="book-head">
+  <div class="series-head">
     <div>
       {{- /* Title page treatment. The full name is the heading and the
              subtitle together, set at two sizes, rather than one 95 character
@@ -88,7 +88,7 @@
       {{ with .Params.subtitle }}<div class="sub">{{ . }}</div>{{ end }}
       <div class="lede">{{ .Content }}</div>
     </div>
-    <div class="book-facts">
+    <div class="series-facts">
       <div class="row"><span class="k">status</span><span>{{ .Params.status | default "draft" }}</span></div>
       <div class="row"><span class="k">chapters</span><span>{{ len $chapters }}{{ with .Params.plannedChapters }} / {{ . }}{{ end }}</span></div>
       <div class="row"><span class="k">words</span><span>{{ if ge $words 1000 }}~{{ printf "%.1fk" (div (float $words) 1000) }}{{ else }}{{ $words }}{{ end }}</span></div>
@@ -101,7 +101,7 @@
 
   {{ if $chapters }}
   {{- /* Group by the `part` in each chapter's front matter. A chapter with no
-         part falls into one unnamed group, which is what a short book wants. */ -}}
+         part falls into one unnamed group, which is what a short series wants. */ -}}
   {{- $parts := slice -}}
   {{- range $chapters }}{{ $p := .Params.part | default "" }}{{ if not (in $parts $p) }}{{ $parts = $parts | append $p }}{{ end }}{{ end -}}
   <div class="chapter-rows">

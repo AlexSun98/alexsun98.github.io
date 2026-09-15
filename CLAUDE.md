@@ -31,19 +31,19 @@ Enable the hook once per clone:
 git config core.hooksPath .githooks
 ```
 
-## Books
+## Series
 
-Long-form work lives in `content/books/<book-slug>/`, one file per chapter,
-ordered by `weight`. The book's own page is its table of contents and the
-`/books/` page is the shelf. Layouts are in `layouts/books/`.
+Long-form work lives in `content/series/<series-slug>/`, one file per chapter,
+ordered by `weight`. A series' own page is its table of contents and the
+`/series/` page is the shelf. Layouts are in `layouts/series/`.
 
 A chapter runs through the write-post skill exactly like a post does, and
 `.claude/skills/write-post/chapters.md` covers what is different about drafting
-one. The pre-commit hook guards `content/books/` as well as `content/posts/`,
+one. The pre-commit hook guards `content/series/` as well as `content/posts/`,
 and finds the drafts workspace through the `draftSlug` front matter key.
 
 A chapter page is the same width and the same three column grid as a post.
-`assets/css/books.css` adds the chapter tree, the sticky rail and the shelf, and
+`assets/css/series.css` adds the chapter tree, the sticky rail and the shelf, and
 deliberately overrides no widths or type sizes from `post.css`. Keep it that
 way: a reader moving between a post and a chapter should not cross a layout
 boundary.

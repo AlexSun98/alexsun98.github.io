@@ -2,8 +2,8 @@
 {{- /* One chapter. Chapters are ordered by the `weight` in their front matter,
        not by date, so prev and next come from the weight-sorted list rather
        than from .PrevInSection. */ -}}
-{{- $book := .Parent -}}
-{{- $chapters := (where $book.RegularPages "Params.hidden" "!=" true).ByWeight -}}
+{{- $series := .Parent -}}
+{{- $chapters := (where $series.RegularPages "Params.hidden" "!=" true).ByWeight -}}
 {{- $prev := "" -}}{{- $next := "" -}}{{- $idx := 0 -}}
 {{- range $i, $c := $chapters -}}
   {{- if eq $c.RelPermalink $.RelPermalink -}}
@@ -12,23 +12,23 @@
     {{- if lt (add $i 1) (len $chapters) }}{{ $next = index $chapters (add $i 1) }}{{ end -}}
   {{- end -}}
 {{- end -}}
-{{- $accent := $book.Params.accent | default "var(--aqua)" -}}
-<div class="page-wrap post-page book-page" style="--accent:{{ $accent | safeCSS }}">
+{{- $accent := $series.Params.accent | default "var(--aqua)" -}}
+<div class="page-wrap post-page series-page" style="--accent:{{ $accent | safeCSS }}">
   <div class="breadcrumb mono">
     <a href="{{ "/" | relURL }}">~</a> /
-    <a href="{{ "/books/" | relURL }}">books</a> /
-    <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a> /
+    <a href="{{ "/series/" | relURL }}">series</a> /
+    <a href="{{ $series.RelPermalink }}">{{ $series.Title }}</a> /
     <strong>{{ .File.BaseFileName }}.md</strong>
   </div>
   <div class="post-detail">
     <aside class="toc">
       {{- /* One tree, not two boxes. The chapter you are reading opens into its
-             own sections, so the whole book and your place in it are visible at
-             the same time: book / chapters / this chapter / its sections. */ -}}
-      <nav class="book-tree">
-        <a class="tree-root" href="{{ $book.RelPermalink }}">
+             own sections, so the whole series and your place in it are visible at
+             the same time: series / chapters / this chapter / its sections. */ -}}
+      <nav class="series-tree">
+        <a class="tree-root" href="{{ $series.RelPermalink }}">
           <span class="k">◇</span>
-          <span class="t">{{ $book.Title }}</span>
+          <span class="t">{{ $series.Title }}</span>
         </a>
         <ol class="tree-chapters">
           {{ range $chapters }}
@@ -56,14 +56,14 @@
     </aside>
     <article>
       <div class="chapter-place">
-        <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a>
+        <a href="{{ $series.RelPermalink }}">{{ $series.Title }}</a>
         <span class="pips" aria-hidden="true">
           {{ range $i, $c := $chapters }}<i class="{{ if eq $i $idx }}here{{ else if lt $i $idx }}on{{ end }}"></i>{{ end }}
         </span>
         <span>chapter {{ add $idx 1 }} of {{ len $chapters }}</span>
       </div>
       <div class="post-tags">
-        {{ with .Params.part }}<a class="chip" style="background:var(--accent)" href="{{ $book.RelPermalink }}">Part {{ . }}</a>{{ end }}
+        {{ with .Params.part }}<a class="chip" style="background:var(--accent)" href="{{ $series.RelPermalink }}">Part {{ . }}</a>{{ end }}
         {{ range .Params.tags }}<a class="chip" style="background:var(--cream-warm)" href="{{ "/tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}
       </div>
       <h1 class="display">{{ .Title }}</h1>
@@ -98,9 +98,9 @@
           <div class="title">{{ .Title }}</div>
         </a>
         {{ else }}
-        <a class="card" href="{{ $book.RelPermalink }}">
+        <a class="card" href="{{ $series.RelPermalink }}">
           <div class="kicker">← contents</div>
-          <div class="title">{{ $book.Title }}</div>
+          <div class="title">{{ $series.Title }}</div>
         </a>
         {{ end }}
         {{ with $next }}
@@ -117,7 +117,7 @@
       <div class="front-matter">
         <div class="head">◊ front matter</div>
         <div class="yaml">
-          <div><span class="k">book:</span> <a href="{{ $book.RelPermalink }}">{{ $book.Title }}</a></div>
+          <div><span class="k">series:</span> <a href="{{ $series.RelPermalink }}">{{ $series.Title }}</a></div>
           {{ with .Params.part }}<div><span class="k">part:</span> {{ . }}</div>{{ end }}
           {{ with .Params.chapter }}<div><span class="k">chapter:</span> {{ . }}</div>{{ end }}
           <div><span class="k">author:</span> {{ .Site.Params.firstName }}</div>

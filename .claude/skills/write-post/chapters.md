@@ -1,15 +1,15 @@
-# Book chapters
+# Series chapters
 
 A chapter is not a post. Same sourcing rules, same voice, different shape and a
 different place on disk. Read this before drafting anything under
-`content/books/`.
+`content/series/`.
 
 ## Where it goes
 
 ```
-content/books/<book-slug>/_index.md        the book
-content/books/<book-slug>/NN-<slug>.md     a chapter
-layouts/partials/covers/<book-slug>-NN-<slug>.html
+content/series/<series-slug>/_index.md        the series
+content/series/<series-slug>/NN-<slug>.md     a chapter
+layouts/partials/covers/<series-slug>-NN-<slug>.html
 ```
 
 Chapter front matter:
@@ -27,7 +27,7 @@ description: "One sentence for the contents row and the card."
 ---
 ```
 
-Chapters sort by `weight`. The pre-commit hook guards `content/books/` the same
+Chapters sort by `weight`. The pre-commit hook guards `content/series/` the same
 way it guards `content/posts/`, and it finds the workspace through `draftSlug`,
 so the workspace keeps its subject name while the file keeps its chapter name.
 
@@ -37,7 +37,7 @@ A post argues one thing and ends on what changed. A chapter sits inside a
 structure that already exists, so it has to say where it sits.
 
 The failure this file exists to stop: drafting a chapter with a blog post's arc.
-Argument, argument, argument, then the book's structure crammed into the last
+Argument, argument, argument, then the series's structure crammed into the last
 paragraph, where nobody is still looking for it. It reads fine on its own and
 badly as chapter three of nineteen.
 
@@ -46,15 +46,15 @@ badly as chapter three of nineteen.
 The arc that works, in order:
 
 1. **Scene.** Something concrete that happened. No thesis yet.
-2. **The borrowed idea.** What the book leans on that is not the author's, said
+2. **The borrowed idea.** What the series leans on that is not the author's, said
    plainly, with the hole in it named.
-3. **Why now.** What changed in the world to make the book necessary.
+3. **Why now.** What changed in the world to make the series necessary.
 4. **Why the author.** Credibility earned through a story, never claimed.
 5. **The thesis.** The one sentence the reader should carry. End this section on
    it, do not save it for the close.
 6. **The title, explained.** If the title carries an idea, unpack it here, not
    in the last paragraph.
-7. **What the book is not.** The scope limit. What the reader should not come
+7. **What the series is not.** The scope limit. What the reader should not come
    here for.
 8. **How to read it.** The parts, the reader, and what will date.
 
@@ -82,10 +82,10 @@ New in this file because it nearly shipped.
 When a chapter is restructured, the drafter writes short sentences to join the
 new sections. Those sentences feel like formatting. They are not. Watch for:
 
-- Claims about the book's contents. "The model is the one thing this book spends
+- Claims about the series's contents. "The model is the one thing this book spends
   the least time on." Nobody said that. It is a page-count claim.
 - Claims about dependencies. "Part II only makes sense against Part I." That is
-  an assertion about the book's structure, invented to sound helpful.
+  an assertion about the series's structure, invented to sound helpful.
 - Claims about the reader. "Most teams get this wrong." No source, no number.
 
 Every joining sentence gets a ledger row like any other. If it has no row it
@@ -112,15 +112,15 @@ reads as padding, and a reader who finds both loses trust in the rest.
 The hook filters staged paths by a regex. A guard that matches nothing exits
 zero and looks exactly like a guard that passed. That has already happened here
 once: the regex said `content/(posts|book)` while the file sat in
-`content/books`, so for one commit nothing was guarded and the run reported a
-pass.
+`content/books`, the directory this section was called before it was renamed, so
+for one commit nothing was guarded and the run reported a pass.
 
 Whenever the content path changes, prove three things in order, and do not
 accept the third without the first two:
 
 ```
 # 1. the regex reaches the file at all
-printf 'content/books/<book>/<NN-slug>.md\n' | grep -E '^content/(posts|books)/.*[.]md$'
+printf 'content/series/<book>/<NN-slug>.md\n' | grep -E '^content/(posts|books)/.*[.]md$'
 
 # 2. it blocks when the evidence is gone. Stage a real change first, or the
 #    staged diff is empty and the test proves nothing.

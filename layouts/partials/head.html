@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ $title := .Site.Title }}
-  {{- /* A book carries a long formal name for search and a short one for the
+  {{- /* A series carries a long formal name for search and a short one for the
        interface. The tab gets the long one. */ -}}
   {{ $pageTitle := .Params.fullTitle | default .Title }}
   {{ if not .IsHome }}{{ $title = printf "%s · %s" $pageTitle .Site.Title }}{{ end }}
@@ -19,7 +19,7 @@
   {{- /* The stylesheet lives in assets/css/ as one file per page or concern.
        Concatenated in this order into the single css/main.css the site
        always shipped. Order matters: later rules win the cascade. */ -}}
-  {{- $sheets := slice "base" "header" "home" "list" "post" "about" "taxonomy" "books" "now" "components" "comments" "footer" "responsive" "palette" "notfound" -}}
+  {{- $sheets := slice "base" "header" "home" "list" "post" "about" "taxonomy" "series" "now" "components" "comments" "footer" "responsive" "palette" "notfound" -}}
   {{- $parts := slice -}}
   {{- range $sheets }}{{ $parts = $parts | append (resources.Get (printf "css/%s.css" .)) }}{{ end -}}
   {{- /* Fingerprinted, so the filename changes whenever the stylesheet does.
