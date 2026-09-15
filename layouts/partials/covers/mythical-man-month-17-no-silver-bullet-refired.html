@@ -1,0 +1,29 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Five waves of tooling, five identical stamps, and one empty slot on the
+       end. The verdict did not change five times. What is new is the difficulty
+       nobody had a name for, and that slot is still open.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--mint)">
+  <!-- the five waves, marked with the same framework each time -->
+  <g fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round">
+    <rect x="12" y="52" width="28" height="30" rx="3"/>
+    <rect x="46" y="52" width="28" height="30" rx="3"/>
+    <rect x="80" y="52" width="28" height="30" rx="3"/>
+    <rect x="114" y="52" width="28" height="30" rx="3"/>
+    <rect x="148" y="52" width="28" height="30" rx="3"/>
+  </g>
+  <text x="14" y="70" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="var(--coral)" transform="rotate(-10 26 68)">not it</text>
+  <text x="48" y="70" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="var(--coral)" transform="rotate(-10 60 68)">not it</text>
+  <text x="82" y="70" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="var(--coral)" transform="rotate(-10 94 68)">not it</text>
+  <text x="116" y="70" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="var(--coral)" transform="rotate(-10 128 68)">not it</text>
+  <text x="150" y="70" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="var(--coral)" transform="rotate(-10 162 68)">not it</text>
+  <!-- the slot the 1986 essay had no entry for -->
+  <rect x="188" y="52" width="38" height="30" rx="3" fill="var(--yellow)" stroke="#151415" stroke-width="2.4" stroke-dasharray="5 4" stroke-linejoin="round"/>
+  <text x="201" y="72" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#151415">?</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">five waves, one verdict</text>
+</svg>

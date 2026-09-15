@@ -1,0 +1,35 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Ten finished subagents, ten reports, and one pair of eyes underneath that
+       has to read all of them. The fan out divides the execution and not the
+       judgement, so the bill lands on the single reader.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
+  <!-- ten subagents, each finished, each reporting done -->
+  <g fill="var(--lime)" stroke="#151415" stroke-width="2" stroke-linejoin="round">
+    <rect x="16" y="47" width="16" height="12" rx="2"/>
+    <rect x="37" y="47" width="16" height="12" rx="2"/>
+    <rect x="58" y="47" width="16" height="12" rx="2"/>
+    <rect x="79" y="47" width="16" height="12" rx="2"/>
+    <rect x="100" y="47" width="16" height="12" rx="2"/>
+    <rect x="121" y="47" width="16" height="12" rx="2"/>
+    <rect x="142" y="47" width="16" height="12" rx="2"/>
+    <rect x="163" y="47" width="16" height="12" rx="2"/>
+    <rect x="184" y="47" width="16" height="12" rx="2"/>
+    <rect x="205" y="47" width="16" height="12" rx="2"/>
+  </g>
+  <!-- every report converges. the communication cost, renamed -->
+  <path d="M24 59L120 68 M45 59L120 68 M66 59L120 68 M87 59L120 68 M108 59L120 68 M129 59L120 68 M150 59L120 68 M171 59L120 68 M192 59L120 68 M213 59L120 68" stroke="#151415" stroke-width="1.6" opacity=".45" fill="none"/>
+  <!-- the one reader. it did not get ten times bigger -->
+  <rect x="76" y="68" width="88" height="16" rx="4" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <ellipse cx="120" cy="76" rx="12" ry="6.4" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <circle cx="120" cy="76" r="3.2" fill="#151415"/>
+  <!-- accents, dead corners only -->
+  <path d="M22 72l1.6 3.2 3.2 1.6-3.2 1.6-1.6 3.2-1.6-3.2-3.2-1.6 3.2-1.6z" fill="var(--coral)" stroke="#151415" stroke-width="1.1"/>
+  <path d="M218 72l1.6 3.2 3.2 1.6-3.2 1.6-1.6 3.2-1.6-3.2-3.2-1.6 3.2-1.6z" fill="var(--coral)" stroke="#151415" stroke-width="1.1"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">ten outputs, one pair of eyes</text>
+</svg>

@@ -1,0 +1,31 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Four cheap crashes and one long quiet run on the same baseline. The one
+       that never interrupted me is the one that cost the afternoon, because it
+       looked like it was still working the whole time.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--pink)">
+  <!-- the baseline. every attempt starts here -->
+  <path d="M14 84h212" stroke="#151415" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- the crashes. cheap, loud, over in seconds -->
+  <g fill="var(--coral)" stroke="#151415" stroke-width="2" stroke-linejoin="round">
+    <rect x="20" y="74" width="12" height="10" rx="1.5"/>
+    <rect x="37" y="74" width="12" height="10" rx="1.5"/>
+    <rect x="54" y="74" width="12" height="10" rx="1.5"/>
+    <rect x="71" y="74" width="12" height="10" rx="1.5"/>
+  </g>
+  <text x="22" y="70" font-family="JetBrains Mono, monospace" font-size="7" fill="#151415" opacity=".7">$</text>
+  <!-- the quiet one. it kept going, so I kept waiting -->
+  <rect x="112" y="50" width="106" height="34" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M112 58h106" stroke="#151415" stroke-width="1.8" opacity=".4"/>
+  <text x="116" y="56" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#151415" opacity=".7">still running</text>
+  <circle cx="126" cy="70" r="3" fill="#151415"/>
+  <circle cx="138" cy="70" r="3" fill="#151415" opacity=".6"/>
+  <circle cx="150" cy="70" r="3" fill="#151415" opacity=".3"/>
+  <text x="162" y="73" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#151415">$$$$</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">the quiet one cost the most</text>
+</svg>

@@ -1,0 +1,29 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Three requirements ticked and a fourth line left blank, with the blank one
+       filled in off to the side in a shape nobody asked for. The blank line is
+       the one that went without saying.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--yellow-soft)">
+  <!-- the spec. as thorough as I thought it was -->
+  <rect x="24" y="46" width="112" height="38" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M36 54 l4 4 7-8" fill="none" stroke="var(--lime)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 55 h74" stroke="#151415" stroke-width="2" opacity=".5"/>
+  <path d="M36 62 l4 4 7-8" fill="none" stroke="var(--lime)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 63 h74" stroke="#151415" stroke-width="2" opacity=".5"/>
+  <path d="M36 70 l4 4 7-8" fill="none" stroke="var(--lime)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 71 h74" stroke="#151415" stroke-width="2" opacity=".5"/>
+  <!-- the clause I never wrote, because it was obvious -->
+  <rect x="32" y="72" width="96" height="9" rx="2" fill="none" stroke="var(--coral)" stroke-width="2.2" stroke-dasharray="4 3"/>
+  <text x="36" y="79" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="var(--coral)">E ?</text>
+  <!-- filled in anyway, from an average of everything it read -->
+  <path d="M142 74h20" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M158 70l6 4-6 4z" fill="#151415"/>
+  <path d="M170 54l18 6-6 6 8 4-20 8 4-12-8-4z" fill="var(--lavender)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="198" y="54" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".7">its E</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">it went without saying</text>
+</svg>

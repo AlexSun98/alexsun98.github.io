@@ -1,0 +1,31 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Forty words on the left, the stack of rules that grew on top of them, and
+       the dashed route that now goes around the whole thing. A pipeline that gets
+       skipped when the work is large protects only the small work.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--peach)">
+  <!-- the first version. it worked -->
+  <rect x="14" y="62" width="46" height="18" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="19" y="74" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415">40 words</text>
+  <!-- every rule added after a specific failure. each one defensible -->
+  <g fill="var(--yellow)" stroke="#151415" stroke-width="1.8" stroke-linejoin="round">
+    <rect x="86" y="52.0" width="70" height="3.6" rx="1.4"/>
+    <rect x="86" y="56.4" width="70" height="3.6" rx="1.4"/>
+    <rect x="86" y="60.8" width="70" height="3.6" rx="1.4"/>
+    <rect x="86" y="65.2" width="70" height="3.6" rx="1.4"/>
+    <rect x="86" y="69.6" width="70" height="3.6" rx="1.4"/>
+    <rect x="86" y="74.0" width="70" height="3.6" rx="1.4"/>
+    <rect x="86" y="78.4" width="70" height="3.6" rx="1.4"/>
+  </g>
+  <!-- the route I actually took. around my own gate -->
+  <path d="M62 68q22-24 60-22t58 24" fill="none" stroke="#151415" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round"/>
+  <path d="M174 64l6 8 6-8z" fill="#151415" stroke="#151415" stroke-width="1.6" stroke-linejoin="round"/>
+  <rect x="192" y="70" width="34" height="14" rx="3" fill="var(--lime)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="196" y="80" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">skipped</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">the path around my own gate</text>
+</svg>

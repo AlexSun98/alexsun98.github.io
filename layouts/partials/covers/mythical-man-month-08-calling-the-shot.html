@@ -1,0 +1,28 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* A clock with a sliver of typing on it, next to a ledger with no rows in it.
+       The estimate is missing because the record is missing, and the record is
+       missing because nobody started one.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--lime)">
+  <!-- the part everyone estimates. the typing -->
+  <circle cx="42" cy="66" r="18" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <path d="M42 66V50A16 16 0 0 1 53.3 54.7Z" fill="var(--coral)" stroke="#151415" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M42 66l11-11" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="42" cy="66" r="2.2" fill="#151415"/>
+  <!-- the ledger that would let me estimate the rest -->
+  <rect x="86" y="48" width="142" height="36" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M86 56h142" stroke="#151415" stroke-width="2"/>
+  <text x="91" y="54" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#151415" opacity=".7">task   start   end   cost</text>
+  <g stroke="#151415" fill="none">
+    <path d="M92 62 h130" stroke-width="1.4" opacity=".4"/>
+    <path d="M92 69 h130" stroke-width="1.4" opacity=".4"/>
+    <path d="M92 76 h130" stroke-width="1.4" opacity=".4"/>
+  </g>
+  <path d="M124 56v28M162 56v28M196 56v28" stroke="#151415" stroke-width="1.4" opacity=".3"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">no rows in it yet</text>
+</svg>

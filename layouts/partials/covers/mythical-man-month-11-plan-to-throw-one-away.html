@@ -1,0 +1,38 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* One drawing with a bright strip across the middle and the rest greyed, next
+       to six binned attempts. The strip is all the page ever showed. Six of them
+       were decoration on the part of the canvas nobody sees.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--lavender)">
+  <!-- the drawing, at the size I kept making it -->
+  <rect x="20" y="46" width="104" height="38" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round" opacity=".45"/>
+  <path d="M30 53h84M30 79h60" stroke="#151415" stroke-width="2" opacity=".3"/>
+  <!-- the strip the page actually shows -->
+  <rect x="20" y="58" width="104" height="16" fill="var(--yellow)" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="40" cy="66" r="5.5" fill="var(--coral)" stroke="#151415" stroke-width="2"/>
+  <path d="M56 71l9-9 9 9z" fill="var(--sky)" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="82" y="62" width="28" height="9" rx="2" fill="#fdfcf5" stroke="#151415" stroke-width="2"/>
+  <!-- the six that went in the bin before I rendered one -->
+  <g fill="#fdfcf5" stroke="#151415" stroke-width="1.8" stroke-linejoin="round">
+    <rect x="152" y="52" width="22" height="14" rx="2"/>
+    <rect x="152" y="70" width="22" height="14" rx="2"/>
+    <rect x="180" y="52" width="22" height="14" rx="2"/>
+    <rect x="180" y="70" width="22" height="14" rx="2"/>
+    <rect x="208" y="52" width="22" height="14" rx="2"/>
+    <rect x="208" y="70" width="22" height="14" rx="2"/>
+  </g>
+  <g fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round">
+    <path d="M155 55l16 8M155 63l16-8"/>
+    <path d="M155 73l16 8M155 81l16-8"/>
+    <path d="M183 55l16 8M183 63l16-8"/>
+    <path d="M183 73l16 8M183 81l16-8"/>
+    <path d="M211 55l16 8M211 63l16-8"/>
+    <path d="M211 73l16 8M211 81l16-8"/>
+  </g>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">six of them were off screen</text>
+</svg>

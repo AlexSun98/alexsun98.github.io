@@ -1,0 +1,30 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Read, change, run, see, closed into a loop with a caret in the middle. The
+       four actions have not changed since 1975. Three of them are no longer done
+       by a person, which is why the editor is still the biggest saving.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--peach)">
+  <!-- the loop. this is the editor, and it moves itself now -->
+  <circle cx="120" cy="65" r="18" fill="none" stroke="#151415" stroke-width="2.2" stroke-dasharray="5 4"/>
+  <path d="M136 56l5-4 1 7z" fill="#151415" stroke="#151415" stroke-width="1.4" stroke-linejoin="round"/>
+  <!-- the caret. the one thing a person still puts in it -->
+  <path d="M118 59h4v12h-4z" fill="var(--coral)" stroke="#151415" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- read -->
+  <rect x="98" y="46" width="44" height="13" rx="3" fill="var(--sky)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="107" y="55.5" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">read</text>
+  <!-- change -->
+  <rect x="150" y="59" width="48" height="13" rx="3" fill="var(--lime)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="155" y="68.5" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">change</text>
+  <!-- run -->
+  <rect x="100" y="71" width="40" height="13" rx="3" fill="var(--yellow)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="109" y="80.5" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">run</text>
+  <!-- see. the only one still worth my eyes -->
+  <rect x="42" y="59" width="40" height="13" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="51" y="68.5" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">see</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">it moves itself now</text>
+</svg>

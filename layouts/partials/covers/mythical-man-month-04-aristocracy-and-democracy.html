@@ -1,0 +1,42 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Ten proposals, and every one carries a different mark. That is the point.
+       No two share a personality, so there is no concept to find, and the stamp
+       went on whichever one scored best rather than whichever was right.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--lavender)">
+  <!-- ten designs, proposed in parallel -->
+  <g fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round">
+    <rect x="10" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="33" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="56" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="79" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="102" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="125" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="148" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="171" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="194" y="50" width="18" height="34" rx="2.5"/>
+    <rect x="217" y="50" width="18" height="34" rx="2.5"/>
+  </g>
+  <!-- each one its own private concept, none derivable from a third -->
+  <g fill="none" stroke="#151415" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="14" cy="64" r="5"/>
+    <rect x="37" y="59" width="10" height="10" rx="1"/>
+    <path d="M60 69l5-10 5 10z"/>
+    <path d="M83 59l10 10M83 69l10-10"/>
+    <path d="M106 69l10-10"/>
+    <path d="M129 64h10"/>
+    <rect x="152" y="61" width="10" height="6" rx="3"/>
+    <path d="M175 64a5 5 0 0 1 10 0"/>
+    <circle cx="198" cy="64" r="2.5"/>
+    <path d="M221 59v10h8"/>
+  </g>
+  <!-- the scorer. it measured what it had, and stamped one -->
+  <rect x="148" y="66" width="36" height="15" rx="3" fill="var(--coral)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round" transform="rotate(-7 166 73)"/>
+  <text x="153" y="77" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" fill="#fdfcf5" transform="rotate(-7 166 73)">9.4 &#10003;</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">eleven private concepts</text>
+</svg>

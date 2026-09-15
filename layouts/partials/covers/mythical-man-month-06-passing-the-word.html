@@ -1,0 +1,28 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* The gate is welded in and it is reporting a pass. The file went round the
+       side. A guard that matches nothing exits clean and looks exactly like a
+       guard that checked everything.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--yellow-soft)">
+  <!-- the guard. structural, not persuasive, exactly as asked for -->
+  <rect x="62" y="48" width="96" height="10" rx="3" fill="#151415" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <rect x="62" y="58" width="9" height="26" rx="2" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <rect x="149" y="58" width="9" height="26" rx="2" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <!-- nothing came through, so there was nothing to fail -->
+  <path d="M78 78h64" stroke="#151415" stroke-width="1.6" stroke-dasharray="4 5" opacity=".35"/>
+  <!-- the pass it reported anyway -->
+  <rect x="94" y="62" width="32" height="14" rx="3" fill="var(--lime)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="99" y="72.5" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#151415">&#10003; ok</text>
+  <!-- the file the regex never reached -->
+  <rect x="188" y="52" width="30" height="32" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M193 60h20M193 65h20M193 70h14" stroke="#151415" stroke-width="1.6" opacity=".55"/>
+  <!-- it went round the side -->
+  <path d="M166 68h14" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M178 64l6 4-6 4z" fill="#151415"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">a guard that matched nothing</text>
+</svg>

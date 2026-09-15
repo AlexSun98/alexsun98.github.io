@@ -1,0 +1,32 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Two halves of one tower, built to two different assumptions, and not one
+       course meets. The tags on the right are the reason. Asking cost something
+       and assuming was free.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--pink)">
+  <!-- team A built to their assumption -->
+  <g fill="var(--peach)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round">
+    <rect x="24" y="72" width="62" height="12" rx="2"/>
+    <rect x="30" y="60" width="56" height="12" rx="2"/>
+    <rect x="36" y="48" width="50" height="12" rx="2"/>
+  </g>
+  <!-- team B built to theirs. every course is off -->
+  <g fill="var(--sky)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round">
+    <rect x="94" y="66" width="60" height="12" rx="2"/>
+    <rect x="94" y="54" width="54" height="12" rx="2"/>
+    <rect x="94" y="46" width="48" height="8" rx="2"/>
+  </g>
+  <!-- the join nobody checked -->
+  <path d="M90 46v38" stroke="#151415" stroke-width="2.4" stroke-dasharray="4 4"/>
+  <!-- the cost structure that decided the behaviour -->
+  <rect x="168" y="50" width="58" height="16" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="173" y="61.5" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415">ask &#183; costs</text>
+  <rect x="168" y="68" width="58" height="16" rx="3" fill="var(--lime)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <text x="173" y="79.5" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">assume &#183; 0</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">assuming was the cheap one</text>
+</svg>

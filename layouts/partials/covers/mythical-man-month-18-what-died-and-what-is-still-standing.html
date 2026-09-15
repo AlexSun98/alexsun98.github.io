@@ -1,0 +1,30 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Cards fallen on the left with crosses through them, cards standing on the
+       right with ticks, and the 1986 boundary between the piles. Everything that
+       died was about how to say it. Everything standing is about what to say.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--lavender)">
+  <!-- the line the sort fell along. nobody arranged that -->
+  <path d="M124 46v38" stroke="#151415" stroke-width="2.4" stroke-dasharray="6 4"/>
+  <text x="104" y="50" font-family="JetBrains Mono, monospace" font-size="7" fill="#151415" opacity=".7">1986</text>
+  <!-- dead and delivered. every one about how to say it -->
+  <g fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round" opacity=".55">
+    <rect x="22" y="54" width="30" height="20" rx="2.5" transform="rotate(-8 37 64)"/>
+    <rect x="52" y="60" width="30" height="20" rx="2.5" transform="rotate(-1 67 70)"/>
+    <rect x="82" y="54" width="30" height="20" rx="2.5" transform="rotate(6 97 64)"/>
+  </g>
+  <path d="M26 58l26 16M30 76l24-16M86 64l26 14M90 80l24-14" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+  <!-- still standing. every one about deciding what to say -->
+  <g fill="var(--lime)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round">
+    <rect x="136" y="52" width="26" height="28" rx="2.5"/>
+    <rect x="168" y="52" width="26" height="28" rx="2.5"/>
+    <rect x="200" y="52" width="26" height="28" rx="2.5"/>
+  </g>
+  <path d="M142 65l4 5 7-9M174 65l4 5 7-9M206 65l4 5 7-9" fill="none" stroke="#151415" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">the line did not move</text>
+</svg>

@@ -1,0 +1,26 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* A markdown page compiling into a code block, with the only repair arrow
+       running back to the page. Decisions live upstream, so a fix applied to the
+       output gets recompiled away.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--mint)">
+  <!-- the source. where the decisions actually get made -->
+  <rect x="16" y="48" width="58" height="36" rx="3" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <text x="21" y="58" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">.md</text>
+  <path d="M21 65h46M21 71h46M21 77h32" stroke="#151415" stroke-width="1.8" opacity=".55"/>
+  <!-- the compile step. an agent now, and the cheap half -->
+  <path d="M80 62h36" stroke="#151415" stroke-width="3" stroke-linecap="round"/>
+  <path d="M112 56l10 6-10 6z" fill="#151415" stroke="#151415" stroke-width="1.6" stroke-linejoin="round"/>
+  <!-- the build output -->
+  <rect x="128" y="48" width="96" height="36" rx="3" fill="#151415" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M134 57h30M134 63h56M134 69h42M134 75h64" stroke="var(--lime)" stroke-width="2" stroke-linecap="round"/>
+  <!-- the only repair that holds. back to the source -->
+  <path d="M150 80q-40 10-66-8" fill="none" stroke="var(--coral)" stroke-width="2.2" stroke-dasharray="4 4" stroke-linecap="round"/>
+  <path d="M84 66l1 10 8-5z" fill="var(--coral)" stroke="#151415" stroke-width="1.4" stroke-linejoin="round"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="104" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">fix the source, not the output</text>
+</svg>

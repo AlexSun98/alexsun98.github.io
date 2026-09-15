@@ -1,0 +1,26 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* A window with a hard cap at the top and a much lower line where it still
+       reasons well. The scarce medium moved from memory to context, and the
+       useful mark sits nowhere near the physical one.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
+  <!-- the window. physically this big -->
+  <rect x="66" y="48" width="108" height="36" rx="4" fill="#fdfcf5" stroke="#151415" stroke-width="2.4" stroke-linejoin="round"/>
+  <!-- what is actually in it when it works -->
+  <rect x="66" y="72" width="108" height="12" rx="4" fill="var(--lime)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- the cap. the number on the tin -->
+  <path d="M52 50h134" stroke="#151415" stroke-width="2.2" stroke-dasharray="5 4"/>
+  <text x="190" y="53" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="#151415">cap</text>
+  <!-- the line where the reasoning is still good -->
+  <path d="M52 72h134" stroke="var(--coral)" stroke-width="2.2" stroke-dasharray="3 3"/>
+  <text x="190" y="75" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" fill="var(--coral)">useful</text>
+  <!-- the gap between the two lines, where judgement quietly goes -->
+  <path d="M78 58h16M104 64h22M136 56h20" stroke="#151415" stroke-width="1.6" opacity=".3"/>
+  <text x="12" y="66" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".55">tokens</text>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">full is not the limit</text>
+</svg>

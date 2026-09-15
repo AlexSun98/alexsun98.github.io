@@ -1,0 +1,30 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* A bullet through the near target and a boundary it never crosses, with the
+       far target untouched. Everything agents removed sits on the near side. The
+       essential difficulty is not on the same axis.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--sky)">
+  <!-- the labels go above, because the caption owns the bottom line -->
+  <text x="88" y="51" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="#151415">accidental</text>
+  <text x="180" y="51" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="700" fill="#151415">essential</text>
+  <!-- the shot. genuinely fast, genuinely useful -->
+  <path d="M12 64h18M12 70h14" stroke="#151415" stroke-width="2" opacity=".45" stroke-linecap="round"/>
+  <path d="M34 61h18a6 6 0 0 1 0 12H34z" fill="var(--cream)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- the near target. accidental difficulty, hit clean -->
+  <circle cx="108" cy="67" r="17" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <circle cx="108" cy="67" r="11" fill="var(--coral)" stroke="#151415" stroke-width="2"/>
+  <circle cx="108" cy="67" r="4.5" fill="#151415"/>
+  <!-- the boundary Brooks drew in 1986 -->
+  <path d="M148 46v38" stroke="#151415" stroke-width="2.4" stroke-dasharray="6 4"/>
+  <text x="150" y="82" font-family="JetBrains Mono, monospace" font-size="7" fill="#151415" opacity=".7">1986</text>
+  <!-- the far target. still clean after forty years -->
+  <circle cx="198" cy="67" r="17" fill="#fdfcf5" stroke="#151415" stroke-width="2.4"/>
+  <circle cx="198" cy="67" r="11" fill="none" stroke="#151415" stroke-width="2" opacity=".5"/>
+  <circle cx="198" cy="67" r="4.5" fill="none" stroke="#151415" stroke-width="2" opacity=".5"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">it never crossed the line</text>
+</svg>
