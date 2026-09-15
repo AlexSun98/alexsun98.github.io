@@ -11,18 +11,16 @@ status: "in progress"
 accent: "var(--aqua)"
 description: "How to build an agentic coding system that can stop itself, the harness that runs the end-to-end lifecycle, the knowledge layer that decides what an agent may believe, and the teams around both, which are not a separate problem."
 ---
-A production line is only worth its speed because it can halt itself. This series is about building a coding system that works the same way, and about the two lanes that run through one: the harness that carries work from a spec to a deploy, and the knowledge layer underneath it that decides what an agent is allowed to believe.
+A production line is only worth its speed because it can halt itself. This series is about building an agentic coding system that works the same way with some mental frameworks, and about its architecture of the two lanes that run through one, the harness that carries work from an idea to a deliverable via AI-driven end-to-end SDLC pipeline, and the knowledge layer underneath it that decides what an agent is allowed to believe, which I called it the agentic knowledge foundation.
 
 The stack in the title is the technology and the organisation both. They do not come apart, so it does not treat them as two subjects.
 
 It runs in three parts.
 
-**Part I, principles. The why.** Fifty years of software engineering did not
+**Part I, principles. The why and the mental frameworks.** Fifty years of software engineering did not
 stop counting when agents arrived. It started counting for more, because an
-agent runs the fundamentals faster in whichever direction you point it. Golden
-eval sets, modularity, boundary enforcement, the human in the loop, and jidoka,
-which in an agentic system is the evaluation loop that stops a bad change before
-it reaches anything downstream.
+agent runs the fundamentals faster in whichever direction you point it. I will systematically analyze today’s most defining methodologies and practices in agentic engineering.
+After contrasting and integrating these mental frameworks, then I'll dive deep into Harness Engineering, the discipline of building secure, controllable execution environments for AI coding agents, and examine practical strategies for orchestrating agentic workflows using Kanban. Ultimately, this roadmap equips you to build your own robust AI-driven development ecosystem.
 
 **Part II, system architecture and capabilities. The how.** Harness design,
 context engineering, orchestration patterns and the toolchain around them. This
