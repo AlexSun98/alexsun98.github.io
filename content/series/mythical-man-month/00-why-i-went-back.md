@@ -1,9 +1,14 @@
 ---
 title: "The Mythical Man-Month, is this outdated in the age of AI?"
+chapter: "00"
+weight: 0
 date: 2026-08-24
-tags: ["Software Engineering", "AI", "Books", "Reflection", "Mythical Man-Month"]
+status: published
+# Published at /posts/ before this became a series. The alias keeps that URL
+# working for anyone who already has it.
+aliases: ["/posts/mythical-man-month-in-the-age-of-ai/"]
+tags: ["Software Engineering", "AI", "Reflection", "Mythical Man-Month"]
 categories: ["Engineering"]
-pinned: true
 description: "Brooks's law was supposed to die in the age of AI. After six months of daily work alongside agents, I went back to the book. It has not aged at all."
 ---
 ## Why I went back to it

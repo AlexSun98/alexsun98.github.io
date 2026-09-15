@@ -1,5 +1,13 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{- /* Chapters are regular pages under /series/, so they are not in $posts and
+       were missing from the home list entirely. The list below shows both. */ -}}
+{{ $chapters := where (where .Site.RegularPages "Section" "series") "Params.hidden" "!=" true }}
+{{ $writing := (union $posts $chapters).ByDate.Reverse }}
+{{- /* A series can be pinned as well as a post. A series is a section page, so
+       it is not in .Site.RegularPages and has to be gathered separately. */ -}}
+{{ $seriesList := slice }}
+{{ with .Site.GetPage "/series" }}{{ $seriesList = .Sections }}{{ end }}
 <div class="page-wrap">
 
   <section class="hero">
@@ -41,7 +49,7 @@
     </div>
   </section>
 
-  {{ $pinned := where $posts "Params.pinned" true }}
+  {{ $pinned := union (where $posts "Params.pinned" true) (where $seriesList "Params.pinned" true) }}
   {{ with $pinned }}
   <section>
     <div class="section-header">
@@ -63,9 +71,18 @@
           <h3 class="display">{{ .Title }}</h3>
           <p class="desc">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
           <div class="foot">
+            {{- /* A post is dated and has a reading time. A series has neither,
+                   so it shows how far along it is instead. */ -}}
+            {{ if eq .Kind "section" }}
+            {{ $ch := where .RegularPages "Params.hidden" "!=" true }}
+            <span>series</span>
+            <span>·</span>
+            <span>{{ len $ch }} chapter{{ if ne (len $ch) 1 }}s{{ end }}{{ with .Params.plannedChapters }} of {{ . }}{{ end }}</span>
+            {{ else }}
             <span>{{ .Date.Format "2006-01-02" }}</span>
             <span>·</span>
             <span>{{ .ReadingTime }} min read</span>
+            {{ end }}
             <span class="read">Read ↗</span>
           </div>
         </div>
@@ -75,14 +92,14 @@
   </section>
   {{ end }}
 
-  {{ with $posts }}
+  {{ with $writing }}
   <section>
     <div class="section-header">
       <div>
-        <div class="kicker mono">$ ls -lt posts/</div>
-        <h2 class="display"><span style="background:var(--lime)">Latest posts</span></h2>
+        <div class="kicker mono">$ ls -lt writing/</div>
+        <h2 class="display"><span style="background:var(--lime)">Latest</span></h2>
       </div>
-      <span class="tail mono">// recent</span>
+      <span class="tail mono">// posts and chapters</span>
     </div>
     <div class="term-list">
       {{ range first 5 . }}
@@ -90,7 +107,10 @@
       {{ end }}
       <div class="term-list-foot">
         <span class="count">-- showing {{ math.Min 5 (len .) | int }} of {{ len . }} --</span>
-        <a href="{{ "/posts/" | relURL }}">view all ↗</a>
+        <span class="foot-links">
+          <a href="{{ "/posts/" | relURL }}">all posts ↗</a>
+          <a href="{{ "/series/" | relURL }}">all series ↗</a>
+        </span>
       </div>
     </div>
   </section>

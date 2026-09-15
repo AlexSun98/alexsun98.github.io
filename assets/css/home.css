@@ -288,6 +288,19 @@ section { margin-bottom: 80px; }
   padding: 2px 6px;
   border-radius: 3px;
 }
+.term-row .tags .sample {
+  background: transparent;
+  color: #d8261c;
+  border: 1.5px solid #d8261c;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transform: rotate(-4deg);
+}
+.term-row .tags .series {
+  background: transparent;
+  border: 1.5px solid rgba(0,0,0,0.25);
+  font-weight: 600;
+}
 .term-row .rt { color: var(--mute); }
 
 .term-list-foot {
@@ -301,6 +314,7 @@ section { margin-bottom: 80px; }
   font-size: 13px;
 }
 .term-list-foot .count { color: var(--mute); }
+.term-list-foot .foot-links { display: flex; gap: 8px; }
 .term-list-foot a {
   background: var(--ink);
   color: var(--paper);

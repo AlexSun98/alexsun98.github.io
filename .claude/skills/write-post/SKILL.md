@@ -21,6 +21,15 @@ Six stages. Resumable. The human is in the loop at three gates.
 If a `drafts/<slug>/` folder already exists, read `00-state.md` and continue
 from the stage it names. Never restart a post that has interview answers in it.
 
+## Posts and chapters
+
+A post goes to `content/posts/`. A series chapter goes to
+`content/series/<series>/`. Both run every stage in this file, unchanged.
+
+If the work is a chapter, read `chapters.md` before Stage 4. A chapter has a
+different shape from a post and a different place on disk, and drafting a
+chapter with a post's arc is the failure that file exists to stop.
+
 ## Workspace
 
 Everything in progress lives in `drafts/<slug>/`, which is gitignored.
@@ -135,7 +144,9 @@ verdict.
 
 Once the verdict is `CLEAR`:
 
-1. Write the post to `content/posts/<slug>.md` with front matter:
+1. Write the post to `content/posts/<slug>.md`, or the chapter to
+   `content/series/<series>/<NN-slug>.md` with the front matter in `chapters.md`.
+   A post's front matter:
 
    ```yaml
    ---
@@ -165,6 +176,9 @@ format, the body template and the squash merge.
 
 - Never invent a first-person claim. Missing citation means the sentence does
   not get written.
+- A sentence with no "I" in it can still be an invented claim. Sentences written
+  to join two sections, or to tell the reader what the work contains, need a
+  ledger row like any other. See `chapters.md`.
 - Never blend `[research]` into an "I" sentence.
 - Never report a stage complete with a gap still open. Say what is open.
 - The cover argues the post's claim, not its title.

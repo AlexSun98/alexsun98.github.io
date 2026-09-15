@@ -4,6 +4,15 @@
   <span class="dollar">$</span>
   <span class="date">{{ .Date.Format "2006-01-02" }}</span>
   <span class="title">{{ .Title }}</span>
-  <span class="tags">{{ range first 2 .Params.tags }}<span>#{{ . }}</span>{{ end }}</span>
+  {{- /* A chapter title alone can be meaningless out of its series ("Preface"),
+         so a chapter names its series where a post shows tags. */ -}}
+  <span class="tags">
+    {{- if .Params.sample }}<span class="sample">SAMPLE</span>{{ end -}}
+    {{- if and (eq .Section "series") .Parent -}}
+    <span class="series">{{ .Parent.Title }}</span>
+    {{- else -}}
+    {{ range first 2 .Params.tags }}<span>#{{ . }}</span>{{ end }}
+    {{- end -}}
+  </span>
   <span class="rt">{{ .ReadingTime }}m →</span>
 </a>

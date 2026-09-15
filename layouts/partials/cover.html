@@ -17,7 +17,19 @@
 {{- $p := .page -}}
 {{- $h := int (default 180 .height) -}}
 {{- $custom := "" -}}
+{{- /* A chapter is named for its place in a series (00-preface), so the same
+     basename can appear in two series. Try the series-qualified name first. */ -}}
+{{- /* A series has no cover of its own, so wherever one is shown, on the
+     homepage pinned row or anywhere else, it borrows its first chapter's. A
+     series represented by a different drawing from the chapter it opens on
+     reads as a different thing. Chapters sort by the zero padded `chapter`,
+     the same rule the rest of the section uses. */ -}}
+{{- if and (eq $p.Kind "section") (eq $p.Section "series") -}}
+  {{- $chapters := (where $p.RegularPages "Params.hidden" "!=" true).ByParam "chapter" -}}
+  {{- with $chapters }}{{ $p = index . 0 }}{{ end -}}
+{{- end -}}
 {{- with $p.File }}{{ $custom = printf "partials/covers/%s.html" .BaseFileName }}{{ end -}}
+{{- if eq $p.Section "series" }}{{ with $p.Parent }}{{ $q := printf "partials/covers/%s-%s.html" (path.Base .RelPermalink) $p.File.BaseFileName }}{{ if templates.Exists $q }}{{ $custom = $q }}{{ end }}{{ end }}{{ end -}}
 {{- if and $custom (templates.Exists $custom) -}}
 {{ partial (strings.TrimPrefix "partials/" $custom) (dict "page" $p "height" $h) }}
 {{- else -}}

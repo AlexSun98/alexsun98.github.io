@@ -37,6 +37,14 @@ Rules:
 
 - Store the answer verbatim. Do not tidy the grammar. The phrasing is voice
   data as well as content.
+- Verbatim means verbatim, including a long answer and an answer that is mostly
+  a document Alex pasted. Never write "(summary of what he said)" into
+  `03-interview.md`. The checker verifies the draft against this file and
+  nothing else, so a summarised answer makes every sentence resting on it
+  unverifiable, and the post gets blocked for a fault in the record rather than
+  in the writing.
+- If an answer points at something rather than containing it ("see my notes in
+  X"), go and get the text and paste it in. A pointer is not an answer.
 - Every answer gets an ID (`A7`). Drafting cites these IDs.
 - Tag each question with the gap type and the claim it serves.
 - Round two questions continue the same numbering, tagged `[r2]`.
@@ -74,6 +82,26 @@ a script.
 - Who is this for, and what do they already know?
 - What happens to them if they ignore this post?
 - What would you tell a colleague about this over a coffee, in one sentence?
+
+### When Alex pastes something in
+
+A pasted block is not automatically his, even when it arrives as the answer to a
+question about his own experience. This happens most often on numbers: the
+question asks where a figure came from, and the answer is the article the figure
+came from.
+
+Before any of it can become an "I" sentence, settle three things:
+
+- Did he write this, or read it? Ask. Do not infer it from the tone.
+- If he read it, what did he see himself, and what is only in the text? Ask for
+  the dates on both. They rarely line up, and the gap is usually the honest
+  opening the post needs.
+- If he wrote it, does any of it identify an employer or a system? Route it
+  through the disclosure question below before drafting, not after.
+
+Tag the block in `01-source.md` accordingly and record the answer. A pasted
+article tagged `[mine]` is the single most expensive mistake this skill can
+make, because everything downstream reads as first-hand.
 
 ### borrowed: from research, not tested
 

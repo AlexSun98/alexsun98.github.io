@@ -1,0 +1,432 @@
+/* ─── Series ───
+   Three surfaces, three jobs.
+
+   /series/                the shelf. Few items, so each one is a wide row that
+                          answers "what is this, how far along, where do I start".
+   /series/<series>/         the contents. A numbered list grouped by part, because
+                          a reader scanning a table of contents wants rows, not
+                          cards.
+   /series/<series>/<ch>/    the chapter. Reading. The measure is capped and the
+                          chapter rail sticks, so you always know where you are.
+*/
+
+/* ── The shelf ── */
+
+.shelf { display: flex; flex-direction: column; gap: 22px; }
+
+.shelf-item {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 var(--line);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.shelf-item:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--line); }
+
+/* The spine. A series on the shelf reads as an object, not a blog card. */
+.shelf-spine {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px;
+  background: var(--accent, var(--aqua));
+}
+.shelf-spine .n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: .65;
+  margin-bottom: 4px;
+}
+.shelf-spine .t {
+  font-family: 'Fraunces', 'Noto Sans SC', serif;
+  font-weight: 900;
+  font-size: 19px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+/* The ruled edge, so it reads as pages seen side on. */
+.shelf-spine::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: 9px;
+  background: repeating-linear-gradient(
+    to bottom, var(--line) 0 1px, transparent 1px 5px);
+  opacity: .35;
+}
+
+.shelf-body { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.shelf-body h2 {
+  font-family: 'Fraunces', 'Noto Sans SC', serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 28px;
+  line-height: 1.05;
+  margin: 0;
+  /* One line. A two line title on one card and a one line title on the next is
+     the other thing that makes a shelf look ragged. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+}
+.shelf-body h2 a { color: var(--ink); text-decoration: none; }
+.shelf-body h2 a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.shelf-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  color: var(--mute);
+  /* One line, always, for the same reason as the description. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+  min-height: 1.5em;
+}
+/* Every card on the shelf is the same height, and the way that is held is by
+   fixing the number of lines each part is allowed rather than hoping the copy
+   behaves. A description is always exactly two lines: clamped if it runs long,
+   padded if it runs short. A shelf of cards at different heights reads as
+   broken, not as varied. */
+.shelf-body p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: 3.2em;      /* 2 lines at 1.6 */
+}
+
+.shelf-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+/* How far along. The bar is the honest bit: a series in progress looks like one. */
+.progress-strip { display: flex; align-items: center; gap: 8px; }
+.progress-strip .bar {
+  width: 120px; height: 9px;
+  border: 2px solid var(--line);
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--cream-warm);
+}
+.progress-strip .bar > span {
+  display: block; height: 100%;
+  background: var(--accent, var(--aqua));
+}
+.progress-strip .n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--mute);
+}
+
+/* Jump straight to a chapter from the shelf. This is the navigation win:
+   two clicks to any chapter becomes one. */
+/* One row, never two, and the same three links whether the series has two
+   chapters or twenty. Nothing in here grows with the length of the series, so
+   there is no overflow to hide. */
+.shelf-jump { display: flex; flex-wrap: nowrap; gap: 6px; align-items: center; }
+.shelf-jump .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--mute); margin-right: 2px;
+}
+.shelf-jump a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.shelf-jump a:hover { background: var(--accent, var(--aqua)); }
+
+/* ── The contents page ── */
+
+.series-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 34px;
+  padding-bottom: 26px;
+  border-bottom: 2px dashed var(--line);
+}
+.series-head h1 { font-size: 46px; line-height: 1.04; margin: 0 0 8px; }
+.series-head .sub {
+  font-family: 'Fraunces', 'Noto Sans SC', serif;
+  font-size: 19px;
+  color: var(--mute);
+  margin: 0 0 14px;
+}
+/* A series page's body is doing the same job as a post body, so it takes the
+   same size and leading as .md rather than a size of its own. */
+.series-head .lede { font-size: 17px; line-height: 1.75; color: var(--ink-soft); }
+.series-head .lede p { margin: 0 0 0.8em; }
+
+.series-facts {
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 var(--line);
+  padding: 14px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+}
+.series-facts .row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; }
+.series-facts .row + .row { border-top: 1px dashed var(--line); }
+.series-facts .k { color: var(--mute); }
+.series-facts .cta {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  padding: 9px 12px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--accent, var(--aqua));
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--line);
+}
+.series-facts .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--line); }
+
+/* Parts. A series that declares them gets them shown. */
+.part-head {
+  display: flex; align-items: baseline; gap: 12px;
+  margin: 30px 0 12px;
+}
+.part-head .n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 9px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--accent, var(--aqua));
+}
+.part-head .t {
+  font-family: 'Fraunces', 'Noto Sans SC', serif;
+  font-weight: 800; font-size: 19px; color: var(--ink);
+}
+.part-head .rule { flex: 1; border-bottom: 2px dashed var(--line); }
+
+/* A chapter row. Rows beat cards for a table of contents: the eye runs down
+   the numbers and the titles line up. */
+.chapter-rows { display: flex; flex-direction: column; }
+.chapter-row {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 15px 14px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.chapter-row + .chapter-row { border-top: 1px dashed var(--line); }
+.chapter-row:hover {
+  background: var(--paper);
+  border-color: var(--line);
+  border-top-style: solid;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.chapter-row:hover + .chapter-row { border-top-color: transparent; }
+.chapter-row .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--mute);
+}
+.chapter-row:hover .num { color: var(--ink); }
+.chapter-row .t {
+  display: block;
+  font-family: 'Fraunces', 'Noto Sans SC', serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.chapter-row .d { display: block; font-size: 15px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+.chapter-row .meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--mute);
+  white-space: nowrap;
+  text-align: right;
+}
+.chapter-row .meta .draft {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 2px 7px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--yellow-soft, var(--cream-warm));
+  color: var(--ink);
+}
+
+/* ── The chapter page ── */
+
+/* A chapter is the same width as a post. The page-wrap, the three column grid
+   and the type all come from post.css unchanged, so a reader moving between a
+   post and a chapter is not moving between two layouts. */
+
+/* The rail follows you down the chapter. */
+.series-page .toc { position: sticky; top: 18px; max-height: calc(100vh - 36px); overflow-y: auto; }
+.series-page .side-meta { position: sticky; top: 18px; }
+
+/* Where am I in the series. */
+.chapter-place {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--mute);
+  margin-bottom: 10px;
+}
+.chapter-place .pips { display: flex; gap: 4px; }
+.chapter-place .pips i {
+  width: 16px; height: 7px;
+  border: 2px solid var(--line);
+  border-radius: 3px;
+  background: var(--cream-warm);
+}
+.chapter-place .pips i.on { background: var(--accent, var(--aqua)); }
+.chapter-place .pips i.here { background: var(--ink); }
+
+/* The rail's chapter list, so the current chapter is obvious. */
+.series-page .post-nav .step.here {
+  background: var(--accent, var(--aqua));
+  border-color: var(--line);
+}
+
+@media (max-width: 960px) {
+  .shelf-item { grid-template-columns: 1fr; }
+  .shelf-spine { min-height: 96px; }
+  .series-head { grid-template-columns: 1fr; }
+  .chapter-row { grid-template-columns: 44px minmax(0, 1fr); }
+  .chapter-row .meta { grid-column: 2; text-align: left; }
+  .series-page .toc, .series-page .side-meta { position: static; max-height: none; }
+}
+
+/* ── The chapter tree ──
+   series / chapters / this chapter / its sections, in one rail. Only the
+   chapter you are reading shows its sections, so the tree stays short however
+   long the series gets. */
+
+.series-tree { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
+
+.tree-root {
+  display: flex; align-items: baseline; gap: 7px;
+  padding: 8px 10px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--accent, var(--aqua));
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--line);
+  margin-bottom: 12px;
+}
+.tree-root .k { opacity: .6; }
+.tree-root .t { font-family: 'Inter', 'Noto Sans SC', sans-serif; line-height: 1.25; }
+
+.tree-chapters { list-style: none; margin: 0; padding: 0 0 0 8px; border-left: 2px dashed var(--line); }
+.tree-chapters > li { position: relative; }
+
+/* The tick joining a chapter back to the spine. */
+.tree-chapters > li > .tree-chapter::before {
+  content: "";
+  position: absolute;
+  left: -8px; top: 15px;
+  width: 7px;
+  border-top: 2px dashed var(--line);
+}
+
+.tree-chapter {
+  display: flex; align-items: baseline; gap: 8px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.tree-chapter .n { color: var(--mute); font-weight: 700; }
+.tree-chapter .t { line-height: 1.3; }
+.tree-chapter:hover { background: var(--cream-warm); color: var(--ink); }
+
+.tree-chapters > li.here > .tree-chapter {
+  background: var(--accent, var(--aqua));
+  border: 2px solid var(--line);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 6px 8px;
+}
+.tree-chapters > li.here > .tree-chapter .n { color: var(--ink); }
+
+/* The open chapter's own sections, one level further in. */
+.tree-sections { margin: 4px 0 8px 12px; padding-left: 10px; border-left: 2px dashed var(--line); }
+.tree-sections ul { list-style: none; margin: 0; padding: 0; }
+.tree-sections ul ul { padding-left: 11px; }
+.tree-sections li { margin: 0; }
+.tree-sections a {
+  display: block;
+  padding: 4px 7px;
+  border-radius: 6px;
+  color: var(--mute);
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.tree-sections a:hover { background: var(--cream-warm); color: var(--ink); }
+.tree-sections a.active { background: var(--yellow); color: var(--ink); font-weight: 700; }
+
+/* The series name is a link everywhere it appears on a chapter page: the
+   breadcrumb, the tree root, the place strip and the front matter panel. The
+   last two sit inside blocks that are otherwise plain text, so they need a cue
+   that they are clickable. A dashed underline is the site's quiet one. */
+.chapter-place a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--mute);
+  padding-bottom: 1px;
+}
+.chapter-place a:hover { border-bottom-color: var(--ink); background: var(--accent, var(--aqua)); }
+
+.series-page .front-matter .yaml a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--mute);
+}
+.series-page .front-matter .yaml a:hover { border-bottom-color: var(--ink); background: var(--accent, var(--aqua)); }
+
+/* The whole series card is one click target, like a chapter row. The title's
+   anchor is stretched over the card rather than wrapping it, because the card
+   also holds the jump links and an anchor inside an anchor is invalid. The
+   jump links sit above the stretched one so they still take their own click. */
+.shelf-item { position: relative; }
+.shelf-item a.stretch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+.shelf-jump { position: relative; z-index: 1; }
+.shelf-item:focus-within { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--line); }
+.shelf-spine { cursor: pointer; }

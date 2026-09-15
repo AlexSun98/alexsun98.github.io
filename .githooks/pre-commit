@@ -1,17 +1,26 @@
 #!/bin/sh
-# Refuse a post commit when the write-post workspace has no proof the skill ran.
+# Refuse a post or chapter commit when the write-post workspace has no proof
+# the skill ran.
 #
-# A post reaches content/posts/ only after the claims ledger and the checker
-# findings exist for it. Both live in drafts/<slug>/, which is gitignored, so
-# this check is local by design.
+# A post reaches content/posts/, and a series chapter reaches content/serie/, only
+# after the claims ledger and the checker findings exist for it. Both live in
+# drafts/<slug>/, which is gitignored, so this check is local by design.
+#
+# The workspace is found by the file's basename. When the published file is
+# named for its place in a series rather than for its subject, name the workspace
+# in the front matter and the hook follows it:
+#
+#   draftSlug: notes-from-the-stack-preface
 #
 # Bypass with: git commit --no-verify
 
 repo_root=$(git rev-parse --show-toplevel)
 missing=""
 
-for path in $(git diff --cached --name-only --diff-filter=AM | grep '^content/posts/.*\.md$'); do
-	slug=$(basename "$path" .md)
+for path in $(git diff --cached --name-only --diff-filter=AMR | grep -E '^content/(posts|series)/.*[.]md$'); do
+	case "$path" in */_index.md) continue ;; esac
+	slug=$(awk -F': *' '/^draftSlug:/ { gsub(/[\r"]/, "", $2); print $2; exit }' "$repo_root/$path")
+	[ -n "$slug" ] || slug=$(basename "$path" .md)
 	for artefact in 05-claims.md 06-checks.md; do
 		if [ ! -f "$repo_root/drafts/$slug/$artefact" ]; then
 			missing="$missing\n  $path needs drafts/$slug/$artefact"
@@ -20,9 +29,9 @@ for path in $(git diff --cached --name-only --diff-filter=AM | grep '^content/po
 done
 
 if [ -n "$missing" ]; then
-	printf 'Blocked: a post is being committed without write-post evidence.\n'
+	printf 'Blocked: a post or chapter is being committed without write-post evidence.\n'
 	printf '%b\n\n' "$missing"
-	printf 'Run the write-post skill for this post, or commit with --no-verify\n'
-	printf 'if you are moving an old post and know the workspace is gone.\n'
+	printf 'Run the write-post skill for it, or commit with --no-verify\n'
+	printf 'if you are moving old work and know the workspace is gone.\n'
 	exit 1
 fi
