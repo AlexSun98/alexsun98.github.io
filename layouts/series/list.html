@@ -8,7 +8,13 @@
 {{- $isShelf := eq .Parent.Kind "home" -}}
 
 {{ if $isShelf }}
-{{- $all := .Sections.ByWeight -}}
+{{- /* Pinned first, then weight. Sorting on weight alone put a pinned series
+       with real chapters below a one chapter draft, because weight was the only
+       thing being read and the pin said nothing. */ -}}
+{{- $pinnedSeries := (where .Sections "Params.pinned" true).ByWeight -}}
+{{- $restSeries := (where .Sections "Params.pinned" "!=" true).ByWeight -}}
+{{- $all := $pinnedSeries -}}
+{{- range $restSeries }}{{ $all = $all | append . }}{{ end -}}
 <div class="page-wrap">
   <div class="page-title-row">
     <div class="kicker mono">~/series $ ls -la | wc -l → <strong>{{ len $all }}</strong></div>
@@ -19,7 +25,7 @@
   {{ if $all }}
   <div class="shelf">
     {{ range $all }}
-    {{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByWeight -}}
+    {{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByParam "chapter" -}}
     {{- $done := len (where $chapters "Params.status" "published") -}}
     {{- $pct := 0 -}}
     {{- if $chapters }}{{ $pct = div (mul (len $chapters) 100) (int (default (len $chapters) .Params.plannedChapters)) }}{{ end -}}
@@ -48,12 +54,20 @@
           </div>
         </div>
         {{ if $chapters }}
+        {{- /* Three links, whatever the length of the series. Listing the first
+               few chapters by title stops working the moment there are more
+               than a handful: the row overflows, and the link to the whole
+               contents is the first thing pushed out of it. Where to start,
+               what is newest, and everything, is what a shelf card is for. */ -}}
+        {{- $first := index $chapters 0 -}}
+        {{- $latest := index $chapters (sub (len $chapters) 1) -}}
         <div class="shelf-jump">
           <span class="lbl">jump to:</span>
-          {{ range first 4 $chapters }}
-          <a href="{{ .RelPermalink }}">{{ with .Params.chapter }}{{ . }} · {{ end }}{{ .Title }}</a>
+          <a href="{{ $first.RelPermalink }}">start{{ with $first.Params.chapter }} · {{ . }}{{ end }}</a>
+          {{ if gt (len $chapters) 1 }}
+          <a href="{{ $latest.RelPermalink }}">latest{{ with $latest.Params.chapter }} · {{ . }}{{ end }}</a>
           {{ end }}
-          {{ if gt (len $chapters) 4 }}<a href="{{ .RelPermalink }}">all {{ len $chapters }} →</a>{{ end }}
+          <a href="{{ .RelPermalink }}">all {{ len $chapters }} &rarr;</a>
         </div>
         {{ end }}
       </div>
@@ -67,7 +81,7 @@
 
 {{ else }}
 {{- /* One series' contents. */ -}}
-{{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByWeight -}}
+{{- $chapters := (where .RegularPages "Params.hidden" "!=" true).ByParam "chapter" -}}
 {{- $words := 0 -}}
 {{- range $chapters }}{{ $words = add $words .WordCount }}{{ end -}}
 {{- $mins := 0 -}}

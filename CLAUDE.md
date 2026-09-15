@@ -34,7 +34,10 @@ git config core.hooksPath .githooks
 ## Series
 
 Long-form work lives in `content/series/<series-slug>/`, one file per chapter,
-ordered by `weight`. A series' own page is its table of contents and the
+ordered by the zero padded `chapter` in the front matter. Not by `weight`:
+Hugo's `ByWeight` treats `weight: 0` as unweighted and sorts it last, so chapter
+00 ends up at the bottom. On the shelf, series sort pinned first and then by
+`weight`. A series' own page is its table of contents and the
 `/series/` page is the shelf. Layouts are in `layouts/series/`.
 
 A chapter runs through the write-post skill exactly like a post does, and

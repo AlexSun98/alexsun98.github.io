@@ -27,7 +27,12 @@ description: "One sentence for the contents row and the card."
 ---
 ```
 
-Chapters sort by `weight`. The pre-commit hook guards `content/series/` the same
+Chapters sort by the zero padded `chapter`, not by `weight`. Hugo's `ByWeight`
+treats `weight: 0` as unweighted and sorts it last, which silently put chapter
+00 at the end of every list. The chapter number is also what the page displays,
+so ordering has one source rather than two that can drift apart. `weight` is
+still in the front matter and still orders series on the shelf, where pinned
+series come first. The pre-commit hook guards `content/series/` the same
 way it guards `content/posts/`, and it finds the workspace through `draftSlug`,
 so the workspace keeps its subject name while the file keeps its chapter name.
 

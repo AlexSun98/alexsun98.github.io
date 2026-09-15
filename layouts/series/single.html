@@ -1,9 +1,11 @@
 {{ define "main" }}
 {{- /* One chapter. Chapters are ordered by the `weight` in their front matter,
-       not by date, so prev and next come from the weight-sorted list rather
-       than from .PrevInSection. */ -}}
+       not by date. Order comes from the zero padded `chapter` in the front
+       matter, which is also the number on the page, so there is one source of
+       order rather than two that can disagree. Hugo's ByWeight treats weight 0
+       as unweighted and sorts it last, which put chapter 00 at the end. */ -}}
 {{- $series := .Parent -}}
-{{- $chapters := (where $series.RegularPages "Params.hidden" "!=" true).ByWeight -}}
+{{- $chapters := (where $series.RegularPages "Params.hidden" "!=" true).ByParam "chapter" -}}
 {{- $prev := "" -}}{{- $next := "" -}}{{- $idx := 0 -}}
 {{- range $i, $c := $chapters -}}
   {{- if eq $c.RelPermalink $.RelPermalink -}}

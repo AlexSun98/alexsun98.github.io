@@ -137,9 +137,10 @@
 
 /* Jump straight to a chapter from the shelf. This is the navigation win:
    two clicks to any chapter becomes one. */
-/* One row, never two. The number of chapters differs between series and a
-   wrapping jump row would change the card height with it. */
-.shelf-jump { display: flex; flex-wrap: nowrap; gap: 6px; align-items: center; overflow: hidden; }
+/* One row, never two, and the same three links whether the series has two
+   chapters or twenty. Nothing in here grows with the length of the series, so
+   there is no overflow to hide. */
+.shelf-jump { display: flex; flex-wrap: nowrap; gap: 6px; align-items: center; }
 .shelf-jump .lbl {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; color: var(--mute); margin-right: 2px;
