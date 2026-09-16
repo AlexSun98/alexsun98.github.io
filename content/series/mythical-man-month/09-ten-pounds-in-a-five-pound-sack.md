@@ -2,7 +2,7 @@
 title: "The context window is the new five pound sack"
 chapter: "09"
 weight: 9
-date: 2026-09-15
+date: 2026-07-22
 status: published
 draftSlug: mythical-man-month-09-ten-pounds-in-a-five-pound-sack
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Context"]

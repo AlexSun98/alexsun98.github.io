@@ -2,7 +2,7 @@
 title: "What died, what got delivered, and what is still standing"
 chapter: "18"
 weight: 18
-date: 2026-09-15
+date: 2026-09-16
 status: published
 draftSlug: mythical-man-month-18-what-died-and-what-is-still-standing
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Reflection"]

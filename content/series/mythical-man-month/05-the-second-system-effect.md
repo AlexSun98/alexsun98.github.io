@@ -2,7 +2,7 @@
 title: "My second system was the thing I built to stop me writing badly"
 chapter: "05"
 weight: 5
-date: 2026-09-15
+date: 2026-06-24
 status: published
 draftSlug: mythical-man-month-05-the-second-system-effect
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Prompting"]

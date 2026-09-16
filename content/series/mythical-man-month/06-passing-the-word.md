@@ -2,7 +2,7 @@
 title: "Passing the word, and the day my guard matched nothing and said it passed"
 chapter: "06"
 weight: 6
-date: 2026-09-15
+date: 2026-07-15
 status: published
 draftSlug: mythical-man-month-06-passing-the-word
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Harness"]

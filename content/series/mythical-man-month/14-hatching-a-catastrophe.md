@@ -2,7 +2,7 @@
 title: "How a project gets a year late, one agent run at a time"
 chapter: "14"
 weight: 14
-date: 2026-09-15
+date: 2026-08-28
 status: published
 draftSlug: mythical-man-month-14-hatching-a-catastrophe
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Estimation"]

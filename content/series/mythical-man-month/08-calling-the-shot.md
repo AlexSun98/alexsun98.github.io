@@ -2,7 +2,7 @@
 title: "Nobody can estimate agent work yet, and I am part of the reason"
 chapter: "08"
 weight: 8
-date: 2026-09-15
+date: 2026-08-12
 status: published
 draftSlug: mythical-man-month-08-calling-the-shot
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Estimation"]

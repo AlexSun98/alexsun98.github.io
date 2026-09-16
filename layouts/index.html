@@ -68,7 +68,10 @@
             <span class="chip sm pinned">★ PINNED</span>
             {{ with .Params.categories }}<span class="chip sm" style="background:var(--yellow)">{{ index . 0 }}</span>{{ end }}
           </div>
-          <h3 class="display">{{ .Title }}</h3>
+          {{- /* A pinned card has no subtitle line under the heading, so a
+                 series needs its joined name here or the card shows half of
+                 it. A post has no fullTitle and falls back to its title. */ -}}
+          <h3 class="display">{{ .Params.fullTitle | default .Title }}</h3>
           <p class="desc">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
           <div class="foot">
             {{- /* A post is dated and has a reading time. A series has neither,

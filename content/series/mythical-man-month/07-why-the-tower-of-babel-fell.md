@@ -2,7 +2,7 @@
 title: "The tower fell because checking cost more than assuming"
 chapter: "07"
 weight: 7
-date: 2026-09-15
+date: 2026-07-01
 status: published
 draftSlug: mythical-man-month-07-why-the-tower-of-babel-fell
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Documentation"]

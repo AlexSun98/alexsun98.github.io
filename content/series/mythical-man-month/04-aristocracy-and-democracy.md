@@ -2,7 +2,7 @@
 title: "Cheap democracy still cannot hold a concept together"
 chapter: "04"
 weight: 4
-date: 2026-09-15
+date: 2026-07-07
 status: published
 draftSlug: mythical-man-month-04-aristocracy-and-democracy
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Architecture"]

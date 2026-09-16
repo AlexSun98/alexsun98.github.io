@@ -2,7 +2,7 @@
 title: "Sharp tools, and the editor that learned to move itself"
 chapter: "12"
 weight: 12
-date: 2026-09-15
+date: 2026-07-28
 status: published
 draftSlug: mythical-man-month-12-sharp-tools
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Harness"]

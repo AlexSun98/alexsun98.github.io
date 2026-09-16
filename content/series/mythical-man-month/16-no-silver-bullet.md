@@ -2,7 +2,7 @@
 title: "No silver bullet, and the test I ran my own setup through"
 chapter: "16"
 weight: 16
-date: 2026-09-15
+date: 2026-07-11
 status: published
 draftSlug: mythical-man-month-16-no-silver-bullet
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Reflection"]
