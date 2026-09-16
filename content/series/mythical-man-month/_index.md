@@ -1,7 +1,7 @@
 ---
-title: "The Mythical Man-Month"
-fullTitle: "The Mythical Man-Month, reread in the age of agents"
-subtitle: "Reread in the age of agents"
+title: "Reread The Mythical Man-Month"
+fullTitle: "Reread The Mythical Man-Month in the age of agents"
+subtitle: "In the age of agents"
 weight: 2
 status: "complete"
 pinned: true

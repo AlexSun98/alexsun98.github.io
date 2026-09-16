@@ -9,11 +9,11 @@
         "--bind",
         "127.0.0.1",
         "--port",
-        "1314",
+        "1313",
         "--disableFastRender",
         "--navigateToChanged"
       ],
-      "port": 1314
+      "port": 1313
     }
   ]
 }
