@@ -2,7 +2,7 @@
 title: "The other face, and the reason the agent made me write better notes"
 chapter: "15"
 weight: 15
-date: 2026-09-08
+date: 2026-06-17
 status: published
 draftSlug: mythical-man-month-15-the-other-face
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Documentation"]

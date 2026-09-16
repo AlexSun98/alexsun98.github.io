@@ -2,7 +2,7 @@
 title: "The surgical team finally got the support staff nobody would pay for"
 chapter: "03"
 weight: 3
-date: 2026-06-18
+date: 2026-05-12
 status: published
 draftSlug: mythical-man-month-03-the-surgical-team
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Harness"]

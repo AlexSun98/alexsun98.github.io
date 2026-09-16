@@ -2,7 +2,7 @@
 title: "The new software tar pit and how AI made it stickier"
 chapter: "01"
 weight: 1
-date: 2026-09-04
+date: 2026-06-05
 status: published
 aliases: ["/posts/the-new-software-tar-pit/"]
 tags: ["Software Engineering", "AI", "Reflection", "Mythical Man-Month", "Coding Agents"]

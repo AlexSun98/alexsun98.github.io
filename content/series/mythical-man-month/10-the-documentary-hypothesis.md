@@ -2,7 +2,7 @@
 title: "Documentation is the source and the code is the build output"
 chapter: "10"
 weight: 10
-date: 2026-06-14
+date: 2026-06-22
 status: published
 draftSlug: mythical-man-month-10-the-documentary-hypothesis
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Documentation"]

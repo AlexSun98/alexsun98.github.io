@@ -2,7 +2,7 @@
 title: "Ten subagents in an hour is 1975 asking for ten developers in a month"
 chapter: "02"
 weight: 2
-date: 2026-06-10
+date: 2026-08-23
 status: published
 draftSlug: mythical-man-month-02-the-mythical-man-month
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Harness"]

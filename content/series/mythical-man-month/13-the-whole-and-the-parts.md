@@ -2,7 +2,7 @@
 title: "Every spec I write has a hole I cannot see"
 chapter: "13"
 weight: 13
-date: 2026-08-19
+date: 2026-09-08
 status: published
 draftSlug: mythical-man-month-13-the-whole-and-the-parts
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Architecture"]

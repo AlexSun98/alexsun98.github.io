@@ -2,7 +2,7 @@
 title: "The Mythical Man-Month, is this outdated in the age of AI?"
 chapter: "00"
 weight: 0
-date: 2026-08-24
+date: 2026-07-04
 status: published
 # Published at /posts/ before this became a series. The alias keeps that URL
 # working for anyone who already has it.

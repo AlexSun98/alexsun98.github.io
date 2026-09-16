@@ -2,7 +2,7 @@
 title: "Refiring no silver bullet at five waves of agent tooling"
 chapter: "17"
 weight: 17
-date: 2026-09-11
+date: 2026-09-03
 status: published
 draftSlug: mythical-man-month-17-no-silver-bullet-refired
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Reflection"]

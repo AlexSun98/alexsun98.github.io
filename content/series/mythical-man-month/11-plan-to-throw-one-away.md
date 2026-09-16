@@ -2,7 +2,7 @@
 title: "Plan to throw one away, now that throwing one away costs a few cents"
 chapter: "11"
 weight: 11
-date: 2026-08-03
+date: 2026-06-20
 status: published
 draftSlug: mythical-man-month-11-plan-to-throw-one-away
 tags: ["Software Engineering", "AI", "Mythical Man-Month", "Coding Agents", "Process"]
