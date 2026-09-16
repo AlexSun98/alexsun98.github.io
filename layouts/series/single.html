@@ -59,8 +59,11 @@
     <article>
       <div class="chapter-place">
         <a href="{{ $series.RelPermalink }}">{{ $series.Title }}</a>
-        <span class="pips" aria-hidden="true">
-          {{ range $i, $c := $chapters }}<i class="{{ if eq $i $idx }}here{{ else if lt $i $idx }}on{{ end }}"></i>{{ end }}
+        {{- /* Each pip is a link to its chapter, so the strip doubles as a jump
+               bar. It used to be aria-hidden decoration, so every pip now
+               carries its own label and the current one is marked. */ -}}
+        <span class="pips">
+          {{ range $i, $c := $chapters }}<a class="{{ if eq $i $idx }}here{{ else if lt $i $idx }}on{{ end }}" href="{{ $c.RelPermalink }}" title="{{ with $c.Params.chapter }}{{ . }} &middot; {{ end }}{{ $c.Title }}" aria-label="Chapter {{ with $c.Params.chapter }}{{ . }}{{ else }}{{ add $i 1 }}{{ end }}, {{ $c.Title }}"{{ if eq $i $idx }} aria-current="page"{{ end }}></a>{{ end }}
         </span>
         <span>chapter {{ add $idx 1 }} of {{ len $chapters }}</span>
       </div>
