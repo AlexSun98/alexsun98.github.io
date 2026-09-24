@@ -227,6 +227,14 @@ section { margin-bottom: 80px; }
   font-size: 26px;
   margin: 0 0 6px;
   line-height: 1.15;
+  /* Two cards sit side by side. A series name runs longer than a post title,
+     so the heading is pinned to two lines and clamped, otherwise the taller
+     card drags the row out of alignment. */
+  min-height: 2.3em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .featured-card .en {
   font-family: 'JetBrains Mono', monospace;
