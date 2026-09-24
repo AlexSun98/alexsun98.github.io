@@ -100,13 +100,15 @@ Communication overhead is now output verification. Instead of sitting in status 
 
 The good part is that the cost is now visible. I can see it on an invoice, which is more than anyone could do with a meeting in 1975. The bad part is that a visible cost is easy to treat as the normal price of working this way, and then nobody tries to bring it down because of too many teams treat it as inevitable system tax and stop trying to optimize it
 
-## Relfection 3: Holding back
+## Relfection 3: What I do differently
 
 For work that needs one continuous line of thinking, I would rather run one strong model in order than a crowd of weaker ones side by side. One long session keeps reusing what it has already read, and providers bill that repeat reading at a discount due to prompt cache. It also keeps what it has worked out so far, so each step builds on the last. Parallel sessions give up both, or pay to rebuild them.
 
 So my default is one session until something forces a split. The harness I use is a custom AI-DLC and runs several loops across the product side and the engineering side, so the lines get drawn before anything splits. Meari's rule for when a parallel track is worth opening has three conditions. The subtasks are genuinely independent, the rule for merging them is clear, and the lead can merge them without reading the middle of each one. Miss any one of the three and it stays one session. I use that rule too, but I'm measuring it against my own work.
 
 Before opening a subagent, the question worth asking is whether the work really splits into separate pieces, or whether it is one line of thinking dressed up as several.
+
+## Holding back
 
 Deeply understanding a problem happens along a single intent driven reasoning chain in human brain, and a crowd of agents cannot take that over.
 
