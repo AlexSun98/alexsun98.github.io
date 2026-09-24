@@ -301,15 +301,24 @@
   color: var(--mute);
   margin-bottom: 10px;
 }
-.chapter-place .pips { display: flex; gap: 4px; }
-.chapter-place .pips i {
+.chapter-place .pips { display: flex; gap: 4px; flex-wrap: wrap; }
+.chapter-place .pips a {
   width: 16px; height: 7px;
   border: 2px solid var(--line);
   border-radius: 3px;
   background: var(--cream-warm);
+  display: block;
+  position: relative;
+  transition: background .12s, transform .12s;
 }
-.chapter-place .pips i.on { background: var(--accent, var(--aqua)); }
-.chapter-place .pips i.here { background: var(--ink); }
+/* The bar stays 7px tall because that is the look. The overlay gives a mouse
+   and a thumb something bigger to hit without changing the layout. */
+.chapter-place .pips a::before { content: ""; position: absolute; inset: -8px -2px; }
+.chapter-place .pips a.on { background: var(--accent, var(--aqua)); }
+.chapter-place .pips a.here { background: var(--ink); }
+.chapter-place .pips a:hover { background: var(--coral); transform: translateY(-2px); }
+.chapter-place .pips a.here:hover { background: var(--ink); transform: none; }
+.chapter-place .pips a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* The rail's chapter list, so the current chapter is obvious. */
 .series-page .post-nav .step.here {
