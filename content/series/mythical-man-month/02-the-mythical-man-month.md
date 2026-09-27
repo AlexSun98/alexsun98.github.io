@@ -100,7 +100,17 @@ Communication overhead is now output verification. Instead of sitting in status 
 
 The good part is that the cost is now visible. I can see it on an invoice, which is more than anyone could do with a meeting in 1975. The bad part is that a visible cost is easy to treat as the normal price of working this way, and then nobody tries to bring it down because of too many teams treat it as inevitable system tax and stop trying to optimize it
 
-## Relfection 3: What I do differently
+## When the agents can talk to each other
+
+Everything so far assumes one shape, where a lead hands out work and subagents report back at the end. That shape is too narrow on its own, and Claude Code has two others. Agent teams give each teammate its own session, a shared task list and a mailbox, so teammates can message each other in the middle of their own tasks instead of only reporting when they finish. Cross session messaging does a lighter version of this for sessions I run myself, so one session can pass a finding to another while both are still working.
+
+This answers the problem from the first reflection head on. The agent that changed an interface can tell the one coding against it before the merge, not after. A debugging team can hold competing hypotheses and try to knock each other's down, which is much closer to one shared line of reasoning than three piles of evidence that never met. For work where the pieces really do need to hear from each other, talking during the task beats finding out at the end.
+
+It is also exactly the cost Brooks counted. Every channel between two agents is one more line of the talking that grows faster than the headcount, and every teammate is a full session with its own context to pay for. Anthropic's own documentation says teams add coordination overhead and use significantly more tokens than a single session, and it suggests trying subagents or cross session messaging first. Someone still has to decide who talks to whom and when. If nobody manages that, the bill that used to arrive at the merge arrives through the mailbox instead, and it is still paid in my attention.
+
+So I treat teams and messaging as another tool for a different context, not as the fix for splitting. When the pieces genuinely depend on each other mid task, and the team is small enough that I can still follow what was said, they are the better shape. When the pieces do not need to talk, the extra channels are complexity bought for nothing. Keeping the setup simple enough to fit my own attention budget is worth more to me than the most connected setup I could build.
+
+## Reflection 3: What I do differently
 
 For work that needs one continuous line of thinking, I would rather run one strong model in order than a crowd of weaker ones side by side. One long session keeps reusing what it has already read, and providers bill that repeat reading at a discount due to prompt cache. It also keeps what it has worked out so far, so each step builds on the last. Parallel sessions give up both, or pay to rebuild them.
 
@@ -116,6 +126,8 @@ Brooks opens the chapter by saying software projects rarely fail from bad tech o
 
 The mechanism is the same and so is the result. What changed is that I can now make the mistake in seconds, which makes holding back harder than it was in 1975.
 
+Holding back does not mean never splitting. It means picking the simplest shape the work allows, whether that is one session, a lead with subagents or a small team that talks, and keeping it small enough that I can still hold the whole job in my head.
+
 
 ## References
 
@@ -129,3 +141,7 @@ The mechanism is the same and so is the result. What changed is that I can now m
   build in parallel.
 * Raja SP, [AI-Driven Development Life Cycle](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle),
   AWS DevOps Blog, 2025.
+* Anthropic, [Orchestrate teams of Claude Code sessions](https://code.claude.com/docs/en/agent-teams),
+  Claude Code documentation, 2026. Agent teams, the shared task list and
+  mailbox, the competing hypotheses use case, the token cost and the advice to
+  try subagents or cross session messaging first.
