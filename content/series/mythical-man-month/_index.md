@@ -17,8 +17,4 @@ Chapters go up as they are written, and the order follows Brooks rather than the
 
 If you are dropping into the middle of it, chapter 00 defines the words the rest of the series uses without stopping to explain them. Agent, harness, subagent, context window, criterion.
 
-Two standing credits, because the chapters lean on both and a credit buried in chapter seven is not a credit.
-
-Meari-Prototype's *The Mythical Man-Month in the Age of Agents* is a chapter by chapter rewrite of Brooks for 2026. Every chapter here starts from their reading of the corresponding chapter, and where an idea is theirs I say so in the text. Their text is licensed CC BY-NC-SA 4.0, so this series is an adaptation that owes them the credit rather than a piece that happens to agree with them.
-
-The industry quotes I use, Karpathy on not having typed code since December, Garry Tan's comparison of his own output, Boris Cherny on the verification gap, Salvatore Sanfilippo on reviewing every line, I met in 鸟窝's *AI 时代的软件工程* at se.rpcx.io rather than at the source. I have not gone back to the primaries, and a reader should know that before treating any of the four as something I checked.
+The reading here is my own, and so are the mistakes. My thanks go to Meari-Prototype, whose *The Mythical Man-Month in the Age of Agents* I lean on in a few chapters, and I say so where I do. I do not agree with all of it, but I can always see where it comes from, and anyone who works with agents will find it beneficial and worth a careful read.
