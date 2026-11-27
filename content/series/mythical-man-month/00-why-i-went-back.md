@@ -21,17 +21,17 @@ Six months ago I would have told you it was changing. After daily work with AI a
 
 You can get Brooks's big ideas off any summary site in ninety seconds, so I will not walk through them again. I want to look at the places where AI lands directly on his principles.
 
-A big thank you to Meari-Prototype. I am not going to pretend I came up with all of this on my own. I borrowed heavily from their work, and their structure and core points are a standing reference in my lab notes. Anyone building with agents today would get something out of a careful read of it.
+A big thank you to Meari. I am not going to pretend I came up with all of this on my own. I borrowed heavily from their work, and their structure and core points are a standing reference in my lab notes. Anyone building with agents today would get something out of a careful read of it.
 
-## Three hills to climb in 2026
+## Three ideas from the book that still hold
 
-The first hill. Software is hard because of the thing being built, not because of the tools. Tools get thrown away generation after generation, assemblers in 1975, structured programming in 1985, object orientation in 1995, agile in 2005, containers in 2015, and at every turn someone announces that the silver bullet has arrived and the difficulty is solved. When the typing got automated, I was one of them. But the real difficulty of software lives in working out the concept, writing the specification, and deciding what counts as correct. None of that lives in the tools. It lives in the problem. Tools can remove accidental complexity. They cannot remove essential complexity. As an aside, some complexity is manufactured first and then "solved".
+The first idea. Software is hard because of the thing being built, not because of the tools. Tools get replaced generation after generation, high level languages, structured programming, object orientation, agile, containers, and at every turn someone announces that the silver bullet has arrived and the difficulty is solved. When agents automated the typing, I was one of them. But the real difficulty of software lives in working out the concept, writing the specification, and deciding what counts as correct. None of that lives in the tools. It lives in the problem. Tools can remove accidental complexity. They cannot remove essential complexity. Some complexity is even manufactured first and then "solved".
 
-The second hill. Managing software is mostly managing communication and judgement. As a project and its headcount grow, the most expensive thing stops being coding, testing or hardware. It becomes getting everyone to hold the same idea in their heads. Brooks spends most of the book on the forms that communication takes, the surgical team, the split between architect and implementer, the workbook, milestones and the ways people fool themselves about them, an independent product testing group. None of it is about technology. It is about how information moves through an organisation, where judgement gets made, and who carries the responsibility.
+The second idea. Managing software is mostly managing communication and judgement. As a project and its headcount grow, the most expensive thing stops being coding, testing or hardware. It becomes getting everyone to hold the same idea in their heads. Brooks spends most of the book on the forms that communication takes, the surgical team, the split between architect and implementer, the workbook, milestones and the ways people fool themselves about them, an independent product testing group. None of it is about technology. It is about how information moves through an organisation, where judgement gets made, and who carries the responsibility.
 
-The third hill. Documentation is not a record, it is how decisions get made. Brooks holds that a project's key documents are the project. Writing them forces hundreds of small decisions into the open, and those small decisions are the skeleton. Without the documents, the decisions live in a few people's heads and can vanish at any moment. With them, the project has bones.
+The third idea. Documentation is where decisions get made, not only where they get recorded. Brooks holds that a project's key documents are the project. Writing them forces hundreds of small decisions into the open, and those small decisions are the skeleton. Without the documents, the decisions live in a few people's heads and can vanish at any moment. With them, the project has bones.
 
-So the core of software engineering is the organisation of judgement. Technology changes. The discipline of organising judgement does not. I think that is the soul of Brooks's law.
+So the core of software engineering is the organisation of judgement. Technology changes. The discipline of organising judgement does not. I think that is the heart of the book.
 
 In the age of agents, what changes is where judgement gets made (some of it now by an AI rather than a person), how it gets recorded (some of the record is now a prompt), and how it gets communicated (some of the communication is now tokens). The fact that judgement has to be organised has not changed at all. A team that ignores this will replay the oldest failures with the newest agent systems.
 
@@ -47,7 +47,7 @@ The third generation manages agents. This is us, after 2024. The new problem is 
 
 ## Glossary
 
-A few terms I use below.
+A few terms the rest of the series leans on.
 
 **Agent.** An AI system that picks its own tools, acts, looks at the result, and decides what to do next, without a person guiding every step or a fixed script telling it exactly what to do.
 
@@ -71,17 +71,17 @@ A model has no memory, only context. Every message you send is a separate API ca
 
 ## Turing's wall, why an agent cannot decide when to stop
 
-The harness has a "task complete" state. A traffic light or an ATM leaves that state on an outside signal, a timer or a button press. The harness asks the model whether the task is done. That runs straight into what I call Turing's wall, the limit Turing proved in 1936, that no program can reliably decide whether any given program will eventually stop. It is a limit in principle, not a matter of more computing power or a cleverer algorithm.
+The harness has a "task complete" state. A traffic light or an ATM leaves that state on an outside signal, a timer or a button press. The harness asks the model whether the task is done. That runs straight into what I call Turing's wall, the limit Turing proved in 1936, that no program can reliably decide whether any given program will eventually stop. It is a limit in principle, not a matter of more computing power or a cleverer algorithm. Strictly, Turing proved it about programs in general, and an agent judging a fuzzy task is short of a clear standard more than it is short of computability. The practical result is the same.
 
 An agent is software made of a model plus a loop, so the same limit applies. When the model's opinion on "should I stop" is wired straight into the loop's exit condition, "should it stop" and "will it halt" become the same undecidable question. The one exception is a finish line that is fully formal and machine checkable, pass these tests, solve this equation. Then the harness checks the criterion itself and the model does not have to decide. A merge request that has to survive three independent verification rounds, each in a fresh session with no shared memory, is an example. Only a result that holds up under that kind of outside, repeatable check can be trusted as actually done. On every other kind of task, where "done" is fuzzy or depends on context, no system built on a model can reliably know when to quit on its own. That is why fully autonomous agents are only realistic on clear, formal goals, and why every practical agent system wires outside circuit breakers into the harness, a maximum number of rounds, a token budget, a limit on repeated errors, instead of trusting the model to stop itself.
 
 Looking back after finishing the whole book, the 1975 original has not aged at all. It was waiting for its third generation of readers.
 
-Next, [the tar pit, and why software engineering is uniquely difficult](/posts/the-new-software-tar-pit/).
+Next, [the tar pit, and why software engineering is uniquely difficult](/series/mythical-man-month/01-the-tar-pit/).
 
 ## References
 
 * Frederick P. Brooks Jr, The Mythical Man-Month, 1975, and No Silver Bullet,
   1986.
-* Meari-Prototype, [The Mythical Man-Month in the Age of Agents](https://github.com/Meari-Prototype/agent-mythical-man-month-2026/blob/main/README-en.md),
+* Meari, [The Mythical Man-Month in the Age of Agents](https://github.com/Meari-Prototype/agent-mythical-man-month-2026/blob/main/README-en.md),
   2026.

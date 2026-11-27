@@ -1,0 +1,58 @@
+{{- $h := int (default 180 .height) -}}
+{{- /* Nine seats in a row. Eight carry a chip, one carries a head and the blade.
+       The roster from 1971 finally got its support staff, and the seat that still
+       needs a person is the one holding the scalpel.
+
+       Crop note. preserveAspectRatio is "slice", so the canvas is cropped to a
+       wide strip rather than fitted. The tightest crop shows y=44.4 to y=95.6.
+       Art stops at y=84 and the caption sits on y=92, because a caption at 92
+       and art at 88 overlap. See layouts/partials/cover.html. */ -}}
+<svg viewBox="0 0 240 140" preserveAspectRatio="xMidYMid slice" style="width:100%;height:{{ $h }}px;display:block;background:var(--mint)">
+  <!-- eight support seats -->
+  <g fill="#fdfcf5" stroke="#151415" stroke-width="2" stroke-linejoin="round">
+    <rect x="16" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M20 69v13M32 69v13" stroke-linecap="round"/>
+    <rect x="42" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M46 69v13M58 69v13" stroke-linecap="round"/>
+    <rect x="68" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M72 69v13M84 69v13" stroke-linecap="round"/>
+    <rect x="94" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M98 69v13M110 69v13" stroke-linecap="round"/>
+    <rect x="146" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M150 69v13M162 69v13" stroke-linecap="round"/>
+    <rect x="172" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M176 69v13M188 69v13" stroke-linecap="round"/>
+    <rect x="198" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M202 69v13M214 69v13" stroke-linecap="round"/>
+    <rect x="224" y="64" width="20" height="5" rx="2.5"/>
+    <path d="M228 69v13M240 69v13" stroke-linecap="round"/>
+  </g>
+  <!-- what sits in them. a chip each, on call, no leave -->
+  <g fill="var(--lavender)" stroke="#151415" stroke-width="1.6" stroke-linejoin="round">
+    <rect x="20" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M24 55.5h4M24 58h4M24 60.5h3" stroke-width="1.1"/>
+    <rect x="46" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M50 55.5h4M50 58h4M50 60.5h3" stroke-width="1.1"/>
+    <rect x="72" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M76 55.5h4M76 58h4M76 60.5h3" stroke-width="1.1"/>
+    <rect x="98" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M102 55.5h4M102 58h4M102 60.5h3" stroke-width="1.1"/>
+    <rect x="150" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M154 55.5h4M154 58h4M154 60.5h3" stroke-width="1.1"/>
+    <rect x="176" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M180 55.5h4M180 58h4M180 60.5h3" stroke-width="1.1"/>
+    <rect x="202" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M206 55.5h4M206 58h4M206 60.5h3" stroke-width="1.1"/>
+    <rect x="228" y="53" width="12" height="9" rx="1.5"/>
+    <path d="M232 55.5h4M232 58h4M232 60.5h3" stroke-width="1.1"/>
+  </g>
+  <!-- the chief programmer seat. the only one with a person in it -->
+  <rect x="120" y="64" width="20" height="5" rx="2.5" fill="var(--yellow)" stroke="#151415" stroke-width="2.2"/>
+  <path d="M124 69v13M136 69v13" stroke="#151415" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="130" cy="53" r="6.6" fill="var(--peach)" stroke="#151415" stroke-width="2.2"/>
+  <path d="M122 64q8-7 16 0" fill="var(--peach)" stroke="#151415" stroke-width="2.2" stroke-linejoin="round"/>
+  <!-- the scalpel. correction rights, held rather than watched -->
+  <path d="M142 59l16-5 4 3-16 6z" fill="var(--coral)" stroke="#151415" stroke-width="2" stroke-linejoin="round"/>
+  <!-- caption. names the idea, never the title -->
+  <text x="10" y="92" font-family="JetBrains Mono, monospace" font-size="8" fill="#151415" opacity=".6">eight seats, one monthly bill</text>
+</svg>
