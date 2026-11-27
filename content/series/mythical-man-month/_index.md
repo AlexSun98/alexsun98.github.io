@@ -17,4 +17,4 @@ Chapters go up as they are written, and the order follows Brooks rather than the
 
 If you are dropping into the middle of it, chapter 00 defines the words the rest of the series uses without stopping to explain them. Agent, harness, subagent, context window, criterion.
 
-The reading here is my own, and so are the mistakes. My thanks go to Meari-Prototype, whose *The Mythical Man-Month in the Age of Agents* I lean on in a few chapters, and I say so where I do. I do not agree with all of it, but I can always see where it comes from, and anyone who works with agents will find it beneficial and worth a careful read.
+The reading here is my own, and so are the mistakes. My thanks go to Meari, whose *The Mythical Man-Month in the Age of Agents* I lean on in a few chapters, and I say so where I do. I do not agree with all of it, but I can always see where it comes from, and anyone who works with agents will find it beneficial and worth a careful read.
